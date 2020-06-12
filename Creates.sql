@@ -19,7 +19,7 @@ create table lugar(
     poblacion_lugar number not null,
     id_lugar_lugar number,
     constraint fk_lugar_lugar foreign key(id_lugar_lugar) references lugar(id_lugar),
-    constraint ck_tipo_lugar (tipo_lugar in ('Pais', 'Estado', 'Ciudad'))
+    constraint ck_tipo_lugar check(tipo_lugar in ('Pais', 'Estado', 'Ciudad'))
 );
 --LISTA--
 create table hist_fronterizo(
@@ -34,7 +34,7 @@ create table aislamiento(
     id_aislamiento number constraint PK_aislamiento primary key,
     nombre_aislamiento varchar2(25) not null,
     tipo_aislamiento number not null,
-    constraint CK_tipo_aislamiento(tipo_aislamiento in (1,2,3,4))
+    constraint CK_tipo_aislamiento check(tipo_aislamiento in (1,2,3,4))
 );
 --LISTA--
 create table lu_ais(
@@ -92,7 +92,7 @@ create table persona(
     status_aislado_persona varchar2(25),
     id_lugar_persona number not null,
     constraint fk_lugar_persona foreign key(id_lugar_persona) references lugar(id_lugar),
-    constraint CK_Genero (genero_persona in ('F', 'M'))
+    constraint CK_Genero check(genero_persona in ('F', 'M'))
 );
 --LISTA--
 create table per_vue(
@@ -182,3 +182,4 @@ constraint fk_csalud_inventario foreign key(id_csalud_inventario) references cen
 constraint fk_insumo_inventario foreign key(id_insumo_inventario) references insumo(id_insumo),
 constraint fk_donacion_inventario foreign key(id_donacion_inventario) references donacion(id_donacion)
 );  
+
