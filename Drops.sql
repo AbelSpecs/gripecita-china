@@ -1,2 +1,19 @@
-
+drop table inventario;
+drop table donacion;
+drop table insumo;
+drop table his_medico;
+drop table centro_salud;
+drop table per_pat;
+drop table patologia;
+drop table per_sin;
+drop table sintoma;
+drop table per_vue;
+drop table persona;
+drop table vuelo;
+drop table detalle_servicio;
+drop table proveedor;
+drop table lu_ais;
+drop table aislamiento;
+drop table hist_fronterizo;
 drop table lugar;
+
