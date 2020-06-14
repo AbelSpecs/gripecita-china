@@ -963,7 +963,7 @@ insert into inventario (id_csalud_inventario, id_insumo_inventario, cantidad_inv
 insert into inventario (id_csalud_inventario, id_insumo_inventario, cantidad_inventario) values (15, 4, 700);
 insert into inventario (id_csalud_inventario, id_insumo_inventario, cantidad_inventario, id_donacion_inventario) values (15, 13, 15000, 4);
 
---HIS_MEDICO (PROBAR)
+--HIS_MEDICO
 insert into his_medico (pasaporte_persona_histm, id_csalud_histm, fecasistencia_histm) values (1, 1, to_date('10/06/2020', 'DD/MM/YYYY'));
 insert into his_medico (pasaporte_persona_histm, id_csalud_histm, fecasistencia_histm) values (3, 1, to_date('10/06/2020', 'DD/MM/YYYY'));
 insert into his_medico (pasaporte_persona_histm, id_csalud_histm, fecasistencia_histm) values (5, 1, to_date('10/06/2020', 'DD/MM/YYYY'));
