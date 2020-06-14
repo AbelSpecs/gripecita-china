@@ -118,7 +118,7 @@ id_sintoma_ps number not null,
 constraint pk_ps primary key(fecisintoma_ps,pasaporte_persona_ps,id_sintoma_ps),
 constraint fk_persona_ps foreign key(pasaporte_persona_ps) references persona(pasaporte_persona),
 constraint fk_sintoma_ps foreign key(id_sintoma_ps) references sintoma(id_sintoma),
-constraint ck_atencionmedica_ps check(atencionmedica_persona_ps in ('Si','No'))    
+constraint ck_atencionmedica_ps check(atencionmedica_ps in ('Si','No'))    
 );
 --LISTA--
 create table patologia(
