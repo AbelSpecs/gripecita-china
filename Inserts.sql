@@ -761,7 +761,6 @@ insert into per_vue values (11, 15, 32, 23); --regresa
 insert into per_vue values (15, 15, 32, 23); --regresa
 insert into per_vue values (13, 15, 32, 23); --regresa
 
-
 --SINTOMA
 insert into sintoma values (1, 'Fiebre');
 insert into sintoma values (2, 'Cansancio');
