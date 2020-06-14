@@ -38,7 +38,7 @@ insert into lugar values (33, identificacion(null, 'Madrid'), 'Ciudad', 250000, 
 insert into lugar values (34, identificacion(null, 'Valencia'), 'Ciudad', 1950000, 19);
 insert into lugar values (35, identificacion(null, 'Barcelona' ), 'Ciudad', 2350000, 20);
 
---HIST_FRONTERIZO
+--HIST_FRONTERIZO  
 insert into hist_fronterizo values (to_date('10/01/2020', 'DD/MM/YYYY'), to_date('30/01/2020', 'DD/MM/YYYY'), 1);
 insert into hist_fronterizo values (to_date('15/02/2020', 'DD/MM/YYYY'), to_date('28/02/2020', 'DD/MM/YYYY'), 1);
 insert into hist_fronterizo values (to_date('01/03/2020', 'DD/MM/YYYY'), to_date('01/05/2020', 'DD/MM/YYYY'), 1);
@@ -61,6 +61,17 @@ insert into aislamiento values (2, 'Modelo 2', 2);
 insert into aislamiento values (3, 'Modelo 3', 3);
 insert into aislamiento values (4, 'Modelo 4', 4);
 
+-- LU_AIS --
+insert into lu_ais values (to_date('16/03/2020', 'DD/MM/YYYY'), null, 1,2); -- Venezuela ; Cuarentena
+insert into lu_ais values (to_date('16/03/2020', 'DD/MM/YYYY'), null, 2,2); -- Estados Unidos  ; Cuarentena
+insert into lu_ais values (to_date('24/03/2020', 'DD/MM/YYYY'), null, 3,2); -- Brasil ; Cuarentena
+insert into lu_ais values (to_date('23/03/2020', 'DD/MM/YYYY'), null, 4,2); -- Mexico ; Cuarentena
+insert into lu_ais values (to_date('01/06/2020', 'DD/MM/YYYY'), null, 4,4); -- Mexico ; Movilidad reducida = 1 de 8 se mueve
+insert into lu_ais values (to_date('15/03/2020', 'DD/MM/YYYY'), null, 5,2); -- España ; Cuarentena
+insert into lu_ais values (to_date('18/05/2020', 'DD/MM/YYYY'), to_date('25/05/2020', 'DD/MM/YYYY'), 5,3); -- España ; Movilidad reducida 1 de 4
+insert into lu_ais values (to_date('25/05/2020', 'DD/MM/YYYY'), to_date('21/06/2020', 'DD/MM/YYYY'), 5,4); -- España ; Movilidad reducida 1 de 8
+insert into lu_ais values (to_date('21/06/2020', 'DD/MM/YYYY'), null, 5,4); -- España ; Movilidad reducida 1 de 8
+
 --PROVEEDOR
 insert into proveedor values (1, identificacion(null, 'Cantv'), 2, 5);
 insert into proveedor values (2, identificacion(null, 'Movistar'), 2, 7);
@@ -78,6 +89,679 @@ insert into proveedor values (13, identificacion(null, 'Deutsche Telekom'), 50, 
 insert into proveedor values (14, identificacion(null, 'KPN International'), 70, 30);
 insert into proveedor values (15, identificacion(null, 'Orange'), 50, 50);
 
+-- DETALLE_SERVICIO -- 
+-- 01/06/2020
+-- Venezuela     
+insert into detalle_servicio values (to_timestamp('01/06/2020 12:00', 'DD/MM/YYYY HH24:MI'), 0.75, 4.2, null, 22, 1); -- Merida ; CANTV
+insert into detalle_servicio values (to_timestamp('01/06/2020 12:00', 'DD/MM/YYYY HH24:MI'), 0, 0, 6, 23, 1); -- Caracas ; CANTV
+insert into detalle_servicio values (to_timestamp('01/06/2020 6:45', 'DD/MM/YYYY HH24:MI'),  0, 0, 4, 23, 4); -- Caracas ; INTER
+insert into detalle_servicio values (to_timestamp('01/06/2020 6:45', 'DD/MM/YYYY HH24:MI'),  0, 0, 3.5, 22, 4); -- Merida ; INTER
+insert into detalle_servicio values (to_timestamp('01/06/2020 16:25', 'DD/MM/YYYY HH24:MI'), 2.20, 5.24, null, 22, 2); -- Merida ; MOVISTAR
+insert into detalle_servicio values (to_timestamp('01/06/2020 16:25', 'DD/MM/YYYY HH24:MI'), 2.35, 5.40, null, 23, 2); -- Caracas ; MOVISTAR
+insert into detalle_servicio values (to_timestamp('01/06/2020 17:21', 'DD/MM/YYYY HH24:MI'), 1.20, 3.25, null, 22, 3); -- Merida ; DIGITEL
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 1.55, 4.25, null, 23, 3); -- Caracas ; DIGITEL
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 1.55, 4.25, null, 21, 3); -- San Antonio ; DIGITEL
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 1.55, 4.25, null, 21, 2); -- San Antonio ; Movistar
+insert into detalle_servicio values (to_timestamp('01/06/2020 7:21', 'DD/MM/YYYY HH24:MI'), 0, 0, 8, 21, 1); -- San Antonio ; CANTV
+insert into detalle_servicio values (to_timestamp('01/06/2020 9:21', 'DD/MM/YYYY HH24:MI'), 0, 0, 2, 21, 4); -- San Antonio ; INTER
+-- Estados Unidos
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 24, 5); -- 24 ; 5
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 24, 11); -- 24 ; 11
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 24, 9); -- 24 ; 9
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.77, null, 24, 10); -- 24 ; 10
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 25, 5); -- 25 ; 5
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 25, 11); -- 25 ; 11
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 25, 9); -- 25 ; 9
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.77, null, 25, 10); -- 25 ; 10
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 26, 5); -- 26 ; 5
+insert into detalle_servicio values (to_timestamp('01/06/2020 13:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 26, 11); -- 26 ; 11
+insert into detalle_servicio values (to_timestamp('01/06/2020 14:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 26, 9); -- 26 ; 9
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.77, null, 26, 10); -- 26 ; 10
+-- Brasil
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.44, 7.00, null, 27, 6); -- 27 ; UOL
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.30, 7.14, null, 28, 6); -- 28 ; UOL
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.18, 7.22, null, 29, 6); -- 29 ; UOL
+-- Mexico
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.44, 7.00, null, 30, 6); -- 30 ; UOL
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.24, 7.24, null, 31, 6); -- 31 ; UOL
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.18, 7.22, null, 32, 6); -- 32 ; UOL
+-- Espana
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.88, 34.81, null, 33, 13); -- 33 ; 13
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.17, 34.12, null, 34, 13); -- 34 ; 13
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.25, 34.71, null, 35, 13); -- 35 ; 13
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 65.88, 28.81, null, 33, 14); -- 33 ; 14
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 63.17, 28.12, null, 34, 14); -- 34 ; 14
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 64.25, 28.71, null, 35, 14); -- 35 ; 14
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.70, 49.55, null, 33, 15); -- 33 ; 15
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.27, 49.55, null, 34, 15); -- 34 ; 15
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 47.18, 49.55, null, 35, 15); -- 35 ; 15
+-- 02/06/2020
+-- Venezuela
+insert into detalle_servicio values (to_timestamp('02/06/2020 12:00', 'DD/MM/YYYY HH24:MI'), 0, 0, 2, 22, 1); -- Merida ; CANTV
+insert into detalle_servicio values (to_timestamp('02/06/2020 12:36', 'DD/MM/YYYY HH24:MI'), 0.55, 2.5,  null, 23, 1); -- Caracas ; CANTV
+insert into detalle_servicio values (to_timestamp('02/06/2020 4:45', 'DD/MM/YYYY HH24:MI'),  1.2, 2.1,   null, 23, 4); -- Caracas ; INTER
+insert into detalle_servicio values (to_timestamp('02/06/2020 2:45', 'DD/MM/YYYY HH24:MI'),  6.2, 1.4,   null, 22, 4); -- Merida ; INTER
+insert into detalle_servicio values (to_timestamp('02/06/2020 14:25', 'DD/MM/YYYY HH24:MI'), 2.20, 5.24, null, 22, 2); -- Merida ; MOVISTAR
+insert into detalle_servicio values (to_timestamp('02/06/2020 18:25', 'DD/MM/YYYY HH24:MI'), 2.35, 5.40, null, 23, 2); -- Caracas ; MOVISTAR
+insert into detalle_servicio values (to_timestamp('02/06/2020 19:21', 'DD/MM/YYYY HH24:MI'), 1.20, 3.25, null, 22, 3); -- Merida ; DIGITEL
+insert into detalle_servicio values (to_timestamp('02/06/2020 21:21', 'DD/MM/YYYY HH24:MI'), 1.58, 4.27, null, 23, 3); -- Caracas ; DIGITEL
+insert into detalle_servicio values (to_timestamp('01/06/2020 13:21', 'DD/MM/YYYY HH24:MI'), 2.55, 5.25, null, 21, 3); -- San Antonio ; DIGITEL
+insert into detalle_servicio values (to_timestamp('01/06/2020 3:18', 'DD/MM/YYYY HH24:MI'), 0, 0, 1, 21, 2); -- San Antonio ; Movistar
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 0.90, 1.5, null, 21, 1); -- San Antonio ; CANTV
+insert into detalle_servicio values (to_timestamp('01/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 2.4, 2.5, null, 21, 4); -- San Antonio ; INTER
+-- Estados Unidos
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 24, 5); -- 24 ; 5
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 24, 11); -- 24 ; 11
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 24, 9); -- 24 ; 9
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.77, null, 24, 10); -- 24 ; 10
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 25, 5); -- 25 ; 5
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 25, 11); -- 25 ; 11
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 25, 9); -- 25 ; 9
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.77, null, 25, 10); -- 25 ; 10
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 26, 5); -- 26 ; 5
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.41, 19.12, null, 26, 11); -- 26 ; 11
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.90, null, 26, 9); -- 26 ; 9
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.34, 49.32, null, 26, 10); -- 26 ; 10
+-- Brasil
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.44, 7.00, null, 27, 6); -- 27 ; UOL
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.30, 7.14, null, 28, 6); -- 28 ; UOL
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.18, 7.22, null, 29, 6); -- 29 ; UOL
+-- Mexico
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.44, 7.00, null, 30, 6); -- 30 ; UOL
+insert into detalle_servicio values (to_timestamp('02/06/2020 9:35', 'DD/MM/YYYY HH24:MI'), 0, 0, 0.05, 31, 6); -- 31 ; UOL
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.18, 7.22, null, 32, 6); -- 32 ; UOL
+-- Espana
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.88, 34.81, null, 33, 13); -- 33 ; 13
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.17, 34.12, null, 34, 13); -- 34 ; 13
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.25, 34.71, null, 35, 13); -- 35 ; 13
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 65.88, 28.81, null, 33, 14); -- 33 ; 14
+insert into detalle_servicio values (to_timestamp('02/06/2020 2:48', 'DD/MM/YYYY HH24:MI'), 0, 0, 0.25, 34, 14); -- 34 ; 14
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 64.25, 28.71, null, 35, 14); -- 35 ; 14
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.70, 49.55, null, 33, 15); -- 33 ; 15
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.27, 49.55, null, 34, 15); -- 34 ; 15
+insert into detalle_servicio values (to_timestamp('02/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 47.18, 49.55, null, 35, 15); -- 35 ; 15
+-- 03/06/2020
+-- Venezuela
+insert into detalle_servicio values (to_timestamp('03/06/2020 2:31', 'DD/MM/YYYY HH24:MI'), 0.18, 2.1, null, 22, 1); -- Merida ; CANTV
+insert into detalle_servicio values (to_timestamp('03/06/2020 3:36', 'DD/MM/YYYY HH24:MI'), 0, 0, 3, 23, 1); -- Caracas ; CANTV
+insert into detalle_servicio values (to_timestamp('03/06/2020 5:45', 'DD/MM/YYYY HH24:MI'),  1.2, 2.1, null, 23, 4); -- Caracas ; INTER
+insert into detalle_servicio values (to_timestamp('03/06/2020 13:45', 'DD/MM/YYYY HH24:MI'),  0, 0, 4, 22, 4); -- Merida ; INTER
+insert into detalle_servicio values (to_timestamp('03/06/2020 12:25', 'DD/MM/YYYY HH24:MI'), 2.20, 5.24, null, 22, 2); -- Merida ; MOVISTAR
+insert into detalle_servicio values (to_timestamp('03/06/2020 10:25', 'DD/MM/YYYY HH24:MI'), 2.35, 5.40, null, 23, 2); -- Caracas ; MOVISTAR
+insert into detalle_servicio values (to_timestamp('03/06/2020 9:21', 'DD/MM/YYYY HH24:MI'), 1.20, 3.25, null, 22, 3); -- Merida ; DIGITEL
+insert into detalle_servicio values (to_timestamp('03/06/2020 7:21', 'DD/MM/YYYY HH24:MI'), 1.58, 4.27, null, 23, 3); -- Caracas ; DIGITEL
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 1.55, 3.52, null, 21, 3); -- San Antonio ; DIGITEL
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 2.55, 3.25, null, 21, 2); -- San Antonio ; Movistar
+insert into detalle_servicio values (to_timestamp('03/06/2020 12:21', 'DD/MM/YYYY HH24:MI'), 0, 0, 10, 21, 1); -- San Antonio ; CANTV
+insert into detalle_servicio values (to_timestamp('03/06/2020 18:21', 'DD/MM/YYYY HH24:MI'), 0, 0, 1, 21, 4); -- San Antonio ; INTER
+-- Estados Unidos
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 24, 5); -- 24 ; 5
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 24, 11); -- 24 ; 11
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 24, 9); -- 24 ; 9
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.77, null, 24, 10); -- 24 ; 10
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 25, 5); -- 25 ; 5
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 25, 11); -- 25 ; 11
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 25, 9); -- 25 ; 9
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.77, null, 25, 10); -- 25 ; 10
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.15, null, 26, 5); -- 26 ; 5
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.29, 19.17, null, 26, 11); -- 26 ; 11
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 26, 9); -- 26 ; 9
+insert into detalle_servicio values (to_timestamp('03/06/2020 1:21', 'DD/MM/YYYY HH24:MI'), 0, 0, 0.50, 26, 10); -- 26 ; 10
+-- Brasil
+insert into detalle_servicio values (to_timestamp('03/06/2020 12:14', 'DD/MM/YYYY HH24:MI'), 0, 0, 1, 27, 6); -- 27 ; UOL
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.30, 7.14, null, 28, 6); -- 28 ; UOL
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.18, 7.22, null, 29, 6); -- 29 ; UOL
+-- Mexico
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.44, 7.00, null, 30, 6); -- 30 ; UOL
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.24, 7.24, null, 31, 6); -- 31 ; UOL
+insert into detalle_servicio values (to_timestamp('03/06/2020 17:27', 'DD/MM/YYYY HH24:MI'), 0, 0, 0.48, 32, 6); -- 32 ; UOL
+-- Espana
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.88, 34.81, null, 33, 13); -- 33 ; 13
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.17, 34.12, null, 34, 13); -- 34 ; 13
+insert into detalle_servicio values (to_timestamp('03/06/2020 21:41', 'DD/MM/YYYY HH24:MI'), 0, 0, 0.27, 35, 13); -- 35 ; 13
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 65.32, 28.81, null, 33, 14); -- 33 ; 14
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 63.17, 28.12, null, 34, 14); -- 34 ; 14
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 64.40, 28.71, null, 35, 14); -- 35 ; 14
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.70, 49.18, null, 33, 15); -- 33 ; 15
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.38, 49.55, null, 34, 15); -- 34 ; 15
+insert into detalle_servicio values (to_timestamp('03/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 47.18, 49.18, null, 35, 15); -- 35 ; 15
+-- 04/06/2020
+-- Venezuela
+insert into detalle_servicio values (to_timestamp('04/06/2020 5:25', 'DD/MM/YYYY HH24:MI'), 0, 0, 1, 22, 1); -- Merida ; CANTV
+insert into detalle_servicio values (to_timestamp('04/06/2020 4:36', 'DD/MM/YYYY HH24:MI'), 0.55, 3.5, null, 23, 1); -- Caracas ; CANTV
+insert into detalle_servicio values (to_timestamp('04/06/2020 21:45', 'DD/MM/YYYY HH24:MI'),  0, 0, 2, 23, 4); -- Caracas ; INTER
+insert into detalle_servicio values (to_timestamp('04/06/2020 22:45', 'DD/MM/YYYY HH24:MI'),  5.4, 1.1, null, 22, 4); -- Merida ; INTER
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:25', 'DD/MM/YYYY HH24:MI'), 1.30, 4.8, null, 22, 2); -- Merida ; MOVISTAR
+insert into detalle_servicio values (to_timestamp('04/06/2020 1:25', 'DD/MM/YYYY HH24:MI'), 1.11, 4.40, null, 23, 2); -- Caracas ; MOVISTAR
+insert into detalle_servicio values (to_timestamp('04/06/2020 00:21', 'DD/MM/YYYY HH24:MI'), 1.20, 3.25, null, 22, 3); -- Merida ; DIGITEL
+insert into detalle_servicio values (to_timestamp('04/06/2020 4:21', 'DD/MM/YYYY HH24:MI'), 1.40, 4.22, null, 23, 3); -- Caracas ; DIGITEL
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 1.55, 4.25, null, 21, 3); -- San Antonio ; DIGITEL
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 1.55, 4.25, null, 21, 2); -- San Antonio ; Movistar
+insert into detalle_servicio values (to_timestamp('04/06/2020 21:21', 'DD/MM/YYYY HH24:MI'), 0, 0, 2, 21, 1); -- San Antonio ; CANTV
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 0.90, 1.55, null, 21, 4); -- San Antonio ; INTER
+-- Estados Unidos
+insert into detalle_servicio values (to_timestamp('04/06/2020 9:34', 'DD/MM/YYYY HH24:MI'), 0, 0, 0.30, 24, 5); -- 24 ; 5
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 24, 11); -- 24 ; 11
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 24, 9); -- 24 ; 9
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.12, 49.13, null, 24, 10); -- 24 ; 10
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 25, 5); -- 25 ; 5
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.15, 19.00, null, 25, 11); -- 25 ; 11
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 25, 9); -- 25 ; 9
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.15, null, 25, 10); -- 25 ; 10
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 26, 5); -- 26 ; 5
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 26, 11); -- 26 ; 11
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.14, 49.32, null, 26, 9); -- 26 ; 9
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.41, 49.30, null, 26, 10); -- 26 ; 10
+-- Brasil
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.32, 7.12, null, 27, 6); -- 27 ; UOL
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.30, 7.14, null, 28, 6); -- 28 ; UOL
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.18, 7.22, null, 29, 6); -- 29 ; UOL
+-- Mexico
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.44, 7.00, null, 30, 6); -- 30 ; UOL
+insert into detalle_servicio values (to_timestamp('04/06/2020 17:28', 'DD/MM/YYYY HH24:MI'), 0, 0, 2, 31, 6); -- 31 ; UOL
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.18, 7.22, null, 32, 6); -- 32 ; UOL
+-- Espana
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.88, 34.81, null, 33, 13); -- 33 ; 13
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.17, 34.12, null, 34, 13); -- 34 ; 13
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.25, 34.71, null, 35, 13); -- 35 ; 13
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 65.88, 28.81, null, 33, 14); -- 33 ; 14
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 63.17, 28.12, null, 34, 14); -- 34 ; 14
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 64.25, 28.71, null, 35, 14); -- 35 ; 14
+insert into detalle_servicio values (to_timestamp('04/06/2020 6:20', 'DD/MM/YYYY HH24:MI'), 0, 0, 1, 33, 15); -- 33 ; 15
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.27, 49.55, null, 34, 15); -- 34 ; 15
+insert into detalle_servicio values (to_timestamp('04/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 47.18, 49.55, null, 35, 15); -- 35 ; 15
+-- 05/06/2020
+-- Venezuela
+insert into detalle_servicio values (to_timestamp('05/06/2020 2:13', 'DD/MM/YYYY HH24:MI'), 0, 0, 22, 22, 1); -- Merida ; CANTV
+insert into detalle_servicio values (to_timestamp('05/06/2020 3:36', 'DD/MM/YYYY HH24:MI'), 0.55, 2.5, null, 23, 1); -- Caracas ; CANTV
+insert into detalle_servicio values (to_timestamp('05/06/2020 4:45', 'DD/MM/YYYY HH24:MI'),  0, 0, 20, 23, 4); -- Caracas ; INTER
+insert into detalle_servicio values (to_timestamp('05/06/2020 12:45', 'DD/MM/YYYY HH24:MI'),  6.2, 1.4, null, 22, 4); -- Merida ; INTER
+insert into detalle_servicio values (to_timestamp('05/06/2020 14:25', 'DD/MM/YYYY HH24:MI'), 2.20, 5.24, null, 22, 2); -- Merida ; MOVISTAR
+insert into detalle_servicio values (to_timestamp('05/06/2020 16:25', 'DD/MM/YYYY HH24:MI'), 2.35, 5.40, null, 23, 2); -- Caracas ; MOVISTAR
+insert into detalle_servicio values (to_timestamp('05/06/2020 19:21', 'DD/MM/YYYY HH24:MI'), 1.20, 3.25, null, 22, 3); -- Merida ; DIGITEL
+insert into detalle_servicio values (to_timestamp('05/06/2020 21:21', 'DD/MM/YYYY HH24:MI'), 1.58, 4.27, null, 23, 3); -- Caracas ; DIGITEL
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 1.55, 4.25, null, 21, 3); -- San Antonio ; DIGITEL
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 1.55, 4.25, null, 21, 2); -- San Antonio ; Movistar
+insert into detalle_servicio values (to_timestamp('05/06/2020 18:17', 'DD/MM/YYYY HH24:MI'), 0, 0, 1, 21, 1); -- San Antonio ; CANTV
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 1.99, 3.47, null, 21, 4); -- San Antonio ; INTER
+-- Estados Unidos
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 24, 5); -- 24 ; 5
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.42, null, 24, 11); -- 24 ; 11
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 24, 9); -- 24 ; 9
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.55, null, 24, 10); -- 24 ; 10
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.22, 9.44, null, 25, 5); -- 25 ; 5
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 25, 11); -- 25 ; 11
+insert into detalle_servicio values (to_timestamp('05/06/2020 22:53', 'DD/MM/YYYY HH24:MI'), 0, 0, 0.20, 25, 9); -- 25 ; 9
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.77, null, 25, 10); -- 25 ; 10
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 26, 5); -- 26 ; 5
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 26, 11); -- 26 ; 11
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.78, 49.88, null, 26, 9); -- 26 ; 9
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.12, null, 26, 10); -- 26 ; 10
+-- Brasil
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.12, 6.21, null, 27, 6); -- 27 ; UOL
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.30, 7.14, null, 28, 6); -- 28 ; UOL
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.18, 7.22, null, 29, 6); -- 29 ; UOL
+-- Mexico
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.44, 7.00, null, 30, 6); -- 30 ; UOL
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.24, 7.15, null, 31, 6); -- 31 ; UOL
+insert into detalle_servicio values (to_timestamp('05/06/2020 6:25', 'DD/MM/YYYY HH24:MI'), 0, 0, 2, 32, 6); -- 32 ; UOL
+-- Espana
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.88, 34.81, null, 33, 13); -- 33 ; 13
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.17, 34.12, null, 34, 13); -- 34 ; 13
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.25, 34.71, null, 35, 13); -- 35 ; 13
+insert into detalle_servicio values (to_timestamp('05/06/2020 2:33', 'DD/MM/YYYY HH24:MI'), 0, 0, 0.10, 33, 14); -- 33 ; 14
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 63.17, 28.71, null, 34, 14); -- 34 ; 14
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 64.14, 28.71, null, 35, 14); -- 35 ; 14
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.70, 49.33, null, 33, 15); -- 33 ; 15
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.27, 49.55, null, 34, 15); -- 34 ; 15
+insert into detalle_servicio values (to_timestamp('05/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 47.24, 49.55, null, 35, 15); -- 35 ; 15
+-- 06/06/2020
+-- Venezuela
+insert into detalle_servicio values (to_timestamp('06/06/2020 12:12', 'DD/MM/YYYY HH24:MI'), 0.27, 2.5, null, 22, 1); -- Merida ; CANTV
+insert into detalle_servicio values (to_timestamp('06/06/2020 20:45', 'DD/MM/YYYY HH24:MI'), 0.55, 2.5, null, 23, 1); -- Caracas ; CANTV
+insert into detalle_servicio values (to_timestamp('06/06/2020 2:12', 'DD/MM/YYYY HH24:MI'),  1.2, 2.1, null, 23, 4); -- Caracas ; INTER
+insert into detalle_servicio values (to_timestamp('06/06/2020 9:45', 'DD/MM/YYYY HH24:MI'),  6.2, 1.4, null, 22, 4); -- Merida ; INTER
+insert into detalle_servicio values (to_timestamp('06/06/2020 14:13', 'DD/MM/YYYY HH24:MI'), 0, 0, 1, 22, 2); -- Merida ; MOVISTAR
+insert into detalle_servicio values (to_timestamp('06/06/2020 19:25', 'DD/MM/YYYY HH24:MI'), 2.35, 5.40, null, 23, 2); -- Caracas ; MOVISTAR
+insert into detalle_servicio values (to_timestamp('06/06/2020 21:14', 'DD/MM/YYYY HH24:MI'), 0, 0, 1, 22, 3); -- Merida ; DIGITEL
+insert into detalle_servicio values (to_timestamp('06/06/2020 23:23', 'DD/MM/YYYY HH24:MI'), 1.58, 4.27, null, 23, 3); -- Caracas ; DIGITEL
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 2.55, 3.25, null, 21, 3); -- San Antonio ; DIGITEL
+insert into detalle_servicio values (to_timestamp('06/06/2020 12:21', 'DD/MM/YYYY HH24:MI'), 1.25, 2.25, null, 21, 2); -- San Antonio ; Movistar
+insert into detalle_servicio values (to_timestamp('06/06/2020 19:24', 'DD/MM/YYYY HH24:MI'), 0, 0, 8, 21, 1); -- San Antonio ; CANTV
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 2.88, 4.50, null, 21, 4); -- San Antonio ; INTER
+-- Estados Unidos
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 24, 5); -- 24 ; 5
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 24, 11); -- 24 ; 11
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 24, 9); -- 24 ; 9
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.15, null, 24, 10); -- 24 ; 10
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 25, 5); -- 25 ; 5
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 25, 11); -- 25 ; 11
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.15, 49.29, null, 25, 9); -- 25 ; 9
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.77, null, 25, 10); -- 25 ; 10
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 26, 5); -- 26 ; 5
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 26, 11); -- 26 ; 11
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.15, 49.88, null, 26, 9); -- 26 ; 9
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.77, null, 26, 10); -- 26 ; 10
+-- Brasil
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 5.44, 5.00, null, 27, 6); -- 27 ; UOL
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.30, 7.14, null, 28, 6); -- 28 ; UOL
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.18, 7.22, null, 29, 6); -- 29 ; UOL
+-- Mexico
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.44, 7.00, null, 30, 6); -- 30 ; UOL
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.24, 7.24, null, 31, 6); -- 31 ; UOL
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.18, 7.22, null, 32, 6); -- 32 ; UOL
+-- Espana
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.88, 34.81, null, 33, 13); -- 33 ; 13
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.17, 34.12, null, 34, 13); -- 34 ; 13
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.25, 34.71, null, 35, 13); -- 35 ; 13
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 65.88, 28.81, null, 33, 14); -- 33 ; 14
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 63.17, 28.12, null, 34, 14); -- 34 ; 14
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 64.25, 28.71, null, 35, 14); -- 35 ; 14
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.70, 49.55, null, 33, 15); -- 33 ; 15
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.27, 49.55, null, 34, 15); -- 34 ; 15
+insert into detalle_servicio values (to_timestamp('06/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 47.18, 49.55, null, 35, 15); -- 35 ; 15
+-- 07/06/2020
+-- Venezuela
+insert into detalle_servicio values (to_timestamp('07/06/2020 6:00', 'DD/MM/YYYY HH24:MI'), 1.2, 2.4, null, 22, 1); -- Merida ; CANTV
+insert into detalle_servicio values (to_timestamp('07/06/2020 8:36', 'DD/MM/YYYY HH24:MI'), 0.55, 2.5, null, 23, 1); -- Caracas ; CANTV
+insert into detalle_servicio values (to_timestamp('07/06/2020 7:45', 'DD/MM/YYYY HH24:MI'),  1.2, 2.1, null, 23, 4); -- Caracas ; INTER
+insert into detalle_servicio values (to_timestamp('07/06/2020 3:45', 'DD/MM/YYYY HH24:MI'),  0, 0, 2, 22, 4); -- Merida ; INTER
+insert into detalle_servicio values (to_timestamp('07/06/2020 2:25', 'DD/MM/YYYY HH24:MI'), 2.20, 5.24, null, 22, 2); -- Merida ; MOVISTAR
+insert into detalle_servicio values (to_timestamp('07/06/2020 14:25', 'DD/MM/YYYY HH24:MI'), 2.35, 5.40, null, 23, 2); -- Caracas ; MOVISTAR
+insert into detalle_servicio values (to_timestamp('07/06/2020 14:21', 'DD/MM/YYYY HH24:MI'), 1.20, 3.25, null, 22, 3); -- Merida ; DIGITEL
+insert into detalle_servicio values (to_timestamp('07/06/2020 18:21', 'DD/MM/YYYY HH24:MI'), 0, 0, 1, 23, 3); -- Caracas ; DIGITEL
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 3.55, 2.44, null, 21, 3); -- San Antonio ; DIGITEL
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 1.00, 3.40, null, 21, 2); -- San Antonio ; Movistar
+insert into detalle_servicio values (to_timestamp('07/06/2020 23:24', 'DD/MM/YYYY HH24:MI'), 0, 0, 1, 21, 1); -- San Antonio ; CANTV
+insert into detalle_servicio values (to_timestamp('07/06/2020 12:21', 'DD/MM/YYYY HH24:MI'), 0, 0, 3, 21, 4); -- San Antonio ; INTER
+-- Estados Unidos
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 24, 5); -- 24 ; 5
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 24, 11); -- 24 ; 11
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 24, 9); -- 24 ; 9
+insert into detalle_servicio values (to_timestamp('07/06/2020 8:24', 'DD/MM/YYYY HH24:MI'), 0, 0, 0.15, 24, 10); -- 24 ; 10
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 25, 5); -- 25 ; 5
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 25, 11); -- 25 ; 11
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 25, 9); -- 25 ; 9
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.77, null, 25, 10); -- 25 ; 10
+insert into detalle_servicio values (to_timestamp('07/06/2020 6:00', 'DD/MM/YYYY HH24:MI'), 0, 0, 0.10, 26, 5); -- 26 ; 5
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 26, 11); -- 26 ; 11
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 26, 9); -- 26 ; 9
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.15, null, 26, 10); -- 26 ; 10
+-- Brasil
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.44, 7.00, null, 27, 6); -- 27 ; UOL
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.30, 7.14, null, 28, 6); -- 28 ; UOL
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.18, 7.22, null, 29, 6); -- 29 ; UOL
+-- Mexico
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.44, 7.00, null, 30, 6); -- 30 ; UOL
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.24, 7.24, null, 31, 6); -- 31 ; UOL
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.18, 7.22, null, 32, 6); -- 32 ; UOL
+-- Espana
+insert into detalle_servicio values (to_timestamp('07/06/2020 21:18', 'DD/MM/YYYY HH24:MI'), 0, 0, 1, 33, 13); -- 33 ; 13
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.17, 34.12, null, 34, 13); -- 34 ; 13
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.25, 34.71, null, 35, 13); -- 35 ; 13
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 65.88, 28.81, null, 33, 14); -- 33 ; 14
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 63.17, 28.12, null, 34, 14); -- 34 ; 14
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 64.25, 28.71, null, 35, 14); -- 35 ; 14
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.70, 49.55, null, 33, 15); -- 33 ; 15
+insert into detalle_servicio values (to_timestamp('07/06/2020 19:32', 'DD/MM/YYYY HH24:MI'), 0, 0, 0.14, 34, 15); -- 34 ; 15
+insert into detalle_servicio values (to_timestamp('07/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 47.18, 49.55, null, 35, 15); -- 35 ; 15
+-- 08/06/2020
+-- Venezuela
+insert into detalle_servicio values (to_timestamp('08/06/2020 11:00', 'DD/MM/YYYY HH24:MI'), 0, 0, 8, 22, 1); -- Merida ; CANTV
+insert into detalle_servicio values (to_timestamp('08/06/2020 11:36', 'DD/MM/YYYY HH24:MI'), 0.55, 2.5, null, 23, 1); -- Caracas ; CANTV
+insert into detalle_servicio values (to_timestamp('08/06/2020 9:45', 'DD/MM/YYYY HH24:MI'),  1.2, 1.8, null, 23, 4); -- Caracas ; INTER
+insert into detalle_servicio values (to_timestamp('08/06/2020 8:45', 'DD/MM/YYYY HH24:MI'),  0, 0, 2, 22, 4); -- Merida ; INTER
+insert into detalle_servicio values (to_timestamp('08/06/2020 10:25', 'DD/MM/YYYY HH24:MI'), 0, 0, 1, 22, 2); -- Merida ; MOVISTAR
+insert into detalle_servicio values (to_timestamp('08/06/2020 13:25', 'DD/MM/YYYY HH24:MI'), 2.18, 3.40, null, 23, 2); -- Caracas ; MOVISTAR
+insert into detalle_servicio values (to_timestamp('08/06/2020 11:21', 'DD/MM/YYYY HH24:MI'), 1.20, 3.25, null, 22, 3); -- Merida ; DIGITEL
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 1.22, 2.27, null, 23, 3); -- Caracas ; DIGITEL
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 0.55, 2.25, null, 21, 3); -- San Antonio ; DIGITEL
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 1.55, 4.25, null, 21, 2); -- San Antonio ; Movistar
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:20', 'DD/MM/YYYY HH24:MI'), 0.11, 0.80, null, 21, 1); -- San Antonio ; CANTV
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:12', 'DD/MM/YYYY HH24:MI'), 1.44, 2.5, null, 21, 4); -- San Antonio ; INTER
+-- Estados Unidos
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 24, 5); -- 24 ; 5
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 24, 11); -- 24 ; 11
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 24, 9); -- 24 ; 9
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.77, null, 24, 10); -- 24 ; 10
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.30, 9.44, null, 25, 5); -- 25 ; 5
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 25, 11); -- 25 ; 11
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.15, null, 25, 9); -- 25 ; 9
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.77, null, 25, 10); -- 25 ; 10
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 26, 5); -- 26 ; 5
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 26, 11); -- 26 ; 11
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 26, 9); -- 26 ; 9
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.77, null, 26, 10); -- 26 ; 10
+-- Brasil
+insert into detalle_servicio values (to_timestamp('08/06/2020 6:32', 'DD/MM/YYYY HH24:MI'), 0, 00, 0.51, 27, 6); -- 27 ; UOL
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.30, 7.14, null, 28, 6); -- 28 ; UOL
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.18, 7.22, null, 29, 6); -- 29 ; UOL
+-- Mexico
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.44, 7.00, null, 30, 6); -- 30 ; UOL
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.24, 7.24, null, 31, 6); -- 31 ; UOL
+insert into detalle_servicio values (to_timestamp('08/06/2020 20:33', 'DD/MM/YYYY HH24:MI'), 0, 0, 1, 32, 6); -- 32 ; UOL
+-- Espana
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.88, 34.81, null, 33, 13); -- 33 ; 13
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.17, 34.12, null, 34, 13); -- 34 ; 13
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.25, 34.71, null, 35, 13); -- 35 ; 13
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 65.88, 28.81, null, 33, 14); -- 33 ; 14
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 63.17, 28.12, null, 34, 14); -- 34 ; 14
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 64.25, 28.71, null, 35, 14); -- 35 ; 14
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.70, 49.55, null, 33, 15); -- 33 ; 15
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.27, 49.55, null, 34, 15); -- 34 ; 15
+insert into detalle_servicio values (to_timestamp('08/06/2020 15:18', 'DD/MM/YYYY HH24:MI'), 0, 0, 0.54, 35, 15); -- 35 ; 15
+-- 09/06/2020
+-- Venezuela
+insert into detalle_servicio values (to_timestamp('09/06/2020 12:00', 'DD/MM/YYYY HH24:MI'), 0.80, 1.9, null, 22, 1); -- Merida ; CANTV
+insert into detalle_servicio values (to_timestamp('09/06/2020 12:36', 'DD/MM/YYYY HH24:MI'), 0, 0, 1, 23, 1); -- Caracas ; CANTV
+insert into detalle_servicio values (to_timestamp('09/06/2020 4:45', 'DD/MM/YYYY HH24:MI'),  1.2, 2.1, null, 23, 4); -- Caracas ; INTER
+insert into detalle_servicio values (to_timestamp('09/06/2020 2:45', 'DD/MM/YYYY HH24:MI'),  6.0, 1.70, null, 22, 4); -- Merida ; INTER
+insert into detalle_servicio values (to_timestamp('09/06/2020 14:25', 'DD/MM/YYYY HH24:MI'), 2.77, 5.24, null, 22, 2); -- Merida ; MOVISTAR
+insert into detalle_servicio values (to_timestamp('09/06/2020 18:25', 'DD/MM/YYYY HH24:MI'), 2.80, 5.18, null, 23, 2); -- Caracas ; MOVISTAR
+insert into detalle_servicio values (to_timestamp('09/06/2020 19:21', 'DD/MM/YYYY HH24:MI'), 1.20, 3.27, null, 22, 3); -- Merida ; DIGITEL
+insert into detalle_servicio values (to_timestamp('09/06/2020 21:21', 'DD/MM/YYYY HH24:MI'), 1.58, 4.29, null, 23, 3); -- Caracas ; DIGITEL
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 0.55, 4.40, null, 21, 3); -- San Antonio ; DIGITEL
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 1.55, 4.25, null, 21, 2); -- San Antonio ; Movistar
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 1.22, 2.71, null, 21, 1); -- San Antonio ; CANTV
+insert into detalle_servicio values (to_timestamp('09/06/2020 7:28', 'DD/MM/YYYY HH24:MI'), 0, 0, 1, 21, 4); -- San Antonio ; INTER
+-- Estados Unidos
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 24, 5); -- 24 ; 5
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 24, 11); -- 24 ; 11
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 24, 9); -- 24 ; 9
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.77, null, 24, 10); -- 24 ; 10
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 25, 5); -- 25 ; 5
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 25, 11); -- 25 ; 11
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 25, 9); -- 25 ; 9
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.77, null, 25, 10); -- 25 ; 10
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 26, 5); -- 26 ; 5
+insert into detalle_servicio values (to_timestamp('09/06/2020 2:20', 'DD/MM/YYYY HH24:MI'), 0, 0, 0.14, 26, 11); -- 26 ; 11
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 26, 9); -- 26 ; 9
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.77, null, 26, 10); -- 26 ; 10
+-- Brasil
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.44, 7.00, null, 27, 6); -- 27 ; UOL
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.30, 7.14, null, 28, 6); -- 28 ; UOL
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.18, 7.22, null, 29, 6); -- 29 ; UOL
+-- Mexico
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.44, 7.00, null, 30, 6); -- 30 ; UOL
+insert into detalle_servicio values (to_timestamp('09/06/2020 5:55', 'DD/MM/YYYY HH24:MI'), 0, 0, 0.18, 31, 6); -- 31 ; UOL
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.18, 7.22, null, 32, 6); -- 32 ; UOL
+-- Espana
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.88, 34.81, null, 33, 13); -- 33 ; 13
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.17, 34.12, null, 34, 13); -- 34 ; 13
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.25, 34.71, null, 35, 13); -- 35 ; 13
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 65.88, 28.81, null, 33, 14); -- 33 ; 14
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 63.17, 28.12, null, 34, 14); -- 34 ; 14
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 64.25, 28.71, null, 35, 14); -- 35 ; 14
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.70, 49.55, null, 33, 15); -- 33 ; 15
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.27, 49.55, null, 34, 15); -- 34 ; 15
+insert into detalle_servicio values (to_timestamp('09/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 47.18, 49.55, null, 35, 15); -- 35 ; 15
+-- 10/06/2020
+-- Venezuela
+insert into detalle_servicio values (to_timestamp('10/06/2020 11:00', 'DD/MM/YYYY HH24:MI'), 1.7, 2.7, null, 22, 1); -- Merida ; CANTV
+insert into detalle_servicio values (to_timestamp('10/06/2020 10:36', 'DD/MM/YYYY HH24:MI'), 0.55, 2.5, null, 23, 1); -- Caracas ; CANTV
+insert into detalle_servicio values (to_timestamp('10/06/2020 8:45', 'DD/MM/YYYY HH24:MI'),  0, 0, 2, 23, 4); -- Caracas ; INTER
+insert into detalle_servicio values (to_timestamp('10/06/2020 7:45', 'DD/MM/YYYY HH24:MI'),  6.2, 1.4, null, 22, 4); -- Merida ; INTER
+insert into detalle_servicio values (to_timestamp('10/06/2020 6:25', 'DD/MM/YYYY HH24:MI'), 2.20, 5.24, null, 22, 2); -- Merida ; MOVISTAR
+insert into detalle_servicio values (to_timestamp('10/06/2020 5:25', 'DD/MM/YYYY HH24:MI'), 2.35, 5.40, null, 23, 2); -- Caracas ; MOVISTAR
+insert into detalle_servicio values (to_timestamp('10/06/2020 3:21', 'DD/MM/YYYY HH24:MI'), 1.20, 3.25, null, 22, 3); -- Merida ; DIGITEL
+insert into detalle_servicio values (to_timestamp('10/06/2020 14:21', 'DD/MM/YYYY HH24:MI'), 1.58, 4.27, null, 23, 3); -- Caracas ; DIGITEL
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 1.55, 1.25, null, 21, 3); -- San Antonio ; DIGITEL
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:21', 'DD/MM/YYYY HH24:MI'), 1.18, 2.25, null, 21, 2); -- San Antonio ; Movistar
+insert into detalle_servicio values (to_timestamp('10/06/2020 5:12', 'DD/MM/YYYY HH24:MI'), 0, 0, 3, 21, 1); -- San Antonio ; CANTV
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 0.77, 3.54, null, 21, 4); -- San Antonio ; INTER
+-- Estados Unidos
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 24, 5); -- 24 ; 5
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 24, 11); -- 24 ; 11
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 24, 9); -- 24 ; 9
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.77, null, 24, 10); -- 24 ; 10
+insert into detalle_servicio values (to_timestamp('10/06/2020 00:20', 'DD/MM/YYYY HH24:MI'), 0, 0, 0.19, 25, 5); -- 25 ; 5
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 25, 11); -- 25 ; 11
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 25, 9); -- 25 ; 9
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.77, null, 25, 10); -- 25 ; 10
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.80, 9.44, null, 26, 5); -- 26 ; 5
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 25.55, 19.00, null, 26, 11); -- 26 ; 11
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.48, 49.88, null, 26, 9); -- 26 ; 9
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 19.88, 49.77, null, 26, 10); -- 26 ; 10
+-- Brasil
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 4.44, 5.00, null, 27, 6); -- 27 ; UOL
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.30, 7.14, null, 28, 6); -- 28 ; UOL
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.18, 7.22, null, 29, 6); -- 29 ; UOL
+-- Mexico
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.44, 7.00, null, 30, 6); -- 30 ; UOL
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 0, 0, 2, 31, 6); -- 31 ; UOL
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 6.18, 7.22, null, 32, 6); -- 32 ; UOL
+-- Espana
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.88, 34.81, null, 33, 13); -- 33 ; 13
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.17, 34.12, null, 34, 13); -- 34 ; 13
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 49.25, 34.71, null, 35, 13); -- 35 ; 13
+insert into detalle_servicio values (to_timestamp('10/06/2020 1:21', 'DD/MM/YYYY HH24:MI'), 0, 0, 1, 33, 14); -- 33 ; 14
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 63.17, 28.12, null, 34, 14); -- 34 ; 14
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 64.25, 28.71, null, 35, 14); -- 35 ; 14
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 48.70, 49.55, null, 33, 15); -- 33 ; 15
+insert into detalle_servicio values (to_timestamp('10/06/2020 19:32', 'DD/MM/YYYY HH24:MI'), 0, 0, 2, 34, 15); -- 34 ; 15
+insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 47.18, 49.55, null, 35, 15); -- 35 ; 15
+
+-- VUELO
+insert into vuelo values (1, identificacion(null, 'Air France'), to_timestamp('17/12/2019 08:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('17/12/2019 16:00', 'DD/MM/YYYY HH24:MI'), 27, 30);
+insert into vuelo values (2, identificacion(null, 'Air France'), to_timestamp('22/12/2019 00:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('22/12/2019 03:00', 'DD/MM/YYYY HH24:MI'), 24, 32);
+insert into vuelo values (3, identificacion(null, 'Emirates Airlines'), to_timestamp('26/12/2019 06:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('26/12/2019 11:00', 'DD/MM/YYYY HH24:MI'), 24, 32);
+insert into vuelo values (4, identificacion(null, 'Air France'), to_timestamp('29/12/2019 15:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/12/2019 22:00', 'DD/MM/YYYY HH24:MI'), 21, 26);
+insert into vuelo values (5, identificacion(null, 'Emirates Airlines'), to_timestamp('05/01/2020 01:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('05/01/2020 06:00', 'DD/MM/YYYY HH24:MI'), 29, 26);
+insert into vuelo values (6, identificacion(null, 'Plus Ultra'), to_timestamp('08/01/2020 12:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('08/01/2020 19:00', 'DD/MM/YYYY HH24:MI'), 23, 29);
+insert into vuelo values (7, identificacion(null, 'Conviasa'), to_timestamp('12/01/2020 22:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('13/01/2020 02:00', 'DD/MM/YYYY HH24:MI'), 35, 24);
+insert into vuelo values (8, identificacion(null, 'Air Europa'), to_timestamp('18/01/2020 08:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('18/01/2020 12:00', 'DD/MM/YYYY HH24:MI'), 27, 31);
+insert into vuelo values (9, identificacion(null, 'Conviasa'), to_timestamp('24/01/2020 15:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('24/01/2020 18:00', 'DD/MM/YYYY HH24:MI'), 33, 27);
+insert into vuelo values (10, identificacion(null, 'Iberia'), to_timestamp('29/01/2020 23:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('30/01/2020 02:00', 'DD/MM/YYYY HH24:MI'), 25, 22);
+insert into vuelo values (11, identificacion(null, 'Conviasa'), to_timestamp('05/02/2020 08:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('05/02/2020 14:00', 'DD/MM/YYYY HH24:MI'), 32, 25);
+insert into vuelo values (12, identificacion(null, 'Delta'), to_timestamp('09/02/2020 18:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('09/02/2020 21:00', 'DD/MM/YYYY HH24:MI'), 26, 30);
+insert into vuelo values (13, identificacion(null, 'Avior Airlines'), to_timestamp('13/02/2020 05:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('13/02/2020 08:00', 'DD/MM/YYYY HH24:MI'), 29, 34);
+insert into vuelo values (14, identificacion(null, 'Emirates Airlines'), to_timestamp('16/02/2020 13:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('16/02/2020 21:00', 'DD/MM/YYYY HH24:MI'), 28, 21);
+insert into vuelo values (15, identificacion(null, 'American Airlines'), to_timestamp('23/02/2020 01:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('23/02/2020 09:00', 'DD/MM/YYYY HH24:MI'), 35, 23);
+
+-- PERSONA --
+-- VENEZUELA
+insert into persona values (1, 'Lamont', null, 'Walter', 'Rath', to_date('10/11/1956', 'DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 21);
+insert into persona values (2, 'Burton', 'Art', 'Sawayn', 'Hahn', to_date('12/10/1940', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 21);
+insert into persona values (3, 'Ramiro', 'Cornell', 'Balistreri', 'Shanahan', to_date('19/01/1975', 'DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 21);
+insert into persona values (4, 'Keli', null, 'Johns', 'Bailey', to_date('14/05/1976', 'DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 21);
+insert into persona values (5, 'Jonah', 'Stanford', 'Braun', 'Nader', to_date('08/09/1995', 'DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 21); 
+insert into persona values (6, 'Tandy', 'Nickie', 'McClure', 'Wolf', to_date('14/03/1976', 'DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 22);
+insert into persona values (7, 'Charlene', 'Silas', 'Price', 'Smitham', to_date('28/10/1965', 'DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 22);
+insert into persona values (8, 'Alyssa', 'Nereida', 'Sawayn', 'Skiles', to_date('06/08/1989', 'DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 22);
+insert into persona values (9, 'Amber', 'Shawnna', 'Larson', 'Moen', to_date('11/07/2000', 'DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 22);
+insert into persona values (10, 'Kraig', 'Noemi', 'Morissette', 'Bradtke', to_date('28/05/1989', 'DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 22);
+insert into persona values (11, 'Alane', 'Noelle', 'Kuhic', 'Luettgen', to_date('20/10/1985', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 23);
+insert into persona values (12, 'Michael', null, 'Stehr', 'Dietrich', to_date('13/11/1992', 'DD/MM/YYYY'), 'M', null, 'Sano', null, null, 23);
+insert into persona values (13, 'Layne', 'Charley', 'Simonis', 'Hamill', to_date('10/04/1981', 'DD/MM/YYYY'), 'M', null, 'Sano', null, null, 23);
+insert into persona values (14, 'Roberta', null, 'Sawayn', 'Macejkovic', to_date('31/05/1988', 'DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 23);
+insert into persona values (15, 'Wyatt', 'Wilmer', 'Stiedemann', 'Kertzmann', to_date('19/07/1940', 'DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 23);
+-- USA
+insert into persona values (16, 'Tegan', 'Winston', 'Ratke', 'Casper', to_date('11/09/1941', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 24);
+insert into persona values (17, 'Deshawn', null, 'Kassulke', 'Langworth', to_date('25/09/1988', 'DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 24);
+insert into persona values (18, 'Ilse', 'Jae', 'Simonis', 'Wilkinson', to_date('27/06/1963', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 24);
+insert into persona values (19, 'Chong', 'Patrick', 'Langworth', 'Zemlak', to_date('12/11/1944', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 24);
+insert into persona values (20, 'Peter', null, 'Schimmel', 'Welch', to_date('26/06/1973', 'DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 24);
+insert into persona values (21, 'Elina', 'Ignacio', 'Ratke', 'Leffler', to_date('12/04/1974', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 25);
+insert into persona values (22, 'Julio', 'Lovie', 'Von', 'Altenwerth', to_date('08/01/1998', 'DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 25);
+insert into persona values (23, 'Young', 'Corrin', 'Wintheiser', 'Corkery', to_date('07/09/1964', 'DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 25);
+insert into persona values (24, 'Alfonzo', null, 'Skiles', 'Cassin', to_date('28/07/1957', 'DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 25);
+insert into persona values (25, 'Isaura', 'Nathaniel', 'Hagenes', 'Ondricka', to_date('08/08/1983', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 25);
+insert into persona values (26, 'Nicki', 'Edison', 'Konopelski', 'Bahringer', to_date('13/12/1944', 'DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 26);
+insert into persona values (27, 'Kittie', null, 'Wiegand', 'Yost', to_date('09/02/1942', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 26);
+insert into persona values (28, 'Albina', null, 'Walter', 'Wiza', to_date('30/09/1958', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 26);
+insert into persona values (29, 'Lucien', null, 'Bahringer', 'Sanford', to_date('30/12/1972', 'DD/MM/YYYY'), 'M', null, 'Sano', null, null, 26);
+insert into persona values (30, 'Kathyrn', 'Bennett', 'Lowe', 'Price', to_date('07/04/1959', 'DD/MM/YYYY'), 'M', null, 'Sano', null, null, 26);
+-- BRASIL
+insert into persona values (31, 'Chong', 'Daron', 'Maggio', 'Hegmann', to_date('07/11/1942', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 27);
+insert into persona values (32, 'Tabetha', null, 'Jerde', 'Schoen', to_date('23/01/1948', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 27);
+insert into persona values (33, 'Kimber', null, 'Conroy', 'Russel', to_date('07/07/1944', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 27);
+insert into persona values (34, 'Damien', 'Osvaldo', 'Hintz', 'Rempel', to_date('11/01/1944', 'DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 27);
+insert into persona values (35, 'Cory', 'Ivelisse', 'Brekke', 'Medhurst', to_date('20/01/1960', 'DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 27);
+insert into persona values (36, 'Viviana', 'Doria', 'Stroman', 'Ledner', to_date('13/08/1960', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 28);
+insert into persona values (37, 'Clarinda', 'Estelle', 'Lueilwitz', 'McGlynn', to_date('30/03/1981', 'DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 28);
+insert into persona values (38, 'Frederic', 'Cassi', 'Collins', 'Greenholt', to_date('01/06/1946', 'DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 28);
+insert into persona values (39, 'Ike', 'Shannon', 'Botsford', 'Ferry', to_date('12/07/1943', 'DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 28);
+insert into persona values (40, 'Ahmed', 'Sid', 'Cummings', 'Pfannerstill', to_date('17/06/1993', 'DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 28);
+insert into persona values (41, 'Lezlie', null, 'Heathcote', 'Stiedemann', to_date('15/07/1953', 'DD/MM/YYYY'), 'M', null, 'Sano', null, null, 29);
+insert into persona values (42, 'Pete', null, 'Gorczany', 'Frami', to_date('28/05/1982', 'DD/MM/YYYY'), 'M', null, 'Sano', null, null, 29);
+insert into persona values (43, 'Milo', null, 'Rutherford', 'Zulauf', to_date('03/04/1941', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 29);
+insert into persona values (44, 'Marshall', null, 'Auer', 'Heller', to_date('30/09/1982', 'DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 29);
+insert into persona values (45, 'Van', null, 'Maggio', 'Kunde', to_date('18/01/2001', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 29);
+-- MEXICO
+insert into persona values (46, 'Salome', null, 'Abbott', 'Schmitt', to_date('03/04/1967', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 30);
+insert into persona values (47, 'Cristen', null, 'Adams', 'Predovic', to_date('22/12/1979', 'DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 30);
+insert into persona values (48, 'Leonia', null, 'Mraz', 'Conroy', to_date('11/06/1993', 'DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 30);
+insert into persona values (49, 'Cortez', 'Sallie', 'Hoeger', 'Turcotte', to_date('05/12/1977', 'DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 30);
+insert into persona values (50, 'Porfirio', 'Neva', 'Lesch', 'Lemke', to_date('04/10/1968', 'DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 30);
+insert into persona values (51, 'Corina', 'Edwardo', 'Friesen', 'Lehner', to_date('20/04/1983', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 31);
+insert into persona values (52, 'Jeramy', null, 'Braun', 'Cummerata', to_date('17/04/1954', 'DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 31);
+insert into persona values (53, 'Sharolyn', 'Gino', 'Reinger', 'Tremblay', to_date('31/03/1981', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 31);
+insert into persona values (54, 'Erick', null, 'Kreiger', 'Gutkowski', to_date('12/06/1943', 'DD/MM/YYYY'), 'M', null, 'Sano', null, null, 31);
+insert into persona values (55, 'Carter', 'Sylvia', 'Spinka', 'OHara', to_date('15/04/1977', 'DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 31);
+insert into persona values (56, 'Mack', 'Pearline', 'Nicolas', 'Weber', to_date('28/11/1987', 'DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 32);
+insert into persona values (57, 'Audra', null, 'Murphy', 'Roob', to_date('06/06/1952', 'DD/MM/YYYY'), 'M', null, 'Sano', null, null, 32);
+insert into persona values (58, 'Aracelis', 'Lance', 'McCullough', 'Glover', to_date('21/12/1963', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 32);
+insert into persona values (59, 'Orval', null, 'Reichert', 'Rohan', to_date('24/03/1977', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 32);
+insert into persona values (60, 'Adelaida', null, 'Watsica', 'Baumbach', to_date('04/06/1976', 'DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 32);
+-- ESPANA
+insert into persona values (61, 'Willy', 'Karena', 'Hintz', 'Moen', to_date('28/01/1992', 'DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 33);
+insert into persona values (62, 'Chas', null, 'Ziemann', 'Rath', to_date('15/07/1986', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 33);
+insert into persona values (63, 'Salvador', null, 'Murphy', 'Collins', to_date('05/07/1946', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 33);
+insert into persona values (64, 'Mafalda', null, 'Stanton', 'Corkery', to_date('10/07/1996', 'DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 33);
+insert into persona values (65, 'Season', 'Lina', 'Walsh', 'Stanton', to_date('06/11/1941', 'DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 33);
+insert into persona values (66, 'Ivana', 'Erasmo', 'Ryan', 'Watsica', to_date('10/01/1996', 'DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 34);
+insert into persona values (67, 'Lee', 'Clint', 'Ortiz', 'Rempel', to_date('06/12/1985', 'DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 34);
+insert into persona values (68, 'Randell', null, 'Schulist', 'Hackett', to_date('15/01/1999', 'DD/MM/YYYY'), 'F', null, 'Sano', null, null, 34);
+insert into persona values (69, 'Jeromy', 'Alissa', 'Considine', 'Fay', to_date('06/05/1995', 'DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 34);
+insert into persona values (70, 'Ramiro', 'Earline', 'King', 'Reichel', to_date('14/08/1942', 'DD/MM/YYYY'), 'M', null, 'Sano', null, null, 34);
+insert into persona values (71, 'Irwin', null, 'Heidenreich', 'Olson', to_date('11/08/1978', 'DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 35);
+insert into persona values (72, 'Katelynn', 'Danette', 'OKon', 'Denesik', to_date('23/03/1981', 'DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 35);
+insert into persona values (73, 'Glinda', null, 'Macejkovic', 'Padberg', to_date('10/12/1940', 'DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 35);
+insert into persona values (74, 'Andrew', null, 'Tremblay', 'Hessel', to_date('25/04/1986', 'DD/MM/YYYY'), 'M', null, 'Sano', null, null, 35);
+insert into persona values (75, 'Ermelinda', 'Willian', 'Simonis', 'Emard', to_date('17/04/1994', 'DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 35);
+
+-- PER_VUE --
+-- Vuelo #1
+insert into vuelo values (1, identificacion(null, 'Laser'), to_timestamp('18/12/2019 03:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('18/12/2019 06:00', 'DD/MM/YYYY HH24:MI'), 29, 33);
+-- Persona_Vuelo #1
+insert into per_vue values (5, 1, 29, 33);
+insert into per_vue values (39, 1, 29, 33);
+insert into per_vue values (12, 1, 29, 33);
+insert into per_vue values (34, 1, 29, 33);
+insert into per_vue values (55, 1, 29, 33);
+-- Vuelo #2
+insert into vuelo values (2, identificacion(null, 'Avior Airlines'), to_timestamp('23/12/2019 13:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('23/12/2019 18:00', 'DD/MM/YYYY HH24:MI'), 30, 33);
+-- Persona_Vuelo #2
+insert into per_vue values (53, 2, 30, 33);
+insert into per_vue values (8, 2, 30, 33);
+insert into per_vue values (28, 2, 30, 33);
+insert into per_vue values (22, 2, 30, 33);
+insert into per_vue values (48, 2, 30, 33);
+-- Vuelo #3
+insert into vuelo values (3, identificacion(null, 'Delta'), to_timestamp('29/12/2019 02:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/12/2019 05:00', 'DD/MM/YYYY HH24:MI'), 25, 22);
+-- Persona_Vuelo #3
+insert into per_vue values (34, 3, 25, 22);
+insert into per_vue values (12, 3, 25, 22);
+insert into per_vue values (20, 3, 25, 22);
+insert into per_vue values (32, 3, 25, 22);
+-- Vuelo #4
+insert into vuelo values (4, identificacion(null, 'Turkish Airlines'), to_timestamp('03/01/2020 11:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('03/01/2020 16:00', 'DD/MM/YYYY HH24:MI'), 32, 23);
+-- Persona_Vuelo #4
+insert into per_vue values (2, 4, 32, 23);
+insert into per_vue values (35, 4, 32, 23);
+insert into per_vue values (17, 4, 32, 23);
+insert into per_vue values (41, 4, 32, 23);
+insert into per_vue values (37, 4, 32, 23);
+-- Vuelo #5
+insert into vuelo values (5, identificacion(null, 'Emirates Airlines'), to_timestamp('09/01/2020 19:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('09/01/2020 23:00', 'DD/MM/YYYY HH24:MI'), 28, 30);
+-- Persona_Vuelo #5
+insert into per_vue values (51, 5, 28, 30);
+insert into per_vue values (38, 5, 28, 30);
+insert into per_vue values (49, 5, 28, 30);
+insert into per_vue values (70, 5, 28, 30);
+insert into per_vue values (24, 5, 28, 30);
+-- Vuelo #6
+insert into vuelo values (6, identificacion(null, 'Air France'), to_timestamp('16/01/2020 04:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('16/01/2020 11:00', 'DD/MM/YYYY HH24:MI'), 24, 30);
+-- Persona_Vuelo #6
+insert into per_vue values (74, 6, 24, 30);
+insert into per_vue values (26, 6, 24, 30);
+insert into per_vue values (13, 6, 24, 30);
+insert into per_vue values (48, 6, 24, 30);
+insert into per_vue values (62, 6, 24, 30);
+-- Vuelo #7
+insert into vuelo values (7, identificacion(null, 'TAP Portugal'), to_timestamp('22/01/2020 15:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('22/01/2020 22:00', 'DD/MM/YYYY HH24:MI'), 22, 28);
+-- Persona_Vuelo #7
+insert into per_vue values (59, 7, 22, 28);
+insert into per_vue values (29, 7, 22, 28);
+insert into per_vue values (6, 7, 22, 28);
+insert into per_vue values (50, 7, 22, 28);
+insert into per_vue values (60, 7, 22, 28);
+-- Vuelo #8
+insert into vuelo values (8, identificacion(null, 'Plus Ultra'), to_timestamp('28/01/2020 02:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('28/01/2020 10:00', 'DD/MM/YYYY HH24:MI'), 35, 30);
+-- Persona_Vuelo #8
+insert into per_vue values (45, 8, 35, 30);
+insert into per_vue values (3, 8, 35, 30);
+insert into per_vue values (61, 8, 35, 30);
+insert into per_vue values (68, 8, 35, 30);
+insert into per_vue values (23, 8, 35, 30);
+-- Vuelo #9
+insert into vuelo values (9, identificacion(null, 'Conviasa'), to_timestamp('01/02/2020 16:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('01/02/2020 21:00', 'DD/MM/YYYY HH24:MI'), 27, 35);
+-- Persona_Vuelo #9
+insert into per_vue values (63, 9, 27, 35);
+insert into per_vue values (55, 9, 27, 35);
+insert into per_vue values (47, 9, 27, 35);
+insert into per_vue values (44, 9, 27, 35);
+insert into per_vue values (23, 9, 27, 35);
+-- Vuelo #10
+insert into vuelo values (10, identificacion(null, 'Air Europa'), to_timestamp('08/02/2020 05:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('08/02/2020 10:00', 'DD/MM/YYYY HH24:MI'), 21, 32);
+-- Persona_Vuelo #10
+insert into per_vue values (26, 10, 21, 32);
+insert into per_vue values (74, 10, 21, 32);
+insert into per_vue values (9, 10, 21, 32);
+insert into per_vue values (75, 10, 21, 32);
+insert into per_vue values (18, 10, 21, 32);
+-- Vuelo #11
+insert into vuelo values (11, identificacion(null, 'Avior Airlines'), to_timestamp('11/02/2020 14:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('11/02/2020 22:00', 'DD/MM/YYYY HH24:MI'), 27, 31);
+-- Persona_Vuelo #11
+insert into per_vue values (11, 11, 27, 31);
+insert into per_vue values (70, 11, 27, 31);
+insert into per_vue values (28, 11, 27, 31);
+insert into per_vue values (10, 11, 27, 31);
+insert into per_vue values (13, 11, 27, 31);
+-- Vuelo #12
+insert into vuelo values (12, identificacion(null, 'Conviasa'), to_timestamp('17/02/2020 06:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('17/02/2020 09:00', 'DD/MM/YYYY HH24:MI'), 26, 32);
+-- Persona_Vuelo #12
+insert into per_vue values (60, 12, 26, 32); --regresa
+insert into per_vue values (55, 12, 26, 32);
+insert into per_vue values (43, 12, 26, 32);
+insert into per_vue values (58, 12, 26, 32); --regresa
+insert into per_vue values (57, 12, 26, 32); --regresa
+-- Vuelo #13
+insert into vuelo values (13, identificacion(null, 'Conviasa'), to_timestamp('20/02/2020 12:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('20/02/2020 20:00', 'DD/MM/YYYY HH24:MI'), 31, 22);
+-- Persona_Vuelo #13
+insert into per_vue values (39, 13, 31, 22);
+insert into per_vue values (55, 13, 31, 22);
+insert into per_vue values (22, 13, 31, 22);
+insert into per_vue values (56, 13, 31, 22);
+insert into per_vue values (24, 13, 31, 22);
+-- Vuelo #14
+insert into vuelo values (14, identificacion(null, 'Turkish Airlines'), to_timestamp('24/02/2020 23:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('25/02/2020 03:00', 'DD/MM/YYYY HH24:MI'), 28, 24);
+-- Persona_Vuelo #14
+insert into per_vue values (28, 14, 28, 24);
+insert into per_vue values (20, 14, 28, 24); --regresa
+insert into per_vue values (60, 14, 28, 24);
+insert into per_vue values (19, 14, 28, 24); --regresa
+insert into per_vue values (17, 14, 28, 24); --regresa
+-- Vuelo #15
+insert into vuelo values (15, identificacion(null, 'Air France'), to_timestamp('29/02/2020 08:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/02/2020 13:00', 'DD/MM/YYYY HH24:MI'), 32, 23);
+-- Persona_Vuelo #15
+insert into per_vue values (54, 15, 32, 23);
+insert into per_vue values (73, 15, 32, 23);
+insert into per_vue values (11, 15, 32, 23); --regresa
+insert into per_vue values (15, 15, 32, 23); --regresa
+insert into per_vue values (13, 15, 32, 23); --regresa
+
+
 --SINTOMA
 insert into sintoma values (1, 'Fiebre');
 insert into sintoma values (2, 'Cansancio');
@@ -87,6 +771,8 @@ insert into sintoma values (5, 'Congestion nasal');
 insert into sintoma values (6, 'Rinorrea');
 insert into sintoma values (7, 'Dolor de garganta');
 insert into sintoma values (8, 'Diarrea');
+
+-- PER_SIN -- FALTA
 
 --PATOLOGIA
 insert into patologia values (1, 'Sindrome respiratorio de Oriente Medio');
@@ -104,6 +790,10 @@ insert into patologia values (12, 'Fibrosis pulmonar idiopática');
 insert into patologia values (13, 'Infarto de miocardio');
 insert into patologia values (14, 'Insuficiencia cardiaca');
 insert into patologia values (15, 'Neumonía');
+
+-- PER_PAT --  FALTA 
+
+
 
 --INSUMO
 insert into insumo values (1, 'Mascarillas');
@@ -138,6 +828,8 @@ insert into centro_salud values (12, 'Hospital San Javier Guadalajara', direccio
 insert into centro_salud values (13, 'Hospital Santa Cristina', direccion('Calle Maestro Vives','2', null), 'Hospital', 700, 33);
 insert into centro_salud values (14, 'Hospital Universitario HM Madrid', direccion('Pl. del Conde del Valle de Súchil','16', null), 'Hospital', 820, 34);
 insert into centro_salud values (15, 'Hospital Clínico Y Provincial de Barcelona', direccion('Carrer de Villarroel','170', null), 'Clinica', 960, 35);
+
+-- HIST_MED --  FALTA
 
 --DONCACION
 --ESTADOS UNIDOS A VENEZUELA
@@ -273,3 +965,4 @@ insert into inventario (id_csalud_inventario, id_insumo_inventario, cantidad_inv
 insert into inventario (id_csalud_inventario, id_insumo_inventario, cantidad_inventario) values (15, 1, 7530);
 insert into inventario (id_csalud_inventario, id_insumo_inventario, cantidad_inventario) values (15, 4, 700);
 insert into inventario (id_csalud_inventario, id_insumo_inventario, cantidad_inventario, id_donacion_inventario) values (15, 13, 15000, 4);
+

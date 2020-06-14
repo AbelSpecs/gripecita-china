@@ -81,14 +81,14 @@ constraint fk_lugar_salida_vuelo foreign key(id_lugar_salida_vuelo) references l
 create table persona(
     pasaporte_persona number constraint PK_Persona primary key,
     nombre1_persona varchar2(25) not null,
+    nombre2_persona varchar2(25),
     apellido1_persona varchar2(25) not null,
     apellido2_persona varchar2(25) not null,
     fechanac_persona timestamp not null,
     genero_persona char(1) not null,
-    foto_persona blob not null,
+    foto_persona blob,
     status_persona varchar2(25) not null,
     fechadef_persona timestamp,
-    nombre2_persona varchar2(25),
     status_aislado_persona varchar2(25),
     id_lugar_persona number not null,
     constraint fk_lugar_persona foreign key(id_lugar_persona) references lugar(id_lugar),
@@ -123,7 +123,7 @@ constraint ck_atencionmedica_ps check(atencionmedica_ps in ('Si','No'))
 --LISTA--
 create table patologia(
     id_patologia number constraint PK_Patologia primary key,
-    nombre_patologia varchar2(30) not null
+    nombre_patologia varchar2(40) not null
 );
 --LISTA--
 create table per_pat(
