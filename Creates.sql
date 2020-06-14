@@ -175,9 +175,9 @@ constraint fk_lugar_ofr_donacion foreign key(id_lugar_ofrece_donacion) reference
 create table inventario(
 id_csalud_inventario number not null,
 id_insumo_inventario number not null,
-id_donacion_inventario number not null,
 cantidad_inventario number not null,
-constraint pk_inventario primary key(id_csalud_inventario,id_insumo_inventario,id_donacion_inventario),
+id_donacion_inventario number,
+constraint pk_inventario primary key(id_csalud_inventario,id_insumo_inventario),
 constraint fk_csalud_inventario foreign key(id_csalud_inventario) references centro_salud(id_csalud),
 constraint fk_insumo_inventario foreign key(id_insumo_inventario) references insumo(id_insumo),
 constraint fk_donacion_inventario foreign key(id_donacion_inventario) references donacion(id_donacion)
