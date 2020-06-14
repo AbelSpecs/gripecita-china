@@ -141,88 +141,92 @@ insert into centro_salud values (15, 'Hospital Clínico Y Provincial de Barcelon
 
 --DONCACION
 --ESTADOS UNIDOS A VENEZUELA
-insert into donacion values (1, to_date('10/03/2020','DD/MM/YYYY'), 'Mascarillas', 100000, 1000000, 2, 1);
-insert into donacion values (2, to_date('10/03/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 20000, 20000000, 2, 1);
-insert into donacion values (3, to_date('10/03/2020','DD/MM/YYYY'), 'Gel antibacterial', 100000, 100000, 2, 1);
-insert into donacion values (4, to_date('10/05/2020','DD/MM/YYYY'), 'Mascarillas', 100000, 1000000, 2, 1);
-insert into donacion values (5, to_date('10/05/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 5000, 500000, 2, 1);
-insert into donacion values (6, to_date('10/05/2020','DD/MM/YYYY'), 'Gel antibacterial', 100000, 100000, 2, 1);
+insert into donacion values (1, to_date('10/03/2020','DD/MM/YYYY'), 'Mascarillas', 100000, 1000000, 1, 2);
+insert into donacion values (2, to_date('10/03/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 20000, 20000000, 1, 2);
+insert into donacion values (3, to_date('10/03/2020','DD/MM/YYYY'), 'Gel antibacterial', 100000, 100000, 1, 2);
+insert into donacion values (4, to_date('10/05/2020','DD/MM/YYYY'), 'Mascarillas', 100000, 1000000, 1, 2);
+insert into donacion values (5, to_date('10/05/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 5000, 500000, 1, 2);
+insert into donacion values (6, to_date('10/05/2020','DD/MM/YYYY'), 'Gel antibacterial', 100000, 100000, 1, 2);
 --ESTADOS UNIDOS A BRASIL
-insert into donacion values (7, to_date('15/02/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 2, 3);
-insert into donacion values (8, to_date('15/02/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 2, 3);
-insert into donacion values (9, to_date('01/06/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 2, 3);
-insert into donacion values (10, to_date('01/06/2020','DD/MM/YYYY'), 'Gel antibacterial', 100000, 100000, 2, 3);
-insert into donacion values (11, to_date('01/06/2020','DD/MM/YYYY'), 'Alcohol', 100000, 100000, 2, 3);
+insert into donacion values (7, to_date('15/02/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 3, 2);
+insert into donacion values (8, to_date('15/02/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 3, 2);
+insert into donacion values (9, to_date('01/06/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 3, 2);
+insert into donacion values (10, to_date('01/06/2020','DD/MM/YYYY'), 'Gel antibacterial', 100000, 100000, 3, 2);
+insert into donacion values (11, to_date('01/06/2020','DD/MM/YYYY'), 'Alcohol', 100000, 100000, 3, 2);
 --ESTADOS UNIDOS A MEXICO
-insert into donacion values (12, to_date('01/02/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 2, 4);
-insert into donacion values (13, to_date('01/02/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 2, 4);
-insert into donacion values (14, to_date('01/02/2020','DD/MM/YYYY'), 'Gel antibacterial', 100000, 100000, 2, 4);
-insert into donacion values (15, to_date('01/02/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 2, 4);
-insert into donacion values (16, to_date('15/04/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 2, 4);
-insert into donacion values (17, to_date('15/04/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 2, 4);
-insert into donacion values (18, to_date('15/04/2020','DD/MM/YYYY'), 'Gel antibacterial', 100000, 100000, 2, 4);
-insert into donacion values (19, to_date('15/04/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 2, 4);
+insert into donacion values (12, to_date('01/02/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 4, 2);
+insert into donacion values (13, to_date('01/02/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 4, 2);
+insert into donacion values (14, to_date('01/02/2020','DD/MM/YYYY'), 'Gel antibacterial', 100000, 100000, 4, 2);
+insert into donacion values (15, to_date('01/02/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 4, 2);
+insert into donacion values (16, to_date('15/04/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 4, 2);
+insert into donacion values (17, to_date('15/04/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 4, 2);
+insert into donacion values (18, to_date('15/04/2020','DD/MM/YYYY'), 'Gel antibacterial', 100000, 100000, 4, 2);
+insert into donacion values (19, to_date('15/04/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 4, 2);
 --ESTADOS UNIDOS A ESPAÑA
-insert into donacion values (20, to_date('22/02/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 2, 5);
-insert into donacion values (21, to_date('22/02/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 2, 5);
-insert into donacion values (22, to_date('22/02/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 2, 5);
-insert into donacion values (23, to_date('22/02/2020','DD/MM/YYYY'), 'Termometros', 20000, 40000, 2, 5);
-insert into donacion values (24, to_date('11/04/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 2, 5);
-insert into donacion values (25, to_date('11/04/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 2, 5);
-insert into donacion values (26, to_date('11/04/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 2, 5);
-insert into donacion values (27, to_date('11/04/2020','DD/MM/YYYY'), 'Termometros', 20000, 40000, 2, 5);
+insert into donacion values (20, to_date('22/02/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 5, 2);
+insert into donacion values (21, to_date('22/02/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 5, 2);
+insert into donacion values (22, to_date('22/02/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 5, 2);
+insert into donacion values (23, to_date('22/02/2020','DD/MM/YYYY'), 'Termometros', 20000, 40000, 5, 2);
+insert into donacion values (24, to_date('11/04/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 5, 2);
+insert into donacion values (25, to_date('11/04/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 5, 2);
+insert into donacion values (26, to_date('11/04/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 5, 2);
+insert into donacion values (27, to_date('11/04/2020','DD/MM/YYYY'), 'Termometros', 20000, 40000, 5, 2);
 --ESPAÑA A VENEZUELA
-insert into donacion values (28, to_date('12/03/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 5, 1);
-insert into donacion values (29, to_date('12/03/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 5, 1);
-insert into donacion values (30, to_date('12/03/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 5, 1);
-insert into donacion values (31, to_date('12/03/2020','DD/MM/YYYY'), 'Alcohol', 200000, 1000000, 5, 1);
-insert into donacion values (32, to_date('18/05/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 5, 1);
-insert into donacion values (33, to_date('18/05/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 5, 1);
-insert into donacion values (34, to_date('18/05/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 5, 1);
-insert into donacion values (35, to_date('18/05/2020','DD/MM/YYYY'), 'Alcohol', 200000, 1000000, 5, 1);
+insert into donacion values (28, to_date('12/03/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 1, 5);
+insert into donacion values (29, to_date('12/03/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 1, 5);
+insert into donacion values (30, to_date('12/03/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 1, 5);
+insert into donacion values (31, to_date('12/03/2020','DD/MM/YYYY'), 'Alcohol', 200000, 1000000, 1, 5);
+insert into donacion values (32, to_date('18/05/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 1, 5);
+insert into donacion values (33, to_date('18/05/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 1, 5);
+insert into donacion values (34, to_date('18/05/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 1, 5);
+insert into donacion values (35, to_date('18/05/2020','DD/MM/YYYY'), 'Alcohol', 200000, 1000000, 1, 5);
 --ESPAÑA A ESTADOS UNIDOS
-insert into donacion values (36, to_date('27/04/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 5, 2);
-insert into donacion values (37, to_date('27/04/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 5, 2);
-insert into donacion values (38, to_date('27/04/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 5, 2);
-insert into donacion values (39, to_date('27/04/2020','DD/MM/YYYY'), 'Alcohol', 200000, 1000000, 5, 2);
-insert into donacion values (40, to_date('05/05/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 5, 2);
-insert into donacion values (41, to_date('05/05/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 5, 2);
-insert into donacion values (42, to_date('05/05/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 5, 2);
-insert into donacion values (43, to_date('05/05/2020','DD/MM/YYYY'), 'Alcohol', 200000, 1000000, 5, 2);
+insert into donacion values (36, to_date('27/04/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 2, 5);
+insert into donacion values (37, to_date('27/04/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 2, 5);
+insert into donacion values (38, to_date('27/04/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 2, 5);
+insert into donacion values (39, to_date('27/04/2020','DD/MM/YYYY'), 'Alcohol', 200000, 1000000, 2, 5);
+insert into donacion values (40, to_date('05/05/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 2, 5);
+insert into donacion values (41, to_date('05/05/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 2, 5);
+insert into donacion values (42, to_date('05/05/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 2, 5);
+insert into donacion values (43, to_date('05/05/2020','DD/MM/YYYY'), 'Alcohol', 200000, 1000000, 2, 5);
 --ESPAÑA A MEXICO
-insert into donacion values (44, to_date('01/04/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 5, 4);
-insert into donacion values (45, to_date('01/04/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 5, 4);
-insert into donacion values (46, to_date('01/04/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 5, 4);
-insert into donacion values (47, to_date('01/06/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 5, 4);
-insert into donacion values (48, to_date('01/06/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 5, 4);
-insert into donacion values (49, to_date('01/06/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 5, 4);
+insert into donacion values (44, to_date('01/04/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 4, 5);
+insert into donacion values (45, to_date('01/04/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 4, 5);
+insert into donacion values (46, to_date('01/04/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 4, 5);
+insert into donacion values (47, to_date('01/06/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 4, 5);
+insert into donacion values (48, to_date('01/06/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 4, 5);
+insert into donacion values (49, to_date('01/06/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 4, 5);
 --BRASIL A ESTADOS UNIDOS
-insert into donacion values (50, to_date('30/03/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 3, 2);
-insert into donacion values (51, to_date('30/03/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 3, 2);
+insert into donacion values (50, to_date('30/03/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 2, 3);
+insert into donacion values (51, to_date('30/03/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 2, 3);
 --BRASIL A VENEZUELA
-insert into donacion values (52, to_date('27/02/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 3, 1);
-insert into donacion values (53, to_date('27/02/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 3, 1);
-insert into donacion values (54, to_date('27/02/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 3, 4);
+insert into donacion values (52, to_date('27/02/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 1, 3);
+insert into donacion values (53, to_date('27/02/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 1, 3);
+insert into donacion values (54, to_date('27/02/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 1, 3);
 --MEXICO A VENEZUELA
-insert into donacion values (55, to_date('18/03/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 4, 1);
-insert into donacion values (56, to_date('18/03/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 4, 1);
-insert into donacion values (57, to_date('18/03/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 4, 1);
-insert into donacion values (58, to_date('18/03/2020','DD/MM/YYYY'), 'Alcohol', 200000, 1000000, 4, 1);
-insert into donacion values (59, to_date('18/03/2020','DD/MM/YYYY'), 'Gorros descartables', 200000, 1000000, 4, 1);
+insert into donacion values (55, to_date('18/03/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 1, 4);
+insert into donacion values (56, to_date('18/03/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 1, 4);
+insert into donacion values (57, to_date('18/03/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 1, 4);
+insert into donacion values (58, to_date('18/03/2020','DD/MM/YYYY'), 'Alcohol', 200000, 1000000, 1, 4);
+insert into donacion values (59, to_date('18/03/2020','DD/MM/YYYY'), 'Gorros descartables', 200000, 1000000, 1, 4);
 --MEXICO A ESTADOS UNIDOS
-insert into donacion values (60, to_date('03/03/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 4, 2);
-insert into donacion values (61, to_date('03/03/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 4, 2);
+insert into donacion values (60, to_date('03/03/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 2, 4);
+insert into donacion values (61, to_date('03/03/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 2, 4);
 --MEXICO A BRASIL
-insert into donacion values (62, to_date('15/04/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 4, 3);
-insert into donacion values (63, to_date('15/04/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 4, 3);
-insert into donacion values (64, to_date('15/04/2020','DD/MM/YYYY'), 'Termometros', 20000, 40000, 4, 3);
+insert into donacion values (62, to_date('15/04/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 3, 4);
+insert into donacion values (63, to_date('15/04/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 3, 4);
+insert into donacion values (64, to_date('15/04/2020','DD/MM/YYYY'), 'Termometros', 20000, 40000, 3, 4);
 --MEXICO A ESPAÑA
-insert into donacion values (65, to_date('17/02/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 4, 5);
-insert into donacion values (66, to_date('17/02/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 4, 5);
-insert into donacion values (67, to_date('17/02/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 4, 5);
+insert into donacion values (65, to_date('17/02/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 5, 4);
+insert into donacion values (66, to_date('17/02/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 5, 4);
+insert into donacion values (67, to_date('17/02/2020','DD/MM/YYYY'), 'Guantes quirurgicos', 50000, 500000, 5, 4);
 --VENEZUELA A MEXICO
-insert into donacion values (68, to_date('15/04/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 1, 4);
-insert into donacion values (69, to_date('15/04/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 1, 4);
+insert into donacion values (68, to_date('15/04/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 4, 1);
+insert into donacion values (69, to_date('15/04/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 4, 1);
 --VENEZUELA A BRASIL
-insert into donacion values (70, to_date('15/04/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 1, 3);
-insert into donacion values (71, to_date('15/04/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 1, 3);
+insert into donacion values (70, to_date('15/04/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 3, 1);
+insert into donacion values (71, to_date('15/04/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 3, 1);
+
+
+--INVENTARIO
+insert into inventario values ();
