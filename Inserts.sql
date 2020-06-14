@@ -774,8 +774,8 @@ insert into sintoma values (8, 'Diarrea');
 -- PER_SIN -- FALTA
 
 --PATOLOGIA
-insert into patologia values (1, 'Sindrome respiratorio de Oriente Medio');
-insert into patologia values (2, 'Sindrome respiratorio agudo severo');
+insert into patologia values (1, 'Sin. resp. de Oriente Medio');
+insert into patologia values (2, 'Sin. resp. agudo severo');
 insert into patologia values (3, 'Diabetes');
 insert into patologia values (4, 'Hepatitis');
 insert into patologia values (5, 'Obesidad');
