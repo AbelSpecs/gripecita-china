@@ -89,8 +89,8 @@ insert into sintoma values (7, 'Dolor de garganta');
 insert into sintoma values (8, 'Diarrea');
 
 --PATOLOGIA
-insert into patologia values (1, 'Sindrome respiratorio de Oriente Medio');
-insert into patologia values (2, 'Sindrome respiratorio agudo severo');
+insert into patologia values (1, 'Sin. resp. de Oriente Medio');
+insert into patologia values (2, 'Sin. resp. agudo severo');
 insert into patologia values (3, 'Diabetes');
 insert into patologia values (4, 'Hepatitis');
 insert into patologia values (5, 'Obesidad');
