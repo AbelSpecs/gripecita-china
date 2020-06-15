@@ -771,7 +771,244 @@ insert into sintoma values (6, 'Rinorrea');
 insert into sintoma values (7, 'Dolor de garganta');
 insert into sintoma values (8, 'Diarrea');
 
--- PER_SIN -- FALTA
+-- PER_SIN 
+insert into per_sin values(to_date('20/06/2020'),'No',1,1);
+insert into per_sin values(to_date('21/06/2020'),'No',1,2);
+insert into per_sin values(to_date('23/06/2020'),'Si',1,3);
+
+insert into per_sin values(to_date('22/06/2020'),'No',2,1);
+insert into per_sin values(to_date('23/06/2020'),'No',2,2);
+insert into per_sin values(to_date('26/06/2020'),'No',2,4);
+
+insert into per_sin values(to_date('25/06/2020'),'No',3,2);
+insert into per_sin values(to_date('27/06/2020'),'Si',3,4);
+insert into per_sin values(to_date('29/06/2020'),'Si',3,5);
+
+insert into per_sin values(to_date('23/06/2020'),'No',4,2);
+insert into per_sin values(to_date('28/06/2020'),'No',4,4);
+
+insert into per_sin values(to_date('27/06/2020'),'Si',5,3);
+insert into per_sin values(to_date('3/07/2020'),'Si',5,7);
+
+insert into per_sin values(to_date('24/06/2020'),'No',6,1);
+insert into per_sin values(to_date('27/06/2020'),'No',6,2);
+insert into per_sin values(to_date('29/06/2020'),'Si',6,3);
+insert into per_sin values(to_date('4/07/2020'),'Si',6,4);
+
+insert into per_sin values(to_date('25/06/2020'),'No',7,1);
+
+insert into per_sin values(to_date('5/07/2020'),'No',8,1);
+insert into per_sin values(to_date('6/07/2020'),'No',8,2);
+insert into per_sin values(to_date('8/07/2020'),'No',8,4);
+insert into per_sin values(to_date('10/07/2020'),'Si',8,8);
+
+insert into per_sin values(to_date('3/07/2020'),'No',9,4);
+insert into per_sin values(to_date('6/07/2020'),'No',9,5);
+
+insert into per_sin values(to_date('22/06/2020'),'No',10,2);
+insert into per_sin values(to_date('24/06/2020'),'Si',10,4);
+
+insert into per_sin values(to_date('24/06/2020'),'Si',11,1);
+insert into per_sin values(to_date('25/06/2020'),'No',11,2);
+insert into per_sin values(to_date('28/06/2020'),'Si',11,3);
+insert into per_sin values(to_date('06/07/2020'),'No',11,4);
+insert into per_sin values(to_date('07/07/2020'),'Si',11,7);
+
+insert into per_sin values(to_date('08/07/2020'),'No',12,2);
+insert into per_sin values(to_date('10/07/2020'),'Si',12,3);
+insert into per_sin values(to_date('15/07/2020'),'Si',12,4);
+
+insert into per_sin values(to_date('22/06/2020'),'No',13,1);
+insert into per_sin values(to_date('24/06/2020'),'No',13,2);
+insert into per_sin values(to_date('28/06/2020'),'No',13,3);
+insert into per_sin values(to_date('29/06/2020'),'No',13,4);
+insert into per_sin values(to_date('2/07/2020'),'Si',13,5);
+insert into per_sin values(to_date('5/07/2020'),'Si',13,7);
+
+insert into per_sin values(to_date('20/06/2020'),'Si',14,1);
+--- DEL 16 AL 30------------------------------------------------
+insert into per_sin values(to_date('27/06/2020'),'No',16,2);
+insert into per_sin values(to_date('28/06/2020'),'No',16,4);
+insert into per_sin values(to_date('5/07/2020'),'No',16,5);
+
+insert into per_sin values(to_date('3/07/2020'),'Si',17,1);
+insert into per_sin values(to_date('7/07/2020'),'Si',17,2);
+
+insert into per_sin values(to_date('28/06/2020'),'Si',19,3);
+
+insert into per_sin values(to_date('29/06/2020'),'Si',20,1);
+insert into per_sin values(to_date('5/07/2020'),'Si',20,7);
+
+insert into per_sin values(to_date('9/07/2020'),'Si',21,3);
+
+insert into per_sin values(to_date('5/07/2020'),'No',22,4);
+
+insert into per_sin values(to_date('5/07/2020'),'Si',23,2);
+insert into per_sin values(to_date('10/07/2020'),'No',23,3);
+
+insert into per_sin values(to_date('24/06/2020'),'Si',24,1);
+insert into per_sin values(to_date('29/06/2020'),'No',24,4);
+
+insert into per_sin values(to_date('30/06/2020'),'Si',25,3);
+insert into per_sin values(to_date('6/06/2020'),'Si',25,5);
+
+insert into per_sin values(to_date('12/07/2020'),'Si',26,3);
+insert into per_sin values(to_date('15/07/2020'),'Si',26,6);
+
+insert into per_sin values(to_date('15/07/2020'),'Si',27,1);
+insert into per_sin values(to_date('18/07/2020'),'No',27,2);
+insert into per_sin values(to_date('20/07/2020'),'Si',27,8);
+
+insert into per_sin values(to_date('25/06/2020'),'No',28,2);
+insert into per_sin values(to_date('5/07/2020'),'Si',28,5);
+
+insert into per_sin values(to_date('23/06/2020'),'Si',30,1);
+insert into per_sin values(to_date('25/06/2020'),'No',30,2);
+insert into per_sin values(to_date('5/07/2020'),'Si',30,3);
+insert into per_sin values(to_date('7/07/2020'),'No',30,5);
+--- DEL 31 AL 45----------------------------------------------
+insert into per_sin values(to_date('25/06/2020'),'No',31,2);
+insert into per_sin values(to_date('27/06/2020'),'No',31,4);
+
+insert into per_sin values(to_date('25/06/2020'),'Si',32,7);
+
+insert into per_sin values(to_date('28/06/2020'),'No',33,2);
+insert into per_sin values(to_date('5/07/2020'),'Si',33,3);
+
+insert into per_sin values(to_date('26/06/2020'),'Si',34,4);
+
+insert into per_sin values(to_date('7/07/2020'),'Si',35,3);
+
+insert into per_sin values(to_date('25/06/2020'),'Si',36,1);
+insert into per_sin values(to_date('8/07/2020'),'No',36,4);
+
+insert into per_sin values(to_date('29/06/2020'),'Si',37,1);
+insert into per_sin values(to_date('2/07/2020'),'Si',37,5);
+
+insert into per_sin values(to_date('25/06/2020'),'Si',38,1);
+insert into per_sin values(to_date('27/06/2020'),'No',38,2);
+insert into per_sin values(to_date('28/06/2020'),'No',38,4);
+insert into per_sin values(to_date('3/07/2020'),'Si',38,7);
+insert into per_sin values(to_date('5/07/2020'),'Si',38,8);
+
+insert into per_sin values(to_date('1/07/2020'),'Si',39,4);
+
+insert into per_sin values(to_date('25/06/2020'),'No',40,4);
+insert into per_sin values(to_date('5/07/2020'),'Si',40,5);
+
+insert into per_sin values(to_date('25/06/2020'),'No',41,2);
+insert into per_sin values(to_date('4/07/2020'),'Si',41,4);
+
+insert into per_sin values(to_date('5/07/2020'),'Si',43,1);
+insert into per_sin values(to_date('15/07/2020'),'No',43,2);
+insert into per_sin values(to_date('18/07/2020'),'Si',43,3);
+insert into per_sin values(to_date('19/07/2020'),'Si',43,4);
+insert into per_sin values(to_date('20/07/2020'),'Si',43,7);
+
+insert into per_sin values(to_date('25/06/2020'),'Si',44,4);
+
+insert into per_sin values(to_date('25/06/2020'),'Si',45,1);
+insert into per_sin values(to_date('4/07/2020'),'Si',45,3);
+--- DEL 46 AL 60----------------------------------------------
+insert into per_sin values(to_date('4/07/2020'),'No',46,1);
+
+insert into per_sin values(to_date('2/07/2020'),'No',47,2);
+insert into per_sin values(to_date('4/07/2020'),'Si',47,5);
+
+insert into per_sin values(to_date('24/06/2020'),'Si',48,1);
+insert into per_sin values(to_date('4/07/2020'),'No',48,2);
+insert into per_sin values(to_date('5/07/2020'),'Si',48,8);
+
+insert into per_sin values(to_date('4/07/2020'),'No',49,2);
+insert into per_sin values(to_date('6/07/2020'),'No',49,4);
+insert into per_sin values(to_date('9/07/2020'),'Si',49,6);
+
+insert into per_sin values(to_date('27/06/2020'),'Si',50,5);
+
+insert into per_sin values(to_date('27/06/2020'),'Si',51,1);
+insert into per_sin values(to_date('28/06/2020'),'Si',51,3);
+insert into per_sin values(to_date('4/07/2020'),'Si',51,4);
+
+insert into per_sin values(to_date('2/07/2020'),'Si',52,3);
+insert into per_sin values(to_date('6/07/2020'),'Si',52,7);
+
+insert into per_sin values(to_date('9/07/2020'),'No',53,4);
+
+insert into per_sin values(to_date('24/06/2020'),'No',54,2);
+insert into per_sin values(to_date('4/07/2020'),'Si',54,3);
+
+insert into per_sin values(to_date('1/07/2020'),'Si',55,1);
+
+insert into per_sin values(to_date('8/07/2020'),'Si',56,1);
+
+insert into per_sin values(to_date('26/06/2020'),'No',57,7);
+
+insert into per_sin values(to_date('26/06/2020'),'Si',58,2);
+insert into per_sin values(to_date('3/07/2020'),'No',58,8);
+
+insert into per_sin values(to_date('22/06/2020'),'Si',59,4);
+insert into per_sin values(to_date('24/06/2020'),'No',59,6);
+
+insert into per_sin values(to_date('4/07/2020'),'No',60,4);
+--- DEL 61 AL 75----------------------------------------------
+insert into per_sin values(to_date('4/07/2020'),'Si',61,1);
+insert into per_sin values(to_date('6/07/2020'),'No',61,2);
+insert into per_sin values(to_date('9/07/2020'),'Si',61,3);
+
+insert into per_sin values(to_date('4/07/2020'),'Si',62,1);
+insert into per_sin values(to_date('7/07/2020'),'No',62,2);
+insert into per_sin values(to_date('14/07/2020'),'Si',62,3);
+insert into per_sin values(to_date('24/07/2020'),'Si',62,4);
+insert into per_sin values(to_date('25/07/2020'),'Si',62,5);
+insert into per_sin values(to_date('27/07/2020'),'No',62,6);
+insert into per_sin values(to_date('29/07/2020'),'Si',62,7);
+
+insert into per_sin values(to_date('19/06/2020'),'Si',63,1);
+insert into per_sin values(to_date('27/06/2020'),'Si',63,2);
+insert into per_sin values(to_date('4/07/2020'),'No',63,8);
+
+insert into per_sin values(to_date('2/07/2020'),'No',64,2);
+
+insert into per_sin values(to_date('24/06/2020'),'No',65,4);
+insert into per_sin values(to_date('5/07/2020'),'Si',65,5);
+
+insert into per_sin values(to_date('22/06/2020'),'No',66,2);
+insert into per_sin values(to_date('1/07/2020'),'No',66,4);
+
+insert into per_sin values(to_date('8/07/2020'),'Si',67,3);
+
+insert into per_sin values(to_date('6/07/2020'),'Si',68,1);
+insert into per_sin values(to_date('19/07/2020'),'No',68,4);
+
+insert into per_sin values(to_date('4/07/2020'),'No',69,2);
+insert into per_sin values(to_date('7/07/2020'),'No',69,3);
+insert into per_sin values(to_date('14/07/2020'),'No',69,4);
+
+insert into per_sin values(to_date('22/06/2020'),'Si',70,1);
+insert into per_sin values(to_date('28/06/2020'),'No',70,2);
+insert into per_sin values(to_date('4/07/2020'),'No',70,3);
+insert into per_sin values(to_date('5/07/2020'),'No',70,4);
+insert into per_sin values(to_date('8/07/2020'),'No',70,5);
+insert into per_sin values(to_date('9/07/2020'),'Si',70,6);
+insert into per_sin values(to_date('14/07/2020'),'Si',70,7);
+insert into per_sin values(to_date('17/07/2020'),'No',70,8);
+
+insert into per_sin values(to_date('3/07/2020'),'No',71,5);
+
+insert into per_sin values(to_date('1/07/2020'),'No',72,2);
+insert into per_sin values(to_date('6/07/2020'),'No',72,4);
+
+insert into per_sin values(to_date('23/06/2020'),'Si',73,1);
+insert into per_sin values(to_date('28/06/2020'),'Si',73,2);
+insert into per_sin values(to_date('3/07/2020'),'No',73,3);
+insert into per_sin values(to_date('5/07/2020'),'No',73,7);
+insert into per_sin values(to_date('9/07/2020'),'No',73,3);
+
+insert into per_sin values(to_date('4/07/2020'),'Si',74,3);
+insert into per_sin values(to_date('8/07/2020'),'No',74,4);
+
+insert into per_sin values(to_date('5/07/2020'),'No',75,1);
+insert into per_sin values(to_date('12/07/2020'),'No',75,4);
 
 --PATOLOGIA
 insert into patologia values (1, 'Sin. resp. de Oriente Medio');
@@ -790,9 +1027,147 @@ insert into patologia values (13, 'Infarto de miocardio');
 insert into patologia values (14, 'Insuficiencia cardiaca');
 insert into patologia values (15, 'Neumonía');
 
--- PER_PAT --  FALTA 
+-- PER_PAT    
+insert into per_pat values(1,1);
+insert into per_pat values(1,2);
+insert into per_pat values(1,3);
+insert into per_pat values(2,3);
+insert into per_pat values(2,4);
+insert into per_pat values(2,5);
+insert into per_pat values(2,6);
+insert into per_pat values(3,6);
+insert into per_pat values(3,7);
+insert into per_pat values(4,8);
+insert into per_pat values(4,9);
+insert into per_pat values(4,10);
+insert into per_pat values(5,11);
+insert into per_pat values(5,12);
+insert into per_pat values(6,13);
+insert into per_pat values(6,14);
+insert into per_pat values(6,15);
+insert into per_pat values(7,1);
+insert into per_pat values(7,2);
+insert into per_pat values(8,3);
+insert into per_pat values(8,4);
+insert into per_pat values(8,5);
+insert into per_pat values(8,6);
+insert into per_pat values(9,7);
+insert into per_pat values(10,8);
+insert into per_pat values(11,9);
+insert into per_pat values(11,10);
+insert into per_pat values(11,11);
+insert into per_pat values(12,12);
+insert into per_pat values(12,13);
+insert into per_pat values(13,14);
+insert into per_pat values(13,15);
+insert into per_pat values(13,1);
+insert into per_pat values(14,2);
+insert into per_pat values(14,3);
 
+------------------PERSONAS CON PATOLOGIA DEL 16 AL 30----
+insert into per_pat values(16,6);
+insert into per_pat values(16,7);
+insert into per_pat values(17,8);
 
+insert into per_pat values(19,9);
+insert into per_pat values(20,10);
+insert into per_pat values(20,11);
+insert into per_pat values(21,12);
+insert into per_pat values(22,13);
+insert into per_pat values(23,14);
+insert into per_pat values(24,15);
+insert into per_pat values(25,1);
+insert into per_pat values(26,2);
+insert into per_pat values(27,3);
+insert into per_pat values(27,4);
+insert into per_pat values(28,5);
+
+insert into per_pat values(30,7);
+insert into per_pat values(30,8);
+insert into per_pat values(30,9);
+------------------PERSONAS CON PATOLOGIA DEL 31 AL 45----
+insert into per_pat values(31,10);
+insert into per_pat values(32,11);
+insert into per_pat values(33,12);
+insert into per_pat values(34,13);
+insert into per_pat values(35,14);
+insert into per_pat values(36,15);
+insert into per_pat values(37,1);
+insert into per_pat values(38,2);
+insert into per_pat values(38,3);
+insert into per_pat values(38,4);
+insert into per_pat values(38,5);
+insert into per_pat values(39,6);
+insert into per_pat values(40,7);
+insert into per_pat values(41,8);
+
+insert into per_pat values(43,10);
+insert into per_pat values(43,11);
+insert into per_pat values(43,12);
+insert into per_pat values(44,13);
+insert into per_pat values(45,14);
+insert into per_pat values(45,15);
+------------------PERSONAS CON PATOLOGIA DEL 46 AL 60----
+insert into per_pat values(46,1);
+insert into per_pat values(47,2);
+insert into per_pat values(48,3);
+insert into per_pat values(48,4);
+insert into per_pat values(49,5);
+insert into per_pat values(49,6);
+insert into per_pat values(50,7);
+insert into per_pat values(51,8);
+insert into per_pat values(51,9);
+insert into per_pat values(51,10);
+insert into per_pat values(52,11);
+insert into per_pat values(52,12);
+insert into per_pat values(53,13);
+insert into per_pat values(54,14);
+insert into per_pat values(55,15);
+insert into per_pat values(56,1);
+insert into per_pat values(57,2);
+insert into per_pat values(58,3);
+insert into per_pat values(58,4);
+insert into per_pat values(58,5);
+insert into per_pat values(59,6);
+insert into per_pat values(59,7);
+insert into per_pat values(60,8);
+------------------PERSONAS CON PATOLOGIA DEL 61 AL 75----
+insert into per_pat values(61,9);
+insert into per_pat values(62,10);
+insert into per_pat values(62,11);
+insert into per_pat values(62,13);
+insert into per_pat values(62,14);
+insert into per_pat values(62,15);
+insert into per_pat values(62,1);
+insert into per_pat values(62,2);
+insert into per_pat values(63,3);
+insert into per_pat values(63,4);
+insert into per_pat values(63,5);
+insert into per_pat values(64,6);
+insert into per_pat values(65,7);
+insert into per_pat values(66,8);
+insert into per_pat values(67,9);
+insert into per_pat values(68,10);
+insert into per_pat values(68,11);
+insert into per_pat values(69,12);
+insert into per_pat values(69,13);
+insert into per_pat values(69,14);
+insert into per_pat values(70,15);
+insert into per_pat values(70,1);
+insert into per_pat values(70,2);
+insert into per_pat values(70,3);
+insert into per_pat values(70,4);
+insert into per_pat values(70,5);
+insert into per_pat values(70,6);
+insert into per_pat values(71,7);
+insert into per_pat values(72,8);
+insert into per_pat values(73,9);
+insert into per_pat values(73,10);
+insert into per_pat values(73,11);
+insert into per_pat values(73,12);
+insert into per_pat values(74,13);
+insert into per_pat values(74,14);
+insert into per_pat values(75,15);
 
 --INSUMO
 insert into insumo values (1, 'Mascarillas');
