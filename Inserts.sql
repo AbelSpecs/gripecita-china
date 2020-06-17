@@ -1,10 +1,100 @@
+--DIRECTORIO
+CREATE OR REPLACE DIRECTORY DIR_IMAGENES as 'C:\Users\Omar David\Desktop\prueba\imagenes';
+GRANT ALL ON DIRECTORY DIR_IMAGENES TO public;
+GRANT READ, WRITE ON DIRECTORY DIR_IMAGENES TO public;
+
 --LUGAR
 --Paises
-insert into lugar values (1, identificacion(null, 'Venezuela'), 'Pais', 30000000, null);
-insert into lugar values (2, identificacion(null, 'Estados Unidos'), 'Pais', 328000000, null);
-insert into lugar values (3, identificacion(null, 'Brasil'), 'Pais', 209000000, null);
-insert into lugar values (4, identificacion(null, 'Mexico'), 'Pais', 126000000, null);
-insert into lugar values (5, identificacion(null, 'España'), 'Pais', 4177000000, null);
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into lugar values (1, identificacion(EMPTY_BLOB(), 'Venezuela'), 'Pais', 30000000, null);
+  select l.identificacion_lugar.imagen INTO l_blob from lugar l where l.id_lugar = 1;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Venezuela.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into lugar values (2, identificacion(EMPTY_BLOB(), 'Estados Unidos'), 'Pais', 328000000, null);
+  select l.identificacion_lugar.imagen INTO l_blob from lugar l where l.id_lugar = 2;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Estados Unidos.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into lugar values (3, identificacion(EMPTY_BLOB(), 'Brasil'), 'Pais', 209000000, null);
+  select l.identificacion_lugar.imagen INTO l_blob from lugar l where l.id_lugar = 3;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Brasil.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into lugar values (4, identificacion(EMPTY_BLOB(), 'Mexico'), 'Pais', 126000000, null);
+  select l.identificacion_lugar.imagen INTO l_blob from lugar l where l.id_lugar = 4;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Mexico.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into lugar values (5, identificacion(EMPTY_BLOB(), 'España'), 'Pais', 4177000000, null);
+  select l.identificacion_lugar.imagen INTO l_blob from lugar l where l.id_lugar = 5;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'España.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
 --Estados
 insert into lugar values (6, identificacion(null, 'Miranda'), 'Estado', 3200000, 1);
 insert into lugar values (7, identificacion(null, 'Merida'), 'Estado', 250000, 1);
@@ -73,21 +163,306 @@ insert into lu_ais values (to_date('25/05/2020', 'DD/MM/YYYY'), to_date('21/06/2
 insert into lu_ais values (to_date('21/06/2020', 'DD/MM/YYYY'), null, 5,4); -- España ; Movilidad reducida 1 de 8
 
 --PROVEEDOR
-insert into proveedor values (1, identificacion(null, 'Cantv'), 2, 5);
-insert into proveedor values (2, identificacion(null, 'Movistar'), 2, 7);
-insert into proveedor values (3, identificacion(null, 'Digitel'), 2, 5);
-insert into proveedor values (4, identificacion(null, 'Inter'), 2, 10);
-insert into proveedor values (5, identificacion(null, 'T-Online'), 5, 10);
-insert into proveedor values (6, identificacion(null, 'UOL'), 8, 8);
-insert into proveedor values (7, identificacion(null, 'Unitel' ), 7, 7);
-insert into proveedor values (8, identificacion(null, 'Earthlink' ), 100, 100);
-insert into proveedor values (9, identificacion(null, 'AT and T'), 50, 50);
-insert into proveedor values (10, identificacion(null, 'GTT'), 20, 50);
-insert into proveedor values (11, identificacion(null, 'T-Mobile'), 30, 20);
-insert into proveedor values (12, identificacion(null, 'Global Telecom'), 20, 25);
-insert into proveedor values (13, identificacion(null, 'Deutsche Telekom'), 50, 40);
-insert into proveedor values (14, identificacion(null, 'KPN International'), 70, 30);
-insert into proveedor values (15, identificacion(null, 'Orange'), 50, 50);
+--1--
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into proveedor (id_proveedor, identificacion_proveedor, velocidad_subida_proveedor, velocidad_bajada_proveedor) 
+    values (1, identificacion(EMPTY_BLOB(), 'Cantv'), 2, 5);
+  select p.identificacion_proveedor.imagen INTO l_blob from proveedor p where p.id_proveedor = 1;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Cantv.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+--2--
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into proveedor (id_proveedor, identificacion_proveedor, velocidad_subida_proveedor, velocidad_bajada_proveedor) 
+    values (2, identificacion(EMPTY_BLOB(), 'Movistar'), 2, 7);
+  select p.identificacion_proveedor.imagen INTO l_blob from proveedor p where p.id_proveedor = 2;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Movistar.jpg');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+--3--
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into proveedor (id_proveedor, identificacion_proveedor, velocidad_subida_proveedor, velocidad_bajada_proveedor) 
+    values (3, identificacion(EMPTY_BLOB(), 'Digitel'), 2, 5);
+  select p.identificacion_proveedor.imagen INTO l_blob from proveedor p where p.id_proveedor = 3;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Digitel.jpg');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+--4--
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into proveedor (id_proveedor, identificacion_proveedor, velocidad_subida_proveedor, velocidad_bajada_proveedor) 
+    values (4, identificacion(EMPTY_BLOB(), 'Inter'), 2, 10);
+  select p.identificacion_proveedor.imagen INTO l_blob from proveedor p where p.id_proveedor=4;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Inter.jpg');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+--5--
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into proveedor (id_proveedor, identificacion_proveedor, velocidad_subida_proveedor, velocidad_bajada_proveedor) 
+    values (5, identificacion(EMPTY_BLOB(), 'T-Online'), 5, 10);
+  select p.identificacion_proveedor.imagen INTO l_blob from proveedor p where p.id_proveedor=5;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'T-Online.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+--6--
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into proveedor (id_proveedor, identificacion_proveedor, velocidad_subida_proveedor, velocidad_bajada_proveedor) 
+    values (6, identificacion(EMPTY_BLOB(), 'UOL'), 8, 8);
+  select p.identificacion_proveedor.imagen INTO l_blob from proveedor p where p.id_proveedor=6;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'UOL.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+--7--
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into proveedor (id_proveedor, identificacion_proveedor, velocidad_subida_proveedor, velocidad_bajada_proveedor) 
+    values (7, identificacion(EMPTY_BLOB(), 'Unitel' ), 7, 7);
+  select p.identificacion_proveedor.imagen INTO l_blob from proveedor p where p.id_proveedor=7;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Unitel.jpg');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+--8--
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into proveedor (id_proveedor, identificacion_proveedor, velocidad_subida_proveedor, velocidad_bajada_proveedor) 
+    values (8, identificacion(EMPTY_BLOB(), 'Earthlink' ), 100, 100);
+  select p.identificacion_proveedor.imagen INTO l_blob from proveedor p where p.id_proveedor=8;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Earthlink.jpg');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+--9--
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into proveedor (id_proveedor, identificacion_proveedor, velocidad_subida_proveedor, velocidad_bajada_proveedor) 
+    values (9, identificacion(EMPTY_BLOB(), 'AT and T'), 50, 50);
+  select p.identificacion_proveedor.imagen INTO l_blob from proveedor p where p.id_proveedor=9;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'AT and T.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+--10--
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into proveedor (id_proveedor, identificacion_proveedor, velocidad_subida_proveedor, velocidad_bajada_proveedor) 
+    values (10, identificacion(EMPTY_BLOB(), 'GTT'), 20, 50);
+  select p.identificacion_proveedor.imagen INTO l_blob from proveedor p where p.id_proveedor=10;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'GTT.jpg');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+--11--
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into proveedor (id_proveedor, identificacion_proveedor, velocidad_subida_proveedor, velocidad_bajada_proveedor) 
+    values (11, identificacion(EMPTY_BLOB(), 'T-Mobile'), 30, 20);
+  select p.identificacion_proveedor.imagen INTO l_blob from proveedor p where p.id_proveedor=11;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'T-Mobile.jpg');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+--12--
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into proveedor (id_proveedor, identificacion_proveedor, velocidad_subida_proveedor, velocidad_bajada_proveedor) 
+    values (12, identificacion(EMPTY_BLOB(), 'Global Telecom'), 20, 25);
+  select p.identificacion_proveedor.imagen INTO l_blob from proveedor p where p.id_proveedor=12;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Global Telecom.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+--13--
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into proveedor (id_proveedor, identificacion_proveedor, velocidad_subida_proveedor, velocidad_bajada_proveedor) 
+    values (13, identificacion(EMPTY_BLOB(), 'Deutsche Telekom'), 50, 40);
+  select p.identificacion_proveedor.imagen INTO l_blob from proveedor p where p.id_proveedor=13;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Deutsche Telekom.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+--14--
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into proveedor (id_proveedor, identificacion_proveedor, velocidad_subida_proveedor, velocidad_bajada_proveedor) 
+    values (14, identificacion(EMPTY_BLOB(), 'KPN International'), 70, 30);
+  select p.identificacion_proveedor.imagen INTO l_blob from proveedor p where p.id_proveedor=14;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'KPN International.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+--15--
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into proveedor (id_proveedor, identificacion_proveedor, velocidad_subida_proveedor, velocidad_bajada_proveedor) 
+    values (15, identificacion(EMPTY_BLOB(), 'Orange'), 50, 50);
+  select p.identificacion_proveedor.imagen INTO l_blob from proveedor p where p.id_proveedor=15;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Orange.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
 
 -- DETALLE_SERVICIO -- 
 -- 01/06/2020
