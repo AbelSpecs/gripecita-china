@@ -1753,25 +1753,3 @@ insert into his_medico (pasaporte_persona_histm, id_csalud_histm, fecasistencia_
 insert into his_medico (pasaporte_persona_histm, id_csalud_histm, fecasistencia_histm) values (71, 15, to_date('10/06/2020', 'DD/MM/YYYY'));
 insert into his_medico (pasaporte_persona_histm, id_csalud_histm, fecasistencia_histm) values (72, 15, to_date('10/06/2020', 'DD/MM/YYYY'));
 insert into his_medico (pasaporte_persona_histm, id_csalud_histm, fecasistencia_histm) values (74, 15, to_date('10/06/2020', 'DD/MM/YYYY'));
-
-
---PRUEBA INSER BLOB PERSONA
-/
-DECLARE
-  l_bfile  BFILE;
-  l_blob   BLOB;
-BEGIN
-  insert into persona (pasaporte_persona, nombre1_persona, nombre2_persona, apellido1_persona, apellido2_persona, fechanac_persona, genero_persona, foto_persona, status_persona, fechadef_persona, status_aislado_persona, id_lugar_persona) 
-    values (1, 'Lamont', null, 'Walter', 'Rath', to_date('10/11/1956', 'DD/MM/YYYY'), 'M', EMPTY_BLOB(), 'Infectado', null, null, 21)
-  RETURN foto_persona INTO l_blob;
-
-  l_bfile := BFILENAME('DIR_IMAGENES', 'imagenPrueba.jpg');
-  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
-  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
-  DBMS_LOB.fileclose(l_bfile);
-  COMMIT;
- 
-EXCEPTION WHEN OTHERS THEN
-   ROLLBACK;
-   RAISE;
-END;
