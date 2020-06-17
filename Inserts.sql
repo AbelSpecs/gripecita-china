@@ -1087,14 +1087,48 @@ insert into persona values (160, 'Stacee', 'Wilbert', 'McKerton', 'Croasdale', t
 
 -- PER_VUE --
 -- Vuelo #1
-insert into vuelo values (1, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Laser.jpg'), 'Laser'), to_timestamp('18/12/2019 03:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('18/12/2019 06:00', 'DD/MM/YYYY HH24:MI'), 29, 33);
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (1, identificacion(EMPTY_BLOB(), 'Laser'), to_timestamp('18/12/2019 03:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('18/12/2019 06:00', 'DD/MM/YYYY HH24:MI'), 29, 33);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 1;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Laser.jpg');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
 -- Persona_Vuelo #1
 insert into per_vue values (5, 1, 29, 33);
 insert into per_vue values (12, 1, 29, 33);
 insert into per_vue values (34, 1, 29, 33);
 insert into per_vue values (55, 1, 29, 33);
 -- Vuelo #2
-insert into vuelo values (2, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Avior Airlines.jpg'), 'Avior Airlines'), to_timestamp('23/12/2019 13:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('23/12/2019 18:00', 'DD/MM/YYYY HH24:MI'), 30, 33);
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (2, identificacion(EMPTY_BLOB(), 'Avior Airlines'), to_timestamp('23/12/2019 13:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('23/12/2019 18:00', 'DD/MM/YYYY HH24:MI'), 30, 33);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 2;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Avior Airlines.jpg');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
 -- Persona_Vuelo #2
 insert into per_vue values (53, 2, 30, 33);
 insert into per_vue values (8, 2, 30, 33);
@@ -1102,14 +1136,48 @@ insert into per_vue values (28, 2, 30, 33);
 insert into per_vue values (22, 2, 30, 33);
 insert into per_vue values (48, 2, 30, 33);
 -- Vuelo #3
-insert into vuelo values (3, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Delta.jpg'), 'Delta'), to_timestamp('29/12/2019 02:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/12/2019 05:00', 'DD/MM/YYYY HH24:MI'), 25, 22);
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (3, identificacion(EMPTY_BLOB(), 'Delta'), to_timestamp('29/12/2019 02:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/12/2019 05:00', 'DD/MM/YYYY HH24:MI'), 25, 22);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 3;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Delta.jpg');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
 -- Persona_Vuelo #3
 insert into per_vue values (34, 3, 25, 22);
 insert into per_vue values (12, 3, 25, 22);
 insert into per_vue values (20, 3, 25, 22);
 insert into per_vue values (32, 3, 25, 22);
 -- Vuelo #4
-insert into vuelo values (4, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Turkish Airlines.png'), 'Turkish Airlines'), to_timestamp('03/01/2020 11:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('03/01/2020 16:00', 'DD/MM/YYYY HH24:MI'), 32, 23);
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (4, identificacion(EMPTY_BLOB(), 'Turkish Airlines'), to_timestamp('03/01/2020 11:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('03/01/2020 16:00', 'DD/MM/YYYY HH24:MI'), 32, 23);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 4;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Turkish Airlines.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
 -- Persona_Vuelo #4
 insert into per_vue values (2, 4, 32, 23);
 insert into per_vue values (35, 4, 32, 23);
@@ -1117,7 +1185,24 @@ insert into per_vue values (17, 4, 32, 23);
 insert into per_vue values (41, 4, 32, 23);
 insert into per_vue values (37, 4, 32, 23);
 -- Vuelo #5
-insert into vuelo values (5, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Emirates Airlines.png'), 'Emirates Airlines'), to_timestamp('09/01/2020 19:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('09/01/2020 23:00', 'DD/MM/YYYY HH24:MI'), 28, 30);
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (5, identificacion(EMPTY_BLOB(), 'Emirates Airlines'), to_timestamp('09/01/2020 19:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('09/01/2020 23:00', 'DD/MM/YYYY HH24:MI'), 28, 30);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 5;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Emirates Airlines.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
 -- Persona_Vuelo #5
 insert into per_vue values (51, 5, 28, 30);
 insert into per_vue values (38, 5, 28, 30);
@@ -1125,7 +1210,24 @@ insert into per_vue values (49, 5, 28, 30);
 insert into per_vue values (70, 5, 28, 30);
 insert into per_vue values (24, 5, 28, 30);
 -- Vuelo #6
-insert into vuelo values (6, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Air France.png'), 'Air France'), to_timestamp('16/01/2020 04:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('16/01/2020 11:00', 'DD/MM/YYYY HH24:MI'), 24, 30);
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (6, identificacion(EMPTY_BLOB(), 'Air France'), to_timestamp('16/01/2020 04:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('16/01/2020 11:00', 'DD/MM/YYYY HH24:MI'), 24, 30);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 6;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Air France.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
 -- Persona_Vuelo #6
 insert into per_vue values (74, 6, 24, 30);
 insert into per_vue values (26, 6, 24, 30);
@@ -1133,7 +1235,24 @@ insert into per_vue values (13, 6, 24, 30);
 insert into per_vue values (48, 6, 24, 30);
 insert into per_vue values (62, 6, 24, 30);
 -- Vuelo #7
-insert into vuelo values (7, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\TAP.png'), 'TAP Portugal'), to_timestamp('22/01/2020 15:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('22/01/2020 22:00', 'DD/MM/YYYY HH24:MI'), 22, 28);
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (7, identificacion(EMPTY_BLOB(), 'TAP Portugal'), to_timestamp('22/01/2020 15:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('22/01/2020 22:00', 'DD/MM/YYYY HH24:MI'), 22, 28);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 7;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'TAP Portugal.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
 -- Persona_Vuelo #7
 insert into per_vue values (59, 7, 22, 28);
 insert into per_vue values (29, 7, 22, 28);
@@ -1141,7 +1260,24 @@ insert into per_vue values (6, 7, 22, 28);
 insert into per_vue values (50, 7, 22, 28);
 insert into per_vue values (60, 7, 22, 28);
 -- Vuelo #8
-insert into vuelo values (8, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Plus Ultra.png'), 'Plus Ultra'), to_timestamp('28/01/2020 02:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('28/01/2020 10:00', 'DD/MM/YYYY HH24:MI'), 35, 30);
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (8, identificacion(EMPTY_BLOB(), 'Plus Ultra'), to_timestamp('28/01/2020 02:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('28/01/2020 10:00', 'DD/MM/YYYY HH24:MI'), 35, 30);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 8;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Plus Ultra.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
 -- Persona_Vuelo #8
 insert into per_vue values (45, 8, 35, 30);
 insert into per_vue values (3, 8, 35, 30);
@@ -1149,7 +1285,24 @@ insert into per_vue values (61, 8, 35, 30);
 insert into per_vue values (68, 8, 35, 30);
 insert into per_vue values (23, 8, 35, 30);
 -- Vuelo #9
-insert into vuelo values (9, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Conviasa.png'), 'Conviasa'), to_timestamp('01/02/2020 16:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('01/02/2020 21:00', 'DD/MM/YYYY HH24:MI'), 27, 35);
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (9, identificacion(EMPTY_BLOB(), 'Conviasa'), to_timestamp('01/02/2020 16:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('01/02/2020 21:00', 'DD/MM/YYYY HH24:MI'), 27, 35);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 9;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Conviasa.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
 -- Persona_Vuelo #9
 insert into per_vue values (63, 9, 27, 35);
 insert into per_vue values (55, 9, 27, 35);
@@ -1157,7 +1310,24 @@ insert into per_vue values (47, 9, 27, 35);
 insert into per_vue values (44, 9, 27, 35);
 insert into per_vue values (23, 9, 27, 35);
 -- Vuelo #10
-insert into vuelo values (10, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Air Europa.jpg'), 'Air Europa'), to_timestamp('08/02/2020 05:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('08/02/2020 10:00', 'DD/MM/YYYY HH24:MI'), 21, 32);
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (10, identificacion(EMPTY_BLOB(), 'Air Europa'), to_timestamp('08/02/2020 05:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('08/02/2020 10:00', 'DD/MM/YYYY HH24:MI'), 21, 32);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 10;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Air Europa.jpg');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
 -- Persona_Vuelo #10
 insert into per_vue values (26, 10, 21, 32);
 insert into per_vue values (74, 10, 21, 32);
@@ -1165,7 +1335,24 @@ insert into per_vue values (9, 10, 21, 32);
 insert into per_vue values (75, 10, 21, 32);
 insert into per_vue values (18, 10, 21, 32);
 -- Vuelo #11
-insert into vuelo values (11, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Avior Airlines.jpg'), 'Avior Airlines'), to_timestamp('11/02/2020 14:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('11/02/2020 22:00', 'DD/MM/YYYY HH24:MI'), 27, 31);
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (11, identificacion(EMPTY_BLOB(), 'Avior Airlines'), to_timestamp('11/02/2020 14:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('11/02/2020 22:00', 'DD/MM/YYYY HH24:MI'), 27, 31);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 11;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Avior Airlines.jpg');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
 -- Persona_Vuelo #11
 insert into per_vue values (11, 11, 27, 31);
 insert into per_vue values (70, 11, 27, 31);
@@ -1173,7 +1360,25 @@ insert into per_vue values (28, 11, 27, 31);
 insert into per_vue values (10, 11, 27, 31);
 insert into per_vue values (13, 11, 27, 31);
 -- Vuelo #12
-insert into vuelo values (12, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Conviasa.png'), 'Conviasa'), to_timestamp('17/02/2020 06:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('17/02/2020 09:00', 'DD/MM/YYYY HH24:MI'), 26, 32);
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (12, identificacion(EMPTY_BLOB(), 'Conviasa'), to_timestamp('17/02/2020 06:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('17/02/2020 09:00', 'DD/MM/YYYY HH24:MI'), 26, 32);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 12;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Conviasa.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+
+/
 -- Persona_Vuelo #12
 insert into per_vue values (60, 12, 26, 32); --regresa
 insert into per_vue values (55, 12, 26, 32);
@@ -1181,7 +1386,24 @@ insert into per_vue values (43, 12, 26, 32);
 insert into per_vue values (58, 12, 26, 32); --regresa
 insert into per_vue values (57, 12, 26, 32); --regresa
 -- Vuelo #13
-insert into vuelo values (13, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Conviasa.png'), 'Conviasa'), to_timestamp('20/02/2020 12:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('20/02/2020 20:00', 'DD/MM/YYYY HH24:MI'), 31, 22);
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (13, identificacion(EMPTY_BLOB(), 'Conviasa'), to_timestamp('20/02/2020 12:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('20/02/2020 20:00', 'DD/MM/YYYY HH24:MI'), 31, 22);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 13;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Conviasa.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
 -- Persona_Vuelo #13
 insert into per_vue values (39, 13, 31, 22);
 insert into per_vue values (55, 13, 31, 22);
@@ -1189,7 +1411,24 @@ insert into per_vue values (22, 13, 31, 22);
 insert into per_vue values (56, 13, 31, 22);
 insert into per_vue values (24, 13, 31, 22);
 -- Vuelo #14
-insert into vuelo values (14, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Turkish Airlines.png'), 'Turkish Airlines'), to_timestamp('24/02/2020 23:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('25/02/2020 03:00', 'DD/MM/YYYY HH24:MI'), 28, 24);
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (14, identificacion(EMPTY_BLOB(), 'Turkish Airlines'), to_timestamp('24/02/2020 23:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('25/02/2020 03:00', 'DD/MM/YYYY HH24:MI'), 28, 24);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 14;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Turkish Airlines.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
 -- Persona_Vuelo #14
 insert into per_vue values (28, 14, 28, 24);
 insert into per_vue values (20, 14, 28, 24); --regresa
@@ -1197,7 +1436,24 @@ insert into per_vue values (60, 14, 28, 24);
 insert into per_vue values (19, 14, 28, 24); --regresa
 insert into per_vue values (17, 14, 28, 24); --regresa
 -- Vuelo #15
-insert into vuelo values (15, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Air France.png'), 'Air France'), to_timestamp('29/02/2020 08:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/02/2020 13:00', 'DD/MM/YYYY HH24:MI'), 32, 23);
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (15, identificacion(EMPTY_BLOB(), 'Air France'), to_timestamp('29/02/2020 08:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/02/2020 13:00', 'DD/MM/YYYY HH24:MI'), 32, 23);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 15;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Air France.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
 -- Persona_Vuelo #15
 insert into per_vue values (54, 15, 32, 23);
 insert into per_vue values (73, 15, 32, 23);
@@ -1822,3 +2078,287 @@ insert into his_medico (pasaporte_persona_histm, id_csalud_histm, fecasistencia_
 insert into his_medico (pasaporte_persona_histm, id_csalud_histm, fecasistencia_histm) values (71, 15, to_date('10/06/2020', 'DD/MM/YYYY'));
 insert into his_medico (pasaporte_persona_histm, id_csalud_histm, fecasistencia_histm) values (72, 15, to_date('10/06/2020', 'DD/MM/YYYY'));
 insert into his_medico (pasaporte_persona_histm, id_csalud_histm, fecasistencia_histm) values (74, 15, to_date('10/06/2020', 'DD/MM/YYYY'));
+
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (1, identificacion(EMPTY_BLOB(), 'Laser'), to_timestamp('18/12/2019 03:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('18/12/2019 06:00', 'DD/MM/YYYY HH24:MI'), 29, 33);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 1;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Laser.jpg');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (2, EMPTY_BLOB(), 'Avior Airlines'), to_timestamp('23/12/2019 13:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('23/12/2019 18:00', 'DD/MM/YYYY HH24:MI'), 30, 33);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 2;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Avior Airlines.jpg');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (3, identificacion(EMPTY_BLOB(), 'Delta'), to_timestamp('29/12/2019 02:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/12/2019 05:00', 'DD/MM/YYYY HH24:MI'), 25, 22);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 3;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Delta.jpg');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (4, identificacion(EMPTY_BLOB(), 'Turkish Airlines'), to_timestamp('03/01/2020 11:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('03/01/2020 16:00', 'DD/MM/YYYY HH24:MI'), 32, 23);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 4;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Turkish Airlines.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (5, identificacion(EMPTY_BLOB(), 'Emirates Airlines'), to_timestamp('09/01/2020 19:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('09/01/2020 23:00', 'DD/MM/YYYY HH24:MI'), 28, 30);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 5;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Emirates Airlines.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (6, identificacion(EMPTY_BLOB(), 'Air France'), to_timestamp('16/01/2020 04:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('16/01/2020 11:00', 'DD/MM/YYYY HH24:MI'), 24, 30);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 6;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Air France.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (7, identificacion(EMPTY_BLOB(), 'TAP Portugal'), to_timestamp('22/01/2020 15:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('22/01/2020 22:00', 'DD/MM/YYYY HH24:MI'), 22, 28);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 7;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'TAP Portugal.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (8, identificacion(EMPTY_BLOB(), 'Plus Ultra'), to_timestamp('28/01/2020 02:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('28/01/2020 10:00', 'DD/MM/YYYY HH24:MI'), 35, 30);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 8;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Plus Ultra.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (9, identificacion(EMPTY_BLOB(), 'Conviasa'), to_timestamp('01/02/2020 16:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('01/02/2020 21:00', 'DD/MM/YYYY HH24:MI'), 27, 35);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 9;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Conviasa.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (10, identificacion(EMPTY_BLOB(), 'Air Europa'), to_timestamp('08/02/2020 05:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('08/02/2020 10:00', 'DD/MM/YYYY HH24:MI'), 21, 32);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 10;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Air Europa.jpg');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (11, identificacion(EMPTY_BLOB() 'Avior Airlines'), to_timestamp('11/02/2020 14:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('11/02/2020 22:00', 'DD/MM/YYYY HH24:MI'), 27, 31);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 11;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Avior Airlines.jpg');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (12, identificacion(EMPTY_BLOB(), 'Conviasa'), to_timestamp('17/02/2020 06:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('17/02/2020 09:00', 'DD/MM/YYYY HH24:MI'), 26, 32);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 12;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Conviasa.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (13, identificacion(EMPTY_BLOB(), 'Conviasa'), to_timestamp('20/02/2020 12:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('20/02/2020 20:00', 'DD/MM/YYYY HH24:MI'), 31, 22);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 13;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Conviasa.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (14, identificacion(EMPTY_BLOB(), 'Turkish Airlines'), to_timestamp('24/02/2020 23:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('25/02/2020 03:00', 'DD/MM/YYYY HH24:MI'), 28, 24);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 14;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Turkish Airlines.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into vuelo values (15, identificacion(EMPTY_BLOB(), 'Air France'), to_timestamp('29/02/2020 08:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/02/2020 13:00', 'DD/MM/YYYY HH24:MI'), 32, 23);
+  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 15;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Air France.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
