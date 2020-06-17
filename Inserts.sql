@@ -916,23 +916,6 @@ insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYY
 insert into detalle_servicio values (to_timestamp('10/06/2020 19:32', 'DD/MM/YYYY HH24:MI'), 0, 0, 2, 34, 15); -- 34 ; 15
 insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 47.18, 49.55, null, 35, 15); -- 35 ; 15
 
--- VUELO
-insert into vuelo values (1, identificacion(null, 'Air France'), to_timestamp('17/12/2019 08:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('17/12/2019 16:00', 'DD/MM/YYYY HH24:MI'), 27, 30);
-insert into vuelo values (2, identificacion(null, 'Air France'), to_timestamp('22/12/2019 00:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('22/12/2019 03:00', 'DD/MM/YYYY HH24:MI'), 24, 32);
-insert into vuelo values (3, identificacion(null, 'Emirates Airlines'), to_timestamp('26/12/2019 06:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('26/12/2019 11:00', 'DD/MM/YYYY HH24:MI'), 24, 32);
-insert into vuelo values (4, identificacion(null, 'Air France'), to_timestamp('29/12/2019 15:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/12/2019 22:00', 'DD/MM/YYYY HH24:MI'), 21, 26);
-insert into vuelo values (5, identificacion(null, 'Emirates Airlines'), to_timestamp('05/01/2020 01:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('05/01/2020 06:00', 'DD/MM/YYYY HH24:MI'), 29, 26);
-insert into vuelo values (6, identificacion(null, 'Plus Ultra'), to_timestamp('08/01/2020 12:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('08/01/2020 19:00', 'DD/MM/YYYY HH24:MI'), 23, 29);
-insert into vuelo values (7, identificacion(null, 'Conviasa'), to_timestamp('12/01/2020 22:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('13/01/2020 02:00', 'DD/MM/YYYY HH24:MI'), 35, 24);
-insert into vuelo values (8, identificacion(null, 'Air Europa'), to_timestamp('18/01/2020 08:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('18/01/2020 12:00', 'DD/MM/YYYY HH24:MI'), 27, 31);
-insert into vuelo values (9, identificacion(null, 'Conviasa'), to_timestamp('24/01/2020 15:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('24/01/2020 18:00', 'DD/MM/YYYY HH24:MI'), 33, 27);
-insert into vuelo values (10, identificacion(null, 'Iberia'), to_timestamp('29/01/2020 23:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('30/01/2020 02:00', 'DD/MM/YYYY HH24:MI'), 25, 22);
-insert into vuelo values (11, identificacion(null, 'Conviasa'), to_timestamp('05/02/2020 08:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('05/02/2020 14:00', 'DD/MM/YYYY HH24:MI'), 32, 25);
-insert into vuelo values (12, identificacion(null, 'Delta'), to_timestamp('09/02/2020 18:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('09/02/2020 21:00', 'DD/MM/YYYY HH24:MI'), 26, 30);
-insert into vuelo values (13, identificacion(null, 'Avior Airlines'), to_timestamp('13/02/2020 05:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('13/02/2020 08:00', 'DD/MM/YYYY HH24:MI'), 29, 34);
-insert into vuelo values (14, identificacion(null, 'Emirates Airlines'), to_timestamp('16/02/2020 13:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('16/02/2020 21:00', 'DD/MM/YYYY HH24:MI'), 28, 21);
-insert into vuelo values (15, identificacion(null, 'American Airlines'), to_timestamp('23/02/2020 01:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('23/02/2020 09:00', 'DD/MM/YYYY HH24:MI'), 35, 23);
-
 -- PERSONA --
 -- VENEZUELA
 insert into persona values (1, 'Lamont', null, 'Walter', 'Rath', to_date('10/11/1956', 'DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 21);
@@ -1014,18 +997,104 @@ insert into persona values (72, 'Katelynn', 'Danette', 'OKon', 'Denesik', to_dat
 insert into persona values (73, 'Glinda', null, 'Macejkovic', 'Padberg', to_date('10/12/1940', 'DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 35);
 insert into persona values (74, 'Andrew', null, 'Tremblay', 'Hessel', to_date('25/04/1986', 'DD/MM/YYYY'), 'M', null, 'Sano', null, null, 35);
 insert into persona values (75, 'Ermelinda', 'Willian', 'Simonis', 'Emard', to_date('17/04/1994', 'DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 35);
+--INSERTS ADICIONALES DE PERSONA
+insert into persona values (76, 'Ced', 'Rodolphe', 'Narracott', 'Seyfart', to_date('02/04/1975','DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 21);
+insert into persona values (77, 'Alvera', 'Minnaminnie', 'Beggan', 'Warne', to_date('08/09/1967','DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 21);
+insert into persona values (78, 'Lexie', 'Pauletta', 'Tripony', 'Rennie', to_date('01/01/1978','DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 21);
+insert into persona values (79, 'Marybeth', 'Tierney', 'Honsch', 'Defond', to_date('03/12/1980','DD/MM/YYYY'), 'F', null, 'Sano', null, null, 21);
+insert into persona values (80, 'Julee', 'Xena', 'Peatheyjohns', 'Lokier', to_date('02/04/1975','DD/MM/YYYY'), 'F', null, 'Sano', null, null, 21);
+insert into persona values (81, 'Robbi', 'Anthea', 'Castiglioni', 'McElhinney', to_date('19/11/1974','DD/MM/YYYY'), 'F', null, 'Sano', null, null, 21);
+insert into persona values (82, 'Corbet', 'Willis', 'Simacek', 'Favey', to_date('08/10/1972','DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 22);
+insert into persona values (83, 'Sharl', 'Jayme', 'Fonte', 'Burren', to_date('08/02/1987','DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 22);
+insert into persona values (84, 'Donavon', 'Fitz', 'Pitney', 'Fotheringham', to_date('08/09/1967','DD/MM/YYYY'), 'M', null, 'Sano', null, null, 22);
+insert into persona values (85, 'Penny', 'Arlena', 'Downton', 'Gault', to_date('03/07/1969','DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 22);
+insert into persona values (86, 'Elinor', 'Riannon', 'Howbrook', 'Cutford', to_date('08/10/1972','DD/MM/YYYY'), 'F', null, 'Sano', null, null, 22);
+insert into persona values (87, 'Lorin', 'Anton', 'Moyes', 'Campagne', to_date('08/09/1967','DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 22);
+insert into persona values (88, 'Lambert', 'Osmond', 'Rallin', 'Routhorn', to_date('01/01/1978','DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 23);
+insert into persona values (89, 'Cymbre', 'Yasmin', 'Trobe', 'Caught', to_date('03/07/1969','DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 23);
+insert into persona values (90, 'Hamid', 'Whit', 'Pool', 'Martlew', to_date('08/02/1987','DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 23);
+insert into persona values (91, 'Tabbatha', 'Lulu', 'Sautter', 'Greenleaf', to_date('01/01/1978','DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 23);
+insert into persona values (92, 'Lorrie', 'Jeno', 'Mallinson', 'Minghella', to_date('03/12/1980','DD/MM/YYYY'), 'M', null, 'Sano', null, null, 23);
+insert into persona values (93, 'Shermy', 'Thaddeus', 'Lepard', 'Aplin', to_date('03/07/1969','DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 23);
+insert into persona values (94, 'Darda', 'Dot', 'Durnall', 'O''Spellissey', to_date('10/11/1965','DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 24);
+insert into persona values (95, 'Charley', 'Miles', 'Brodeau', 'Destouche', to_date('04/05/1967','DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 24);
+insert into persona values (96, 'Cobby', 'Dermot', 'Sebring', 'Westnedge', to_date('07/04/1989','DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 24);
+insert into persona values (97, 'Zaria', 'Trude', 'Alberti', 'McTrustey', to_date('13/05/1966','DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 24);
+insert into persona values (98, 'Kelcie', 'Dina', 'Delea', 'Somerscales', to_date('04/05/1967','DD/MM/YYYY'), 'F', null, 'Sano', null, null, 24);
+insert into persona values (99, 'Rosanna', 'Margaux', 'Pryn', 'Mucklestone', to_date('17/03/1978','DD/MM/YYYY'), 'F', null, 'Sano', null, null, 24);
+insert into persona values (100, 'Terrell', 'Erie', 'Schole', 'Abbati', to_date('01/01/1978','DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 24);
+insert into persona values (101, 'Steffi', 'Julee', 'Iggo', 'Pigden', to_date('10/11/1965','DD/MM/YYYY'), 'F', null, 'Sano', null, null, 25);
+insert into persona values (102, 'Porter', 'Lucio', 'Bissell', 'Catt', to_date('17/03/1978','DD/MM/YYYY'), 'M', null, 'Sano', null, null, 25);
+insert into persona values (103, 'Dene', 'Magnum', 'Blessed', 'Segrott', to_date('03/10/1979','DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 25);
+insert into persona values (104, 'Cirillo', 'Ari', 'Bruno', 'Bearcroft', to_date('04/05/1967','DD/MM/YYYY'), 'M', null, 'Sano', null, null, 25);
+insert into persona values (105, 'Ruttger', 'Free', 'Rennix', 'Kleinfeld', to_date('04/05/1967','DD/MM/YYYY'), 'M', null, 'Sano', null, null, 25);
+insert into persona values (106, 'Julian', 'Penny', 'Waszczykowski', 'Lindeboom', to_date('13/05/1966','DD/MM/YYYY'), 'M', null, 'Sano', null, null, 25);
+insert into persona values (107, 'Manon', 'Wendye', 'Ruberry', 'Tosney', to_date('19/11/1974','DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 26);
+insert into persona values (108, 'Zorina', 'Astrix', 'Bountiff', 'Melvin', to_date('01/01/1978','DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 26);
+insert into persona values (109, 'Godfry', 'Orrin', 'Rumbold', 'Duce', to_date('02/04/1975','DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 26);
+insert into persona values (110, 'Dannye', 'Maiga', 'McKeowon', 'O''Heffernan', to_date('03/12/1980','DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 26);
+insert into persona values (111, 'Osbourne', 'Christy', 'Fancutt', 'Ferrolli', to_date('03/04/1971','DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 26);
+insert into persona values (112, 'Jourdan', 'Kessia', 'Bazoge', 'Guisler', to_date('01/01/1978','DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 26);
+insert into persona values (113, 'Mano', 'Riccardo', 'Daubney', 'Trenear', to_date('01/01/1978','DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 27);
+insert into persona values (114, 'Abran', 'Arte', 'England', 'Bosomworth', to_date('17/03/1978','DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 27);
+insert into persona values (115, 'Wynn', 'Minda', 'Fisk', 'Hamshaw', to_date('19/11/1974','DD/MM/YYYY'), 'F', null, 'Sano', null, null, 27);
+insert into persona values (116, 'Muire', 'Nelle', 'Feeham', 'Allward', to_date('17/03/1978','DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 27);
+insert into persona values (117, 'Millie', 'Honoria', 'Mizzi', 'Vondruska', to_date('13/05/1966','DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 27);
+insert into persona values (118, 'Minny', 'Bria', 'Weedall', 'Minghi', to_date('08/02/1987','DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 27);
+insert into persona values (119, 'Anders', 'Lenci', 'Gerlack', 'Semble', to_date('03/04/1971','DD/MM/YYYY'), 'M', null, 'Sano', null, null, 27);
+insert into persona values (120, 'Barty', 'Jarrad', 'Standingford', 'McSweeney', to_date('08/09/1967','DD/MM/YYYY'), 'M', null, 'Sano', null, null, 28);
+insert into persona values (121, 'Blaine', 'Conrado', 'Baynon', 'Goricke', to_date('04/05/1967','DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 28);
+insert into persona values (122, 'Conchita', 'Delcine', 'Flanner', 'Bellham', to_date('13/05/1966','DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 28);
+insert into persona values (123, 'Florrie', 'Bunni', 'Youson', 'Annies', to_date('08/10/1972','DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 28);
+insert into persona values (124, 'Eula', 'Drucy', 'Seawright', 'Stinson', to_date('03/07/1969','DD/MM/YYYY'), 'F', null, 'Sano', null, null, 28);
+insert into persona values (125, 'Darwin', 'Del', 'Helleker', 'Skelhorn', to_date('17/03/1978','DD/MM/YYYY'), 'M', null, 'Sano', null, null, 28);
+insert into persona values (126, 'Barth', 'Ab', 'Lukes', 'Winwright', to_date('03/08/1970','DD/MM/YYYY'), 'M', null, 'Sano', null, null, 29);
+insert into persona values (127, 'Annmaria', 'Andi', 'MacGregor', 'Colpus', to_date('04/05/1967','DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 29);
+insert into persona values (128, 'Hasty', 'Ripley', 'Savine', 'Cabell', to_date('08/10/1972','DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 29);
+insert into persona values (129, 'Starr', 'Marthe', 'Joderli', 'Peers', to_date('01/01/1978','DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 29);
+insert into persona values (130, 'Raf', 'Scarlet', 'Taggett', 'Oakley', to_date('04/05/1967','DD/MM/YYYY'), 'F', null, 'Sano', null, null, 29);
+insert into persona values (131, 'Pascale', 'Howard', 'Nevet', 'Inder', to_date('08/09/1967','DD/MM/YYYY'), 'M', null, 'Sano', null, null, 29);
+insert into persona values (132, 'Franky', 'Florri', 'Alflat', 'Rea', to_date('08/09/1967','DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 30);
+insert into persona values (133, 'Denney', 'Tuck', 'Jales', 'Schoroder', to_date('03/07/1969','DD/MM/YYYY'), 'M', null, 'Sano', null, null, 30);
+insert into persona values (134, 'Gan', 'Colver', 'Mace', 'Trattles', to_date('08/09/1967','DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 30);
+insert into persona values (135, 'Gabriell', 'Eileen', 'Bispo', 'Inderwick', to_date('10/11/1965','DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 30);
+insert into persona values (136, 'Felix', 'Rafe', 'Kleiner', 'Camois', to_date('03/04/1971','DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 30);
+insert into persona values (137, 'Jerrilyn', 'Luci', 'Pantling', 'Rosedale', to_date('03/07/1969','DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 30);
+insert into persona values (138, 'Louis', 'Jakob', 'Nunson', 'Burnard', to_date('17/03/1978','DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 31);
+insert into persona values (139, 'Brok', 'Reinald', 'Wycliff', 'Gouldeby', to_date('03/08/1970','DD/MM/YYYY'), 'M', null, 'Sano', null, null, 31);
+insert into persona values (140, 'Nettle', 'Nicole', 'Pollak', 'Drane', to_date('03/08/1970','DD/MM/YYYY'), 'F', null, 'Sano', null, null, 31);
+insert into persona values (141, 'Averyl', 'Joyce', 'Gentric', 'Rosel', to_date('03/08/1970','DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 31);
+insert into persona values (142, 'Noemi', 'Annabel', 'Picknett', 'Alexis', to_date('03/08/1970','DD/MM/YYYY'), 'F', null, 'Sano', null, null, 31);
+insert into persona values (143, 'Mar', 'Jule', 'Leuchars', 'Phripp', to_date('17/03/1978','DD/MM/YYYY'), 'M', null, 'Sano', null, null, 31);
+insert into persona values (144, 'Rhett', 'Gabriello', 'Heeran', 'Haxley', to_date('10/11/1965','DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 32);
+insert into persona values (145, 'Neely', 'Arlen', 'Gepson', 'Oliff', to_date('19/11/1974','DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 32);
+insert into persona values (146, 'Bentley', 'Rudiger', 'Bosdet', 'Geist', to_date('08/10/1972','DD/MM/YYYY'), 'M', null, 'Sano', null, null, 32);
+insert into persona values (147, 'Brand', 'Isidro', 'Lum', 'Hanlon', to_date('10/11/1965','DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 32);
+insert into persona values (148, 'Lamar', 'Alonso', 'Della', 'Haggie', to_date('19/11/1974','DD/MM/YYYY'), 'M', null, 'Sano', null, null, 32);
+insert into persona values (149, 'Jehu', 'Claire', 'Matula', 'Busain', to_date('01/01/1978','DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 32);
+insert into persona values (150, 'Lilith', 'Tiffani', 'Bortolussi', 'McCarron', to_date('01/01/1978','DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 33);
+insert into persona values (151, 'Jeannine', 'Lucine', 'Heelis', 'Lenoir', to_date('07/04/1989','DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 33);
+insert into persona values (152, 'Lurleen', 'Renie', 'Ebbitt', 'Agent', to_date('08/10/1972','DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 33);
+insert into persona values (153, 'Dulcinea', 'Drona', 'Barajas', 'O''Fogerty', to_date('04/05/1967','DD/MM/YYYY'), 'F', null, 'Infectado', null, null, 33);
+insert into persona values (154, 'Betti', 'Dell', 'Tesche', 'Nicol', to_date('08/10/1972','DD/MM/YYYY'), 'F', null, 'Sano', null, null, 33);
+insert into persona values (155, 'Giralda', 'Sophie', 'Shadbolt', 'Golley', to_date('01/01/1978','DD/MM/YYYY'), 'F', null, 'Aislado', null, null, 33);
+insert into persona values (156, 'Ezri', 'Reilly', 'Thompkins', 'Hinrichsen', to_date('03/04/1971','DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 34);
+insert into persona values (157, 'Sebastiano', 'Floyd', 'Squibe', 'Dockray', to_date('17/03/1978','DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 34);
+insert into persona values (158, 'Alanson', 'Tomlin', 'Kobieriecki', 'Petschel', to_date('17/03/1978','DD/MM/YYYY'), 'M', null, 'Sano', null, null, 34);
+insert into persona values (159, 'Cleveland', 'Shermy', 'Kilbride', 'Jurczik', to_date('08/09/1967','DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 34);
+insert into persona values (160, 'Stacee', 'Wilbert', 'McKerton', 'Croasdale', to_date('13/05/1966','DD/MM/YYYY'), 'M', null, 'Aislado', null, null, 34);
+
 
 -- PER_VUE --
 -- Vuelo #1
-insert into vuelo values (1, identificacion(null, 'Laser'), to_timestamp('18/12/2019 03:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('18/12/2019 06:00', 'DD/MM/YYYY HH24:MI'), 29, 33);
+insert into vuelo values (1, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Laser.jpg'), 'Laser'), to_timestamp('18/12/2019 03:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('18/12/2019 06:00', 'DD/MM/YYYY HH24:MI'), 29, 33);
 -- Persona_Vuelo #1
 insert into per_vue values (5, 1, 29, 33);
-insert into per_vue values (39, 1, 29, 33);
 insert into per_vue values (12, 1, 29, 33);
 insert into per_vue values (34, 1, 29, 33);
 insert into per_vue values (55, 1, 29, 33);
 -- Vuelo #2
-insert into vuelo values (2, identificacion(null, 'Avior Airlines'), to_timestamp('23/12/2019 13:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('23/12/2019 18:00', 'DD/MM/YYYY HH24:MI'), 30, 33);
+insert into vuelo values (2, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Avior Airlines.jpg'), 'Avior Airlines'), to_timestamp('23/12/2019 13:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('23/12/2019 18:00', 'DD/MM/YYYY HH24:MI'), 30, 33);
 -- Persona_Vuelo #2
 insert into per_vue values (53, 2, 30, 33);
 insert into per_vue values (8, 2, 30, 33);
@@ -1033,14 +1102,14 @@ insert into per_vue values (28, 2, 30, 33);
 insert into per_vue values (22, 2, 30, 33);
 insert into per_vue values (48, 2, 30, 33);
 -- Vuelo #3
-insert into vuelo values (3, identificacion(null, 'Delta'), to_timestamp('29/12/2019 02:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/12/2019 05:00', 'DD/MM/YYYY HH24:MI'), 25, 22);
+insert into vuelo values (3, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Delta.jpg'), 'Delta'), to_timestamp('29/12/2019 02:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/12/2019 05:00', 'DD/MM/YYYY HH24:MI'), 25, 22);
 -- Persona_Vuelo #3
 insert into per_vue values (34, 3, 25, 22);
 insert into per_vue values (12, 3, 25, 22);
 insert into per_vue values (20, 3, 25, 22);
 insert into per_vue values (32, 3, 25, 22);
 -- Vuelo #4
-insert into vuelo values (4, identificacion(null, 'Turkish Airlines'), to_timestamp('03/01/2020 11:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('03/01/2020 16:00', 'DD/MM/YYYY HH24:MI'), 32, 23);
+insert into vuelo values (4, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Turkish Airlines.png'), 'Turkish Airlines'), to_timestamp('03/01/2020 11:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('03/01/2020 16:00', 'DD/MM/YYYY HH24:MI'), 32, 23);
 -- Persona_Vuelo #4
 insert into per_vue values (2, 4, 32, 23);
 insert into per_vue values (35, 4, 32, 23);
@@ -1048,7 +1117,7 @@ insert into per_vue values (17, 4, 32, 23);
 insert into per_vue values (41, 4, 32, 23);
 insert into per_vue values (37, 4, 32, 23);
 -- Vuelo #5
-insert into vuelo values (5, identificacion(null, 'Emirates Airlines'), to_timestamp('09/01/2020 19:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('09/01/2020 23:00', 'DD/MM/YYYY HH24:MI'), 28, 30);
+insert into vuelo values (5, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Emirates Airlines.png'), 'Emirates Airlines'), to_timestamp('09/01/2020 19:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('09/01/2020 23:00', 'DD/MM/YYYY HH24:MI'), 28, 30);
 -- Persona_Vuelo #5
 insert into per_vue values (51, 5, 28, 30);
 insert into per_vue values (38, 5, 28, 30);
@@ -1056,7 +1125,7 @@ insert into per_vue values (49, 5, 28, 30);
 insert into per_vue values (70, 5, 28, 30);
 insert into per_vue values (24, 5, 28, 30);
 -- Vuelo #6
-insert into vuelo values (6, identificacion(null, 'Air France'), to_timestamp('16/01/2020 04:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('16/01/2020 11:00', 'DD/MM/YYYY HH24:MI'), 24, 30);
+insert into vuelo values (6, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Air France.png'), 'Air France'), to_timestamp('16/01/2020 04:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('16/01/2020 11:00', 'DD/MM/YYYY HH24:MI'), 24, 30);
 -- Persona_Vuelo #6
 insert into per_vue values (74, 6, 24, 30);
 insert into per_vue values (26, 6, 24, 30);
@@ -1064,7 +1133,7 @@ insert into per_vue values (13, 6, 24, 30);
 insert into per_vue values (48, 6, 24, 30);
 insert into per_vue values (62, 6, 24, 30);
 -- Vuelo #7
-insert into vuelo values (7, identificacion(null, 'TAP Portugal'), to_timestamp('22/01/2020 15:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('22/01/2020 22:00', 'DD/MM/YYYY HH24:MI'), 22, 28);
+insert into vuelo values (7, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\TAP.png'), 'TAP Portugal'), to_timestamp('22/01/2020 15:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('22/01/2020 22:00', 'DD/MM/YYYY HH24:MI'), 22, 28);
 -- Persona_Vuelo #7
 insert into per_vue values (59, 7, 22, 28);
 insert into per_vue values (29, 7, 22, 28);
@@ -1072,7 +1141,7 @@ insert into per_vue values (6, 7, 22, 28);
 insert into per_vue values (50, 7, 22, 28);
 insert into per_vue values (60, 7, 22, 28);
 -- Vuelo #8
-insert into vuelo values (8, identificacion(null, 'Plus Ultra'), to_timestamp('28/01/2020 02:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('28/01/2020 10:00', 'DD/MM/YYYY HH24:MI'), 35, 30);
+insert into vuelo values (8, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Plus Ultra.png'), 'Plus Ultra'), to_timestamp('28/01/2020 02:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('28/01/2020 10:00', 'DD/MM/YYYY HH24:MI'), 35, 30);
 -- Persona_Vuelo #8
 insert into per_vue values (45, 8, 35, 30);
 insert into per_vue values (3, 8, 35, 30);
@@ -1080,7 +1149,7 @@ insert into per_vue values (61, 8, 35, 30);
 insert into per_vue values (68, 8, 35, 30);
 insert into per_vue values (23, 8, 35, 30);
 -- Vuelo #9
-insert into vuelo values (9, identificacion(null, 'Conviasa'), to_timestamp('01/02/2020 16:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('01/02/2020 21:00', 'DD/MM/YYYY HH24:MI'), 27, 35);
+insert into vuelo values (9, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Conviasa.png'), 'Conviasa'), to_timestamp('01/02/2020 16:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('01/02/2020 21:00', 'DD/MM/YYYY HH24:MI'), 27, 35);
 -- Persona_Vuelo #9
 insert into per_vue values (63, 9, 27, 35);
 insert into per_vue values (55, 9, 27, 35);
@@ -1088,7 +1157,7 @@ insert into per_vue values (47, 9, 27, 35);
 insert into per_vue values (44, 9, 27, 35);
 insert into per_vue values (23, 9, 27, 35);
 -- Vuelo #10
-insert into vuelo values (10, identificacion(null, 'Air Europa'), to_timestamp('08/02/2020 05:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('08/02/2020 10:00', 'DD/MM/YYYY HH24:MI'), 21, 32);
+insert into vuelo values (10, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Air Europa.jpg'), 'Air Europa'), to_timestamp('08/02/2020 05:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('08/02/2020 10:00', 'DD/MM/YYYY HH24:MI'), 21, 32);
 -- Persona_Vuelo #10
 insert into per_vue values (26, 10, 21, 32);
 insert into per_vue values (74, 10, 21, 32);
@@ -1096,7 +1165,7 @@ insert into per_vue values (9, 10, 21, 32);
 insert into per_vue values (75, 10, 21, 32);
 insert into per_vue values (18, 10, 21, 32);
 -- Vuelo #11
-insert into vuelo values (11, identificacion(null, 'Avior Airlines'), to_timestamp('11/02/2020 14:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('11/02/2020 22:00', 'DD/MM/YYYY HH24:MI'), 27, 31);
+insert into vuelo values (11, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Avior Airlines.jpg'), 'Avior Airlines'), to_timestamp('11/02/2020 14:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('11/02/2020 22:00', 'DD/MM/YYYY HH24:MI'), 27, 31);
 -- Persona_Vuelo #11
 insert into per_vue values (11, 11, 27, 31);
 insert into per_vue values (70, 11, 27, 31);
@@ -1104,7 +1173,7 @@ insert into per_vue values (28, 11, 27, 31);
 insert into per_vue values (10, 11, 27, 31);
 insert into per_vue values (13, 11, 27, 31);
 -- Vuelo #12
-insert into vuelo values (12, identificacion(null, 'Conviasa'), to_timestamp('17/02/2020 06:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('17/02/2020 09:00', 'DD/MM/YYYY HH24:MI'), 26, 32);
+insert into vuelo values (12, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Conviasa.png'), 'Conviasa'), to_timestamp('17/02/2020 06:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('17/02/2020 09:00', 'DD/MM/YYYY HH24:MI'), 26, 32);
 -- Persona_Vuelo #12
 insert into per_vue values (60, 12, 26, 32); --regresa
 insert into per_vue values (55, 12, 26, 32);
@@ -1112,7 +1181,7 @@ insert into per_vue values (43, 12, 26, 32);
 insert into per_vue values (58, 12, 26, 32); --regresa
 insert into per_vue values (57, 12, 26, 32); --regresa
 -- Vuelo #13
-insert into vuelo values (13, identificacion(null, 'Conviasa'), to_timestamp('20/02/2020 12:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('20/02/2020 20:00', 'DD/MM/YYYY HH24:MI'), 31, 22);
+insert into vuelo values (13, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Conviasa.png'), 'Conviasa'), to_timestamp('20/02/2020 12:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('20/02/2020 20:00', 'DD/MM/YYYY HH24:MI'), 31, 22);
 -- Persona_Vuelo #13
 insert into per_vue values (39, 13, 31, 22);
 insert into per_vue values (55, 13, 31, 22);
@@ -1120,7 +1189,7 @@ insert into per_vue values (22, 13, 31, 22);
 insert into per_vue values (56, 13, 31, 22);
 insert into per_vue values (24, 13, 31, 22);
 -- Vuelo #14
-insert into vuelo values (14, identificacion(null, 'Turkish Airlines'), to_timestamp('24/02/2020 23:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('25/02/2020 03:00', 'DD/MM/YYYY HH24:MI'), 28, 24);
+insert into vuelo values (14, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Turkish Airlines.png'), 'Turkish Airlines'), to_timestamp('24/02/2020 23:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('25/02/2020 03:00', 'DD/MM/YYYY HH24:MI'), 28, 24);
 -- Persona_Vuelo #14
 insert into per_vue values (28, 14, 28, 24);
 insert into per_vue values (20, 14, 28, 24); --regresa
@@ -1128,7 +1197,7 @@ insert into per_vue values (60, 14, 28, 24);
 insert into per_vue values (19, 14, 28, 24); --regresa
 insert into per_vue values (17, 14, 28, 24); --regresa
 -- Vuelo #15
-insert into vuelo values (15, identificacion(null, 'Air France'), to_timestamp('29/02/2020 08:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/02/2020 13:00', 'DD/MM/YYYY HH24:MI'), 32, 23);
+insert into vuelo values (15, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Air France.png'), 'Air France'), to_timestamp('29/02/2020 08:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/02/2020 13:00', 'DD/MM/YYYY HH24:MI'), 32, 23);
 -- Persona_Vuelo #15
 insert into per_vue values (54, 15, 32, 23);
 insert into per_vue values (73, 15, 32, 23);
