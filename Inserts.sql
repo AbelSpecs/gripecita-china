@@ -84,7 +84,7 @@ BEGIN
   insert into lugar values (5, identificacion(EMPTY_BLOB(), 'España'), 'Pais', 4177000000, null);
   select l.identificacion_lugar.imagen INTO l_blob from lugar l where l.id_lugar = 5;
 
-  l_bfile := BFILENAME('DIR_IMAGENES', 'España.png');
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Espana.png');
   DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
   DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
   DBMS_LOB.fileclose(l_bfile);
