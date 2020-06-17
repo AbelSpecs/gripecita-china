@@ -541,23 +541,6 @@ insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYY
 insert into detalle_servicio values (to_timestamp('10/06/2020 19:32', 'DD/MM/YYYY HH24:MI'), 0, 0, 2, 34, 15); -- 34 ; 15
 insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 47.18, 49.55, null, 35, 15); -- 35 ; 15
 
--- VUELO
-insert into vuelo values (1, identificacion(null, 'Air France'), to_timestamp('17/12/2019 08:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('17/12/2019 16:00', 'DD/MM/YYYY HH24:MI'), 27, 30);
-insert into vuelo values (2, identificacion(null, 'Air France'), to_timestamp('22/12/2019 00:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('22/12/2019 03:00', 'DD/MM/YYYY HH24:MI'), 24, 32);
-insert into vuelo values (3, identificacion(null, 'Emirates Airlines'), to_timestamp('26/12/2019 06:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('26/12/2019 11:00', 'DD/MM/YYYY HH24:MI'), 24, 32);
-insert into vuelo values (4, identificacion(null, 'Air France'), to_timestamp('29/12/2019 15:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/12/2019 22:00', 'DD/MM/YYYY HH24:MI'), 21, 26);
-insert into vuelo values (5, identificacion(null, 'Emirates Airlines'), to_timestamp('05/01/2020 01:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('05/01/2020 06:00', 'DD/MM/YYYY HH24:MI'), 29, 26);
-insert into vuelo values (6, identificacion(null, 'Plus Ultra'), to_timestamp('08/01/2020 12:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('08/01/2020 19:00', 'DD/MM/YYYY HH24:MI'), 23, 29);
-insert into vuelo values (7, identificacion(null, 'Conviasa'), to_timestamp('12/01/2020 22:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('13/01/2020 02:00', 'DD/MM/YYYY HH24:MI'), 35, 24);
-insert into vuelo values (8, identificacion(null, 'Air Europa'), to_timestamp('18/01/2020 08:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('18/01/2020 12:00', 'DD/MM/YYYY HH24:MI'), 27, 31);
-insert into vuelo values (9, identificacion(null, 'Conviasa'), to_timestamp('24/01/2020 15:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('24/01/2020 18:00', 'DD/MM/YYYY HH24:MI'), 33, 27);
-insert into vuelo values (10, identificacion(null, 'Iberia'), to_timestamp('29/01/2020 23:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('30/01/2020 02:00', 'DD/MM/YYYY HH24:MI'), 25, 22);
-insert into vuelo values (11, identificacion(null, 'Conviasa'), to_timestamp('05/02/2020 08:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('05/02/2020 14:00', 'DD/MM/YYYY HH24:MI'), 32, 25);
-insert into vuelo values (12, identificacion(null, 'Delta'), to_timestamp('09/02/2020 18:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('09/02/2020 21:00', 'DD/MM/YYYY HH24:MI'), 26, 30);
-insert into vuelo values (13, identificacion(null, 'Avior Airlines'), to_timestamp('13/02/2020 05:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('13/02/2020 08:00', 'DD/MM/YYYY HH24:MI'), 29, 34);
-insert into vuelo values (14, identificacion(null, 'Emirates Airlines'), to_timestamp('16/02/2020 13:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('16/02/2020 21:00', 'DD/MM/YYYY HH24:MI'), 28, 21);
-insert into vuelo values (15, identificacion(null, 'American Airlines'), to_timestamp('23/02/2020 01:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('23/02/2020 09:00', 'DD/MM/YYYY HH24:MI'), 35, 23);
-
 -- PERSONA --
 -- VENEZUELA
 insert into persona values (1, 'Lamont', null, 'Walter', 'Rath', to_date('10/11/1956', 'DD/MM/YYYY'), 'M', null, 'Infectado', null, null, 21);
@@ -729,15 +712,14 @@ insert into persona values (160, 'Stacee', 'Wilbert', 'McKerton', 'Croasdale', t
 
 -- PER_VUE --
 -- Vuelo #1
-insert into vuelo values (1, identificacion(null, 'Laser'), to_timestamp('18/12/2019 03:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('18/12/2019 06:00', 'DD/MM/YYYY HH24:MI'), 29, 33);
+insert into vuelo values (1, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Laser.jpg'), 'Laser'), to_timestamp('18/12/2019 03:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('18/12/2019 06:00', 'DD/MM/YYYY HH24:MI'), 29, 33);
 -- Persona_Vuelo #1
 insert into per_vue values (5, 1, 29, 33);
-insert into per_vue values (39, 1, 29, 33);
 insert into per_vue values (12, 1, 29, 33);
 insert into per_vue values (34, 1, 29, 33);
 insert into per_vue values (55, 1, 29, 33);
 -- Vuelo #2
-insert into vuelo values (2, identificacion(null, 'Avior Airlines'), to_timestamp('23/12/2019 13:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('23/12/2019 18:00', 'DD/MM/YYYY HH24:MI'), 30, 33);
+insert into vuelo values (2, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Avior Airlines.jpg'), 'Avior Airlines'), to_timestamp('23/12/2019 13:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('23/12/2019 18:00', 'DD/MM/YYYY HH24:MI'), 30, 33);
 -- Persona_Vuelo #2
 insert into per_vue values (53, 2, 30, 33);
 insert into per_vue values (8, 2, 30, 33);
@@ -745,14 +727,14 @@ insert into per_vue values (28, 2, 30, 33);
 insert into per_vue values (22, 2, 30, 33);
 insert into per_vue values (48, 2, 30, 33);
 -- Vuelo #3
-insert into vuelo values (3, identificacion(null, 'Delta'), to_timestamp('29/12/2019 02:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/12/2019 05:00', 'DD/MM/YYYY HH24:MI'), 25, 22);
+insert into vuelo values (3, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Delta.jpg'), 'Delta'), to_timestamp('29/12/2019 02:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/12/2019 05:00', 'DD/MM/YYYY HH24:MI'), 25, 22);
 -- Persona_Vuelo #3
 insert into per_vue values (34, 3, 25, 22);
 insert into per_vue values (12, 3, 25, 22);
 insert into per_vue values (20, 3, 25, 22);
 insert into per_vue values (32, 3, 25, 22);
 -- Vuelo #4
-insert into vuelo values (4, identificacion(null, 'Turkish Airlines'), to_timestamp('03/01/2020 11:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('03/01/2020 16:00', 'DD/MM/YYYY HH24:MI'), 32, 23);
+insert into vuelo values (4, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Turkish Airlines.png'), 'Turkish Airlines'), to_timestamp('03/01/2020 11:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('03/01/2020 16:00', 'DD/MM/YYYY HH24:MI'), 32, 23);
 -- Persona_Vuelo #4
 insert into per_vue values (2, 4, 32, 23);
 insert into per_vue values (35, 4, 32, 23);
@@ -760,7 +742,7 @@ insert into per_vue values (17, 4, 32, 23);
 insert into per_vue values (41, 4, 32, 23);
 insert into per_vue values (37, 4, 32, 23);
 -- Vuelo #5
-insert into vuelo values (5, identificacion(null, 'Emirates Airlines'), to_timestamp('09/01/2020 19:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('09/01/2020 23:00', 'DD/MM/YYYY HH24:MI'), 28, 30);
+insert into vuelo values (5, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Emirates Airlines.png'), 'Emirates Airlines'), to_timestamp('09/01/2020 19:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('09/01/2020 23:00', 'DD/MM/YYYY HH24:MI'), 28, 30);
 -- Persona_Vuelo #5
 insert into per_vue values (51, 5, 28, 30);
 insert into per_vue values (38, 5, 28, 30);
@@ -768,7 +750,7 @@ insert into per_vue values (49, 5, 28, 30);
 insert into per_vue values (70, 5, 28, 30);
 insert into per_vue values (24, 5, 28, 30);
 -- Vuelo #6
-insert into vuelo values (6, identificacion(null, 'Air France'), to_timestamp('16/01/2020 04:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('16/01/2020 11:00', 'DD/MM/YYYY HH24:MI'), 24, 30);
+insert into vuelo values (6, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Air France.png'), 'Air France'), to_timestamp('16/01/2020 04:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('16/01/2020 11:00', 'DD/MM/YYYY HH24:MI'), 24, 30);
 -- Persona_Vuelo #6
 insert into per_vue values (74, 6, 24, 30);
 insert into per_vue values (26, 6, 24, 30);
@@ -776,7 +758,7 @@ insert into per_vue values (13, 6, 24, 30);
 insert into per_vue values (48, 6, 24, 30);
 insert into per_vue values (62, 6, 24, 30);
 -- Vuelo #7
-insert into vuelo values (7, identificacion(null, 'TAP Portugal'), to_timestamp('22/01/2020 15:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('22/01/2020 22:00', 'DD/MM/YYYY HH24:MI'), 22, 28);
+insert into vuelo values (7, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\TAP.png'), 'TAP Portugal'), to_timestamp('22/01/2020 15:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('22/01/2020 22:00', 'DD/MM/YYYY HH24:MI'), 22, 28);
 -- Persona_Vuelo #7
 insert into per_vue values (59, 7, 22, 28);
 insert into per_vue values (29, 7, 22, 28);
@@ -784,7 +766,7 @@ insert into per_vue values (6, 7, 22, 28);
 insert into per_vue values (50, 7, 22, 28);
 insert into per_vue values (60, 7, 22, 28);
 -- Vuelo #8
-insert into vuelo values (8, identificacion(null, 'Plus Ultra'), to_timestamp('28/01/2020 02:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('28/01/2020 10:00', 'DD/MM/YYYY HH24:MI'), 35, 30);
+insert into vuelo values (8, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Plus Ultra.png'), 'Plus Ultra'), to_timestamp('28/01/2020 02:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('28/01/2020 10:00', 'DD/MM/YYYY HH24:MI'), 35, 30);
 -- Persona_Vuelo #8
 insert into per_vue values (45, 8, 35, 30);
 insert into per_vue values (3, 8, 35, 30);
@@ -792,7 +774,7 @@ insert into per_vue values (61, 8, 35, 30);
 insert into per_vue values (68, 8, 35, 30);
 insert into per_vue values (23, 8, 35, 30);
 -- Vuelo #9
-insert into vuelo values (9, identificacion(null, 'Conviasa'), to_timestamp('01/02/2020 16:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('01/02/2020 21:00', 'DD/MM/YYYY HH24:MI'), 27, 35);
+insert into vuelo values (9, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Conviasa.png'), 'Conviasa'), to_timestamp('01/02/2020 16:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('01/02/2020 21:00', 'DD/MM/YYYY HH24:MI'), 27, 35);
 -- Persona_Vuelo #9
 insert into per_vue values (63, 9, 27, 35);
 insert into per_vue values (55, 9, 27, 35);
@@ -800,7 +782,7 @@ insert into per_vue values (47, 9, 27, 35);
 insert into per_vue values (44, 9, 27, 35);
 insert into per_vue values (23, 9, 27, 35);
 -- Vuelo #10
-insert into vuelo values (10, identificacion(null, 'Air Europa'), to_timestamp('08/02/2020 05:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('08/02/2020 10:00', 'DD/MM/YYYY HH24:MI'), 21, 32);
+insert into vuelo values (10, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Air Europa.jpg'), 'Air Europa'), to_timestamp('08/02/2020 05:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('08/02/2020 10:00', 'DD/MM/YYYY HH24:MI'), 21, 32);
 -- Persona_Vuelo #10
 insert into per_vue values (26, 10, 21, 32);
 insert into per_vue values (74, 10, 21, 32);
@@ -808,7 +790,7 @@ insert into per_vue values (9, 10, 21, 32);
 insert into per_vue values (75, 10, 21, 32);
 insert into per_vue values (18, 10, 21, 32);
 -- Vuelo #11
-insert into vuelo values (11, identificacion(null, 'Avior Airlines'), to_timestamp('11/02/2020 14:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('11/02/2020 22:00', 'DD/MM/YYYY HH24:MI'), 27, 31);
+insert into vuelo values (11, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Avior Airlines.jpg'), 'Avior Airlines'), to_timestamp('11/02/2020 14:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('11/02/2020 22:00', 'DD/MM/YYYY HH24:MI'), 27, 31);
 -- Persona_Vuelo #11
 insert into per_vue values (11, 11, 27, 31);
 insert into per_vue values (70, 11, 27, 31);
@@ -816,7 +798,7 @@ insert into per_vue values (28, 11, 27, 31);
 insert into per_vue values (10, 11, 27, 31);
 insert into per_vue values (13, 11, 27, 31);
 -- Vuelo #12
-insert into vuelo values (12, identificacion(null, 'Conviasa'), to_timestamp('17/02/2020 06:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('17/02/2020 09:00', 'DD/MM/YYYY HH24:MI'), 26, 32);
+insert into vuelo values (12, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Conviasa.png'), 'Conviasa'), to_timestamp('17/02/2020 06:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('17/02/2020 09:00', 'DD/MM/YYYY HH24:MI'), 26, 32);
 -- Persona_Vuelo #12
 insert into per_vue values (60, 12, 26, 32); --regresa
 insert into per_vue values (55, 12, 26, 32);
@@ -824,7 +806,7 @@ insert into per_vue values (43, 12, 26, 32);
 insert into per_vue values (58, 12, 26, 32); --regresa
 insert into per_vue values (57, 12, 26, 32); --regresa
 -- Vuelo #13
-insert into vuelo values (13, identificacion(null, 'Conviasa'), to_timestamp('20/02/2020 12:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('20/02/2020 20:00', 'DD/MM/YYYY HH24:MI'), 31, 22);
+insert into vuelo values (13, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Conviasa.png'), 'Conviasa'), to_timestamp('20/02/2020 12:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('20/02/2020 20:00', 'DD/MM/YYYY HH24:MI'), 31, 22);
 -- Persona_Vuelo #13
 insert into per_vue values (39, 13, 31, 22);
 insert into per_vue values (55, 13, 31, 22);
@@ -832,7 +814,7 @@ insert into per_vue values (22, 13, 31, 22);
 insert into per_vue values (56, 13, 31, 22);
 insert into per_vue values (24, 13, 31, 22);
 -- Vuelo #14
-insert into vuelo values (14, identificacion(null, 'Turkish Airlines'), to_timestamp('24/02/2020 23:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('25/02/2020 03:00', 'DD/MM/YYYY HH24:MI'), 28, 24);
+insert into vuelo values (14, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Turkish Airlines.png'), 'Turkish Airlines'), to_timestamp('24/02/2020 23:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('25/02/2020 03:00', 'DD/MM/YYYY HH24:MI'), 28, 24);
 -- Persona_Vuelo #14
 insert into per_vue values (28, 14, 28, 24);
 insert into per_vue values (20, 14, 28, 24); --regresa
@@ -840,7 +822,7 @@ insert into per_vue values (60, 14, 28, 24);
 insert into per_vue values (19, 14, 28, 24); --regresa
 insert into per_vue values (17, 14, 28, 24); --regresa
 -- Vuelo #15
-insert into vuelo values (15, identificacion(null, 'Air France'), to_timestamp('29/02/2020 08:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/02/2020 13:00', 'DD/MM/YYYY HH24:MI'), 32, 23);
+insert into vuelo values (15, identificacion(utl_raw.cast_to_raw('C:\Users\aless\OneDrive\Escritorio\Aerolineas\Air France.png'), 'Air France'), to_timestamp('29/02/2020 08:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/02/2020 13:00', 'DD/MM/YYYY HH24:MI'), 32, 23);
 -- Persona_Vuelo #15
 insert into per_vue values (54, 15, 32, 23);
 insert into per_vue values (73, 15, 32, 23);
