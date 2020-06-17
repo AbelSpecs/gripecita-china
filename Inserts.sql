@@ -5,11 +5,96 @@ GRANT READ, WRITE ON DIRECTORY DIR_IMAGENES TO public;
 
 --LUGAR
 --Paises
-insert into lugar values (1, identificacion(null, 'Venezuela'), 'Pais', 30000000, null);
-insert into lugar values (2, identificacion(null, 'Estados Unidos'), 'Pais', 328000000, null);
-insert into lugar values (3, identificacion(null, 'Brasil'), 'Pais', 209000000, null);
-insert into lugar values (4, identificacion(null, 'Mexico'), 'Pais', 126000000, null);
-insert into lugar values (5, identificacion(null, 'España'), 'Pais', 4177000000, null);
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into lugar values (1, identificacion(EMPTY_BLOB(), 'Venezuela'), 'Pais', 30000000, null);
+  select l.identificacion_lugar.imagen INTO l_blob from lugar l where l.id_lugar = 1;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Venezuela.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into lugar values (2, identificacion(EMPTY_BLOB(), 'Estados Unidos'), 'Pais', 328000000, null);
+  select l.identificacion_lugar.imagen INTO l_blob from lugar l where l.id_lugar = 2;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Estados Unidos.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into lugar values (3, identificacion(EMPTY_BLOB(), 'Brasil'), 'Pais', 209000000, null);
+  select l.identificacion_lugar.imagen INTO l_blob from lugar l where l.id_lugar = 3;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Brasil.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into lugar values (4, identificacion(EMPTY_BLOB(), 'Mexico'), 'Pais', 126000000, null);
+  select l.identificacion_lugar.imagen INTO l_blob from lugar l where l.id_lugar = 4;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'Mexico.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
+DECLARE
+  l_bfile  BFILE;
+  l_blob   BLOB;
+BEGIN
+  insert into lugar values (5, identificacion(EMPTY_BLOB(), 'España'), 'Pais', 4177000000, null);
+  select l.identificacion_lugar.imagen INTO l_blob from lugar l where l.id_lugar = 5;
+
+  l_bfile := BFILENAME('DIR_IMAGENES', 'España.png');
+  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
+  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
+  DBMS_LOB.fileclose(l_bfile);
+  COMMIT;
+ 
+EXCEPTION WHEN OTHERS THEN
+   ROLLBACK;
+   RAISE;
+END;
+/
 --Estados
 insert into lugar values (6, identificacion(null, 'Miranda'), 'Estado', 3200000, 1);
 insert into lugar values (7, identificacion(null, 'Merida'), 'Estado', 250000, 1);
