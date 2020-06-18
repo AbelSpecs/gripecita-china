@@ -1,5 +1,5 @@
---DIRECTORIO
-CREATE OR REPLACE DIRECTORY DIR_IMAGENES as 'C:\Users\Omar David\Desktop\prueba\imagenes';
+﻿--DIRECTORIO
+CREATE OR REPLACE DIRECTORY DIR_IMAGENES as 'C:\Users\Omar David\Mi Carpeta\Ucab\7mo Semestre\Base de Datos II\Armen\Proyecto\gripecita-china\imagenes';
 GRANT ALL ON DIRECTORY DIR_IMAGENES TO public;
 GRANT READ, WRITE ON DIRECTORY DIR_IMAGENES TO public;
 
