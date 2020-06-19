@@ -164,8 +164,6 @@ insert into lu_ais values (to_date('25/05/2020', 'DD/MM/YYYY'), to_date('21/06/2
 insert into lu_ais values (to_date('21/06/2020', 'DD/MM/YYYY'), null, 5,4); -- España ; Movilidad reducida 1 de 8
 
 
-
-
 --PROVEEDOR
 --1--
 DECLARE
@@ -2317,6 +2315,7 @@ insert into patologia values (12, 'Fibrosis pulmonar idiopática');
 insert into patologia values (13, 'Infarto de miocardio');
 insert into patologia values (14, 'Insuficiencia cardiaca');
 insert into patologia values (15, 'Neumonía');
+
 -- PER_PAT    
 insert into per_pat values(1,1);
 insert into per_pat values(1,2);
@@ -2458,6 +2457,7 @@ insert into per_pat values(73,12);
 insert into per_pat values(74,13);
 insert into per_pat values(74,14);
 insert into per_pat values(75,15);
+
 --INSUMO
 insert into insumo values (1, 'Mascarillas');
 insert into insumo values (2, 'Gasas');
@@ -2668,5 +2668,3 @@ insert into his_medico (pasaporte_persona_histm, id_csalud_histm, fecasistencia_
 insert into his_medico (pasaporte_persona_histm, id_csalud_histm, fecasistencia_histm) values (71, 15, to_date('10/06/2020', 'DD/MM/YYYY'));
 insert into his_medico (pasaporte_persona_histm, id_csalud_histm, fecasistencia_histm) values (72, 15, to_date('10/06/2020', 'DD/MM/YYYY'));
 insert into his_medico (pasaporte_persona_histm, id_csalud_histm, fecasistencia_histm) values (74, 15, to_date('10/06/2020', 'DD/MM/YYYY'));
-
-

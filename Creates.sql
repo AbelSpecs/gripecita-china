@@ -92,7 +92,8 @@ create table persona(
     status_aislado_persona varchar2(25),
     id_lugar_persona number not null,
     constraint fk_lugar_persona foreign key(id_lugar_persona) references lugar(id_lugar),
-    constraint CK_Genero check(genero_persona in ('F', 'M'))
+    constraint CK_Genero check(genero_persona in ('F', 'M')),
+    constraint CK_status_persona check (status_persona in ('Infectado', 'Sano', 'Aislado'))
 );
 --LISTA-- 
 create table per_vue(
