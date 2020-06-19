@@ -94,7 +94,7 @@ create table persona(
     constraint fk_lugar_persona foreign key(id_lugar_persona) references lugar(id_lugar),
     constraint CK_Genero check(genero_persona in ('F', 'M'))
 );
---LISTA--
+--LISTA-- 
 create table per_vue(
 pasaporte_persona_pv number not null,
 numero_vuelo_pv number not null,
@@ -109,7 +109,7 @@ create table sintoma(
     id_sintoma number constraint PK_Sintoma primary key,
     nombre_sintoma varchar2(30) not null
 );
---LISTA--
+--LISTA-- 
 create table per_sin(
 fecisintoma_ps timestamp not null,
 atencionmedica_ps varchar2(2) not null,

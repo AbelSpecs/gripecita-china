@@ -755,4 +755,3 @@ execute insercion_personas(747, 'Karl', 'Noble', 'Haensel', 'Gayton', to_date('0
 execute insercion_personas(748, 'Antoni', 'Raleigh', 'Treadgear', 'Gianetti', to_date('04/06/1989', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 33, 'imgM12.jpg');
 execute insercion_personas(749, 'Jereme', 'Tirrell', 'Codrington', 'Medling', to_date('04/04/1998', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 25, 'imgM14.jpg');
 execute insercion_personas(750, 'Parry', 'Jeno', 'Franseco', 'Shewan', to_date('25/02/2005', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 21, 'imgM6.jpg');
-execute insercion_personas

@@ -1,5 +1,5 @@
 --DIRECTORIO
-CREATE OR REPLACE DIRECTORY DIR_IMAGENES as 'C:\Users\Omar David\Desktop\prueba\imagenes';
+CREATE OR REPLACE DIRECTORY DIR_IMAGENES as 'C:\banderas';
 GRANT ALL ON DIRECTORY DIR_IMAGENES TO public;
 GRANT READ, WRITE ON DIRECTORY DIR_IMAGENES TO public;
 
@@ -95,6 +95,7 @@ EXCEPTION WHEN OTHERS THEN
    RAISE;
 END;
 /
+
 --Estados
 insert into lugar values (6, identificacion(null, 'Miranda'), 'Estado', 3200000, 1);
 insert into lugar values (7, identificacion(null, 'Merida'), 'Estado', 250000, 1);
@@ -161,6 +162,9 @@ insert into lu_ais values (to_date('15/03/2020', 'DD/MM/YYYY'), null, 5,2); -- E
 insert into lu_ais values (to_date('18/05/2020', 'DD/MM/YYYY'), to_date('25/05/2020', 'DD/MM/YYYY'), 5,3); -- España ; Movilidad reducida 1 de 4
 insert into lu_ais values (to_date('25/05/2020', 'DD/MM/YYYY'), to_date('21/06/2020', 'DD/MM/YYYY'), 5,4); -- España ; Movilidad reducida 1 de 8
 insert into lu_ais values (to_date('21/06/2020', 'DD/MM/YYYY'), null, 5,4); -- España ; Movilidad reducida 1 de 8
+
+
+
 
 --PROVEEDOR
 --1--
@@ -463,7 +467,6 @@ EXCEPTION WHEN OTHERS THEN
    RAISE;
 END;
 /
-
 -- DETALLE_SERVICIO -- 
 -- 01/06/2020
 -- Venezuela     
@@ -916,8 +919,7 @@ insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYY
 insert into detalle_servicio values (to_timestamp('10/06/2020 19:32', 'DD/MM/YYYY HH24:MI'), 0, 0, 2, 34, 15); -- 34 ; 15
 insert into detalle_servicio values (to_timestamp('10/06/2020 15:00', 'DD/MM/YYYY HH24:MI'), 47.18, 49.55, null, 35, 15); -- 35 ; 15
 
--- PERSONA --
--- VENEZUELA
+-- Personas --
 execute insercion_personas(1, 'Lamont', null, 'Walter', 'Rath', to_date('10/11/1956', 'DD/MM/YYYY'), 'M', 'Infectado', null, null, 21,'imgH1.jpg');
 execute insercion_personas(2, 'Burton', 'Art', 'Sawayn', 'Hahn', to_date('12/10/1940', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 21,'imgM1.jpg');
 execute insercion_personas(3, 'Ramiro', 'Cornell', 'Balistreri', 'Shanahan', to_date('19/01/1975', 'DD/MM/YYYY'), 'M', 'Aislado', null, null, 21,'imgH2.jpg');
@@ -1699,7 +1701,7 @@ insert into per_vue values (5, 1, 29, 33);
 insert into per_vue values (12, 1, 29, 33);
 insert into per_vue values (34, 1, 29, 33);
 insert into per_vue values (55, 1, 29, 33);
--- Vuelo #2
+/
 DECLARE
   l_bfile  BFILE;
   l_blob   BLOB;
@@ -1966,7 +1968,6 @@ EXCEPTION WHEN OTHERS THEN
    ROLLBACK;
    RAISE;
 END;
-
 /
 -- Persona_Vuelo #12
 insert into per_vue values (60, 12, 26, 32); --regresa
@@ -1974,6 +1975,7 @@ insert into per_vue values (55, 12, 26, 32);
 insert into per_vue values (43, 12, 26, 32);
 insert into per_vue values (58, 12, 26, 32); --regresa
 insert into per_vue values (57, 12, 26, 32); --regresa
+/
 -- Vuelo #13
 DECLARE
   l_bfile  BFILE;
@@ -2061,243 +2063,243 @@ insert into sintoma values (7, 'Dolor de garganta');
 insert into sintoma values (8, 'Diarrea');
 
 -- PER_SIN 
-insert into per_sin values(to_date('20/06/2020'),'No',1,1);
-insert into per_sin values(to_date('21/06/2020'),'No',1,2);
-insert into per_sin values(to_date('23/06/2020'),'Si',1,3);
+insert into per_sin values(to_date('20/06/2020', 'DD/MM/YYYY'),'No',1,1);
+insert into per_sin values(to_date('21/06/2020', 'DD/MM/YYYY'),'No',1,2);
+insert into per_sin values(to_date('23/06/2020', 'DD/MM/YYYY'),'Si',1,3);
 
-insert into per_sin values(to_date('22/06/2020'),'No',2,1);
-insert into per_sin values(to_date('23/06/2020'),'No',2,2);
-insert into per_sin values(to_date('26/06/2020'),'No',2,4);
+insert into per_sin values(to_date('22/06/2020', 'DD/MM/YYYY'),'No',2,1);
+insert into per_sin values(to_date('23/06/2020', 'DD/MM/YYYY'),'No',2,2);
+insert into per_sin values(to_date('26/06/2020', 'DD/MM/YYYY'),'No',2,4);
 
-insert into per_sin values(to_date('25/06/2020'),'No',3,2);
-insert into per_sin values(to_date('27/06/2020'),'Si',3,4);
-insert into per_sin values(to_date('29/06/2020'),'Si',3,5);
+insert into per_sin values(to_date('25/06/2020', 'DD/MM/YYYY'),'No',3,2);
+insert into per_sin values(to_date('27/06/2020', 'DD/MM/YYYY'),'Si',3,4);
+insert into per_sin values(to_date('29/06/2020', 'DD/MM/YYYY'),'Si',3,5);
 
-insert into per_sin values(to_date('23/06/2020'),'No',4,2);
-insert into per_sin values(to_date('28/06/2020'),'No',4,4);
+insert into per_sin values(to_date('23/06/2020', 'DD/MM/YYYY'),'No',4,2);
+insert into per_sin values(to_date('28/06/2020', 'DD/MM/YYYY'),'No',4,4);
 
-insert into per_sin values(to_date('27/06/2020'),'Si',5,3);
-insert into per_sin values(to_date('3/07/2020'),'Si',5,7);
+insert into per_sin values(to_date('27/06/2020', 'DD/MM/YYYY'),'Si',5,3);
+insert into per_sin values(to_date('03/07/2020', 'DD/MM/YYYY'),'Si',5,7);
 
-insert into per_sin values(to_date('24/06/2020'),'No',6,1);
-insert into per_sin values(to_date('27/06/2020'),'No',6,2);
-insert into per_sin values(to_date('29/06/2020'),'Si',6,3);
-insert into per_sin values(to_date('4/07/2020'),'Si',6,4);
+insert into per_sin values(to_date('24/06/2020', 'DD/MM/YYYY'),'No',6,1);
+insert into per_sin values(to_date('27/06/2020', 'DD/MM/YYYY'),'No',6,2);
+insert into per_sin values(to_date('29/06/2020', 'DD/MM/YYYY'),'Si',6,3);
+insert into per_sin values(to_date('04/07/2020', 'DD/MM/YYYY'),'Si',6,4);
 
-insert into per_sin values(to_date('25/06/2020'),'No',7,1);
+insert into per_sin values(to_date('25/06/202', 'DD/MM/YYYY'),'No',7,1);
 
-insert into per_sin values(to_date('5/07/2020'),'No',8,1);
-insert into per_sin values(to_date('6/07/2020'),'No',8,2);
-insert into per_sin values(to_date('8/07/2020'),'No',8,4);
-insert into per_sin values(to_date('10/07/2020'),'Si',8,8);
+insert into per_sin values(to_date('05/07/2020', 'DD/MM/YYYY'),'No',8,1);
+insert into per_sin values(to_date('06/07/2020', 'DD/MM/YYYY'),'No',8,2);
+insert into per_sin values(to_date('08/07/2020', 'DD/MM/YYYY'),'No',8,4);
+insert into per_sin values(to_date('10/07/2020', 'DD/MM/YYYY'),'Si',8,8);
 
-insert into per_sin values(to_date('3/07/2020'),'No',9,4);
-insert into per_sin values(to_date('6/07/2020'),'No',9,5);
+insert into per_sin values(to_date('03/07/2020', 'DD/MM/YYYY'),'No',9,4);
+insert into per_sin values(to_date('06/07/2020', 'DD/MM/YYYY'),'No',9,5);
 
-insert into per_sin values(to_date('22/06/2020'),'No',10,2);
-insert into per_sin values(to_date('24/06/2020'),'Si',10,4);
+insert into per_sin values(to_date('22/06/2020', 'DD/MM/YYYY'),'No',10,2);
+insert into per_sin values(to_date('24/06/2020', 'DD/MM/YYYY'),'Si',10,4);
 
-insert into per_sin values(to_date('24/06/2020'),'Si',11,1);
-insert into per_sin values(to_date('25/06/2020'),'No',11,2);
-insert into per_sin values(to_date('28/06/2020'),'Si',11,3);
-insert into per_sin values(to_date('06/07/2020'),'No',11,4);
-insert into per_sin values(to_date('07/07/2020'),'Si',11,7);
+insert into per_sin values(to_date('24/06/2020', 'DD/MM/YYYY'),'Si',11,1);
+insert into per_sin values(to_date('25/06/2020', 'DD/MM/YYYY'),'No',11,2);
+insert into per_sin values(to_date('28/06/2020', 'DD/MM/YYYY'),'Si',11,3);
+insert into per_sin values(to_date('06/07/2020', 'DD/MM/YYYY'),'No',11,4);
+insert into per_sin values(to_date('07/07/2020', 'DD/MM/YYYY'),'Si',11,7);
 
-insert into per_sin values(to_date('08/07/2020'),'No',12,2);
-insert into per_sin values(to_date('10/07/2020'),'Si',12,3);
-insert into per_sin values(to_date('15/07/2020'),'Si',12,4);
+insert into per_sin values(to_date('08/07/2020', 'DD/MM/YYYY'),'No',12,2);
+insert into per_sin values(to_date('10/07/2020', 'DD/MM/YYYY'),'Si',12,3);
+insert into per_sin values(to_date('15/07/2020', 'DD/MM/YYYY'),'Si',12,4);
 
-insert into per_sin values(to_date('22/06/2020'),'No',13,1);
-insert into per_sin values(to_date('24/06/2020'),'No',13,2);
-insert into per_sin values(to_date('28/06/2020'),'No',13,3);
-insert into per_sin values(to_date('29/06/2020'),'No',13,4);
-insert into per_sin values(to_date('2/07/2020'),'Si',13,5);
-insert into per_sin values(to_date('5/07/2020'),'Si',13,7);
+insert into per_sin values(to_date('22/06/2020', 'DD/MM/YYYY'),'No',13,1);
+insert into per_sin values(to_date('24/06/2020', 'DD/MM/YYYY'),'No',13,2);
+insert into per_sin values(to_date('28/06/2020', 'DD/MM/YYYY'),'No',13,3);
+insert into per_sin values(to_date('29/06/2020', 'DD/MM/YYYY'),'No',13,4);
+insert into per_sin values(to_date('02/07/2020', 'DD/MM/YYYY'),'Si',13,5);
+insert into per_sin values(to_date('05/07/2020', 'DD/MM/YYYY'),'Si',13,7);
 
-insert into per_sin values(to_date('20/06/2020'),'Si',14,1);
+insert into per_sin values(to_date('20/06/202', 'DD/MM/YYYY'),'Si',14,1);
 --- DEL 16 AL 30------------------------------------------------
-insert into per_sin values(to_date('27/06/2020'),'No',16,2);
-insert into per_sin values(to_date('28/06/2020'),'No',16,4);
-insert into per_sin values(to_date('5/07/2020'),'No',16,5);
+insert into per_sin values(to_date('27/06/2020', 'DD/MM/YYYY'),'No',16,2);
+insert into per_sin values(to_date('28/06/2020', 'DD/MM/YYYY'),'No',16,4);
+insert into per_sin values(to_date('05/07/2020', 'DD/MM/YYYY'),'No',16,5);
 
-insert into per_sin values(to_date('3/07/2020'),'Si',17,1);
-insert into per_sin values(to_date('7/07/2020'),'Si',17,2);
+insert into per_sin values(to_date('03/07/202', 'DD/MM/YYYY'),'Si',17,1);
+insert into per_sin values(to_date('07/07/202', 'DD/MM/YYYY'),'Si',17,2);
 
-insert into per_sin values(to_date('28/06/2020'),'Si',19,3);
+insert into per_sin values(to_date('28/06/202', 'DD/MM/YYYY'),'Si',19,3);
 
-insert into per_sin values(to_date('29/06/2020'),'Si',20,1);
-insert into per_sin values(to_date('5/07/2020'),'Si',20,7);
+insert into per_sin values(to_date('29/06/202', 'DD/MM/YYYY'),'Si',20,1);
+insert into per_sin values(to_date('05/07/202', 'DD/MM/YYYY'),'Si',20,7);
 
-insert into per_sin values(to_date('9/07/2020'),'Si',21,3);
+insert into per_sin values(to_date('09/07/202', 'DD/MM/YYYY'),'Si',21,3);
 
-insert into per_sin values(to_date('5/07/2020'),'No',22,4);
+insert into per_sin values(to_date('05/07/202', 'DD/MM/YYYY'),'No',22,4);
 
-insert into per_sin values(to_date('5/07/2020'),'Si',23,2);
-insert into per_sin values(to_date('10/07/2020'),'No',23,3);
+insert into per_sin values(to_date('05/07/202', 'DD/MM/YYYY'),'Si',23,2);
+insert into per_sin values(to_date('10/07/202', 'DD/MM/YYYY'),'No',23,3);
 
-insert into per_sin values(to_date('24/06/2020'),'Si',24,1);
-insert into per_sin values(to_date('29/06/2020'),'No',24,4);
+insert into per_sin values(to_date('24/06/202', 'DD/MM/YYYY'),'Si',24,1);
+insert into per_sin values(to_date('29/06/202', 'DD/MM/YYYY'),'No',24,4);
 
-insert into per_sin values(to_date('30/06/2020'),'Si',25,3);
-insert into per_sin values(to_date('6/06/2020'),'Si',25,5);
+insert into per_sin values(to_date('30/06/202', 'DD/MM/YYYY'),'Si',25,3);
+insert into per_sin values(to_date('06/06/202', 'DD/MM/YYYY'),'Si',25,5);
 
-insert into per_sin values(to_date('12/07/2020'),'Si',26,3);
-insert into per_sin values(to_date('15/07/2020'),'Si',26,6);
+insert into per_sin values(to_date('12/07/202', 'DD/MM/YYYY'),'Si',26,3);
+insert into per_sin values(to_date('15/07/202', 'DD/MM/YYYY'),'Si',26,6);
 
-insert into per_sin values(to_date('15/07/2020'),'Si',27,1);
-insert into per_sin values(to_date('18/07/2020'),'No',27,2);
-insert into per_sin values(to_date('20/07/2020'),'Si',27,8);
+insert into per_sin values(to_date('15/07/202', 'DD/MM/YYYY'),'Si',27,1);
+insert into per_sin values(to_date('18/07/202', 'DD/MM/YYYY'),'No',27,2);
+insert into per_sin values(to_date('20/07/202', 'DD/MM/YYYY'),'Si',27,8);
 
-insert into per_sin values(to_date('25/06/2020'),'No',28,2);
-insert into per_sin values(to_date('5/07/2020'),'Si',28,5);
+insert into per_sin values(to_date('25/06/202', 'DD/MM/YYYY'),'No',28,2);
+insert into per_sin values(to_date('05/07/202', 'DD/MM/YYYY'),'Si',28,5);
 
-insert into per_sin values(to_date('23/06/2020'),'Si',30,1);
-insert into per_sin values(to_date('25/06/2020'),'No',30,2);
-insert into per_sin values(to_date('5/07/2020'),'Si',30,3);
-insert into per_sin values(to_date('7/07/2020'),'No',30,5);
+insert into per_sin values(to_date('23/06/202', 'DD/MM/YYYY'),'Si',30,1);
+insert into per_sin values(to_date('25/06/202', 'DD/MM/YYYY'),'No',30,2);
+insert into per_sin values(to_date('05/07/202', 'DD/MM/YYYY'),'Si',30,3);
+insert into per_sin values(to_date('07/07/202', 'DD/MM/YYYY'),'No',30,5);
 --- DEL 31 AL 45----------------------------------------------
-insert into per_sin values(to_date('25/06/2020'),'No',31,2);
-insert into per_sin values(to_date('27/06/2020'),'No',31,4);
+insert into per_sin values(to_date('25/06/202', 'DD/MM/YYYY'),'No',31,2);
+insert into per_sin values(to_date('27/06/202', 'DD/MM/YYYY'),'No',31,4);
 
-insert into per_sin values(to_date('25/06/2020'),'Si',32,7);
+insert into per_sin values(to_date('25/06/202', 'DD/MM/YYYY'),'Si',32,7);
 
-insert into per_sin values(to_date('28/06/2020'),'No',33,2);
-insert into per_sin values(to_date('5/07/2020'),'Si',33,3);
+insert into per_sin values(to_date('28/06/202', 'DD/MM/YYYY'),'No',33,2);
+insert into per_sin values(to_date('05/07/202', 'DD/MM/YYYY'),'Si',33,3);
 
-insert into per_sin values(to_date('26/06/2020'),'Si',34,4);
+insert into per_sin values(to_date('26/06/202', 'DD/MM/YYYY'),'Si',34,4);
 
-insert into per_sin values(to_date('7/07/2020'),'Si',35,3);
+insert into per_sin values(to_date('07/07/202', 'DD/MM/YYYY'),'Si',35,3);
 
-insert into per_sin values(to_date('25/06/2020'),'Si',36,1);
-insert into per_sin values(to_date('8/07/2020'),'No',36,4);
+insert into per_sin values(to_date('25/06/202', 'DD/MM/YYYY'),'Si',36,1);
+insert into per_sin values(to_date('08/07/202', 'DD/MM/YYYY'),'No',36,4);
 
-insert into per_sin values(to_date('29/06/2020'),'Si',37,1);
-insert into per_sin values(to_date('2/07/2020'),'Si',37,5);
+insert into per_sin values(to_date('29/06/202', 'DD/MM/YYYY'),'Si',37,1);
+insert into per_sin values(to_date('02/07/202', 'DD/MM/YYYY'),'Si',37,5);
 
-insert into per_sin values(to_date('25/06/2020'),'Si',38,1);
-insert into per_sin values(to_date('27/06/2020'),'No',38,2);
-insert into per_sin values(to_date('28/06/2020'),'No',38,4);
-insert into per_sin values(to_date('3/07/2020'),'Si',38,7);
-insert into per_sin values(to_date('5/07/2020'),'Si',38,8);
+insert into per_sin values(to_date('25/06/202', 'DD/MM/YYYY'),'Si',38,1);
+insert into per_sin values(to_date('27/06/202', 'DD/MM/YYYY'),'No',38,2);
+insert into per_sin values(to_date('28/06/202', 'DD/MM/YYYY'),'No',38,4);
+insert into per_sin values(to_date('03/07/202', 'DD/MM/YYYY'),'Si',38,7);
+insert into per_sin values(to_date('05/07/202', 'DD/MM/YYYY'),'Si',38,8);
 
-insert into per_sin values(to_date('1/07/2020'),'Si',39,4);
+insert into per_sin values(to_date('01/07/202', 'DD/MM/YYYY'),'Si',39,4);
 
-insert into per_sin values(to_date('25/06/2020'),'No',40,4);
-insert into per_sin values(to_date('5/07/2020'),'Si',40,5);
+insert into per_sin values(to_date('25/06/202', 'DD/MM/YYYY'),'No',40,4);
+insert into per_sin values(to_date('05/07/202', 'DD/MM/YYYY'),'Si',40,5);
 
-insert into per_sin values(to_date('25/06/2020'),'No',41,2);
-insert into per_sin values(to_date('4/07/2020'),'Si',41,4);
+insert into per_sin values(to_date('25/06/202', 'DD/MM/YYYY'),'No',41,2);
+insert into per_sin values(to_date('04/07/202', 'DD/MM/YYYY'),'Si',41,4);
 
-insert into per_sin values(to_date('5/07/2020'),'Si',43,1);
-insert into per_sin values(to_date('15/07/2020'),'No',43,2);
-insert into per_sin values(to_date('18/07/2020'),'Si',43,3);
-insert into per_sin values(to_date('19/07/2020'),'Si',43,4);
-insert into per_sin values(to_date('20/07/2020'),'Si',43,7);
+insert into per_sin values(to_date('05/07/202', 'DD/MM/YYYY'),'Si',43,1);
+insert into per_sin values(to_date('15/07/202', 'DD/MM/YYYY'),'No',43,2);
+insert into per_sin values(to_date('18/07/202', 'DD/MM/YYYY'),'Si',43,3);
+insert into per_sin values(to_date('19/07/202', 'DD/MM/YYYY'),'Si',43,4);
+insert into per_sin values(to_date('20/07/202', 'DD/MM/YYYY'),'Si',43,7);
 
-insert into per_sin values(to_date('25/06/2020'),'Si',44,4);
+insert into per_sin values(to_date('25/06/202', 'DD/MM/YYYY'),'Si',44,4);
 
-insert into per_sin values(to_date('25/06/2020'),'Si',45,1);
-insert into per_sin values(to_date('4/07/2020'),'Si',45,3);
+insert into per_sin values(to_date('25/06/202', 'DD/MM/YYYY'),'Si',45,1);
+insert into per_sin values(to_date('04/07/202', 'DD/MM/YYYY'),'Si',45,3);
 --- DEL 46 AL 60----------------------------------------------
-insert into per_sin values(to_date('4/07/2020'),'No',46,1);
+insert into per_sin values(to_date('04/07/202', 'DD/MM/YYYY'),'No',46,1);
 
-insert into per_sin values(to_date('2/07/2020'),'No',47,2);
-insert into per_sin values(to_date('4/07/2020'),'Si',47,5);
+insert into per_sin values(to_date('02/07/202', 'DD/MM/YYYY'),'No',47,2);
+insert into per_sin values(to_date('04/07/202', 'DD/MM/YYYY'),'Si',47,5);
 
-insert into per_sin values(to_date('24/06/2020'),'Si',48,1);
-insert into per_sin values(to_date('4/07/2020'),'No',48,2);
-insert into per_sin values(to_date('5/07/2020'),'Si',48,8);
+insert into per_sin values(to_date('24/06/202', 'DD/MM/YYYY'),'Si',48,1);
+insert into per_sin values(to_date('04/07/202', 'DD/MM/YYYY'),'No',48,2);
+insert into per_sin values(to_date('05/07/202', 'DD/MM/YYYY'),'Si',48,8);
 
-insert into per_sin values(to_date('4/07/2020'),'No',49,2);
-insert into per_sin values(to_date('6/07/2020'),'No',49,4);
-insert into per_sin values(to_date('9/07/2020'),'Si',49,6);
+insert into per_sin values(to_date('04/07/202', 'DD/MM/YYYY'),'No',49,2);
+insert into per_sin values(to_date('06/07/202', 'DD/MM/YYYY'),'No',49,4);
+insert into per_sin values(to_date('09/07/202', 'DD/MM/YYYY'),'Si',49,6);
 
-insert into per_sin values(to_date('27/06/2020'),'Si',50,5);
+insert into per_sin values(to_date('27/06/202', 'DD/MM/YYYY'),'Si',50,5);
 
-insert into per_sin values(to_date('27/06/2020'),'Si',51,1);
-insert into per_sin values(to_date('28/06/2020'),'Si',51,3);
-insert into per_sin values(to_date('4/07/2020'),'Si',51,4);
+insert into per_sin values(to_date('27/06/202', 'DD/MM/YYYY'),'Si',51,1);
+insert into per_sin values(to_date('28/06/202', 'DD/MM/YYYY'),'Si',51,3);
+insert into per_sin values(to_date('04/07/202', 'DD/MM/YYYY'),'Si',51,4);
 
-insert into per_sin values(to_date('2/07/2020'),'Si',52,3);
-insert into per_sin values(to_date('6/07/2020'),'Si',52,7);
+insert into per_sin values(to_date('02/07/202', 'DD/MM/YYYY'),'Si',52,3);
+insert into per_sin values(to_date('06/07/202', 'DD/MM/YYYY'),'Si',52,7);
 
-insert into per_sin values(to_date('9/07/2020'),'No',53,4);
+insert into per_sin values(to_date('09/07/202', 'DD/MM/YYYY'),'No',53,4);
 
-insert into per_sin values(to_date('24/06/2020'),'No',54,2);
-insert into per_sin values(to_date('4/07/2020'),'Si',54,3);
+insert into per_sin values(to_date('24/06/202', 'DD/MM/YYYY'),'No',54,2);
+insert into per_sin values(to_date('04/07/202', 'DD/MM/YYYY'),'Si',54,3);
 
-insert into per_sin values(to_date('1/07/2020'),'Si',55,1);
+insert into per_sin values(to_date('01/07/202', 'DD/MM/YYYY'),'Si',55,1);
 
-insert into per_sin values(to_date('8/07/2020'),'Si',56,1);
+insert into per_sin values(to_date('08/07/202', 'DD/MM/YYYY'),'Si',56,1);
 
-insert into per_sin values(to_date('26/06/2020'),'No',57,7);
+insert into per_sin values(to_date('26/06/202', 'DD/MM/YYYY'),'No',57,7);
 
-insert into per_sin values(to_date('26/06/2020'),'Si',58,2);
-insert into per_sin values(to_date('3/07/2020'),'No',58,8);
+insert into per_sin values(to_date('26/06/202', 'DD/MM/YYYY'),'Si',58,2);
+insert into per_sin values(to_date('03/07/202', 'DD/MM/YYYY'),'No',58,8);
 
-insert into per_sin values(to_date('22/06/2020'),'Si',59,4);
-insert into per_sin values(to_date('24/06/2020'),'No',59,6);
+insert into per_sin values(to_date('22/06/202', 'DD/MM/YYYY'),'Si',59,4);
+insert into per_sin values(to_date('24/06/202', 'DD/MM/YYYY'),'No',59,6);
 
-insert into per_sin values(to_date('4/07/2020'),'No',60,4);
+insert into per_sin values(to_date('04/07/202', 'DD/MM/YYYY'),'No',60,4);
 --- DEL 61 AL 75----------------------------------------------
-insert into per_sin values(to_date('4/07/2020'),'Si',61,1);
-insert into per_sin values(to_date('6/07/2020'),'No',61,2);
-insert into per_sin values(to_date('9/07/2020'),'Si',61,3);
+insert into per_sin values(to_date('04/07/202', 'DD/MM/YYYY'),'Si',61,1);
+insert into per_sin values(to_date('06/07/202', 'DD/MM/YYYY'),'No',61,2);
+insert into per_sin values(to_date('09/07/202', 'DD/MM/YYYY'),'Si',61,3);
 
-insert into per_sin values(to_date('4/07/2020'),'Si',62,1);
-insert into per_sin values(to_date('7/07/2020'),'No',62,2);
-insert into per_sin values(to_date('14/07/2020'),'Si',62,3);
-insert into per_sin values(to_date('24/07/2020'),'Si',62,4);
-insert into per_sin values(to_date('25/07/2020'),'Si',62,5);
-insert into per_sin values(to_date('27/07/2020'),'No',62,6);
-insert into per_sin values(to_date('29/07/2020'),'Si',62,7);
+insert into per_sin values(to_date('04/07/202', 'DD/MM/YYYY'),'Si',62,1);
+insert into per_sin values(to_date('07/07/202', 'DD/MM/YYYY'),'No',62,2);
+insert into per_sin values(to_date('14/07/202', 'DD/MM/YYYY'),'Si',62,3);
+insert into per_sin values(to_date('24/07/202', 'DD/MM/YYYY'),'Si',62,4);
+insert into per_sin values(to_date('25/07/202', 'DD/MM/YYYY'),'Si',62,5);
+insert into per_sin values(to_date('27/07/202', 'DD/MM/YYYY'),'No',62,6);
+insert into per_sin values(to_date('29/07/202', 'DD/MM/YYYY'),'Si',62,7);
 
-insert into per_sin values(to_date('19/06/2020'),'Si',63,1);
-insert into per_sin values(to_date('27/06/2020'),'Si',63,2);
-insert into per_sin values(to_date('4/07/2020'),'No',63,8);
+insert into per_sin values(to_date('19/06/202', 'DD/MM/YYYY'),'Si',63,1);
+insert into per_sin values(to_date('27/06/202', 'DD/MM/YYYY'),'Si',63,2);
+insert into per_sin values(to_date('04/07/202', 'DD/MM/YYYY'),'No',63,8);
 
-insert into per_sin values(to_date('2/07/2020'),'No',64,2);
+insert into per_sin values(to_date('02/07/202', 'DD/MM/YYYY'),'No',64,2);
 
-insert into per_sin values(to_date('24/06/2020'),'No',65,4);
-insert into per_sin values(to_date('5/07/2020'),'Si',65,5);
+insert into per_sin values(to_date('24/06/202', 'DD/MM/YYYY'),'No',65,4);
+insert into per_sin values(to_date('05/07/202', 'DD/MM/YYYY'),'Si',65,5);
 
-insert into per_sin values(to_date('22/06/2020'),'No',66,2);
-insert into per_sin values(to_date('1/07/2020'),'No',66,4);
+insert into per_sin values(to_date('22/06/202', 'DD/MM/YYYY'),'No',66,2);
+insert into per_sin values(to_date('01/07/202', 'DD/MM/YYYY'),'No',66,4);
 
-insert into per_sin values(to_date('8/07/2020'),'Si',67,3);
+insert into per_sin values(to_date('08/07/202', 'DD/MM/YYYY'),'Si',67,3);
 
-insert into per_sin values(to_date('6/07/2020'),'Si',68,1);
-insert into per_sin values(to_date('19/07/2020'),'No',68,4);
+insert into per_sin values(to_date('06/07/202', 'DD/MM/YYYY'),'Si',68,1);
+insert into per_sin values(to_date('19/07/202', 'DD/MM/YYYY'),'No',68,4);
 
-insert into per_sin values(to_date('4/07/2020'),'No',69,2);
-insert into per_sin values(to_date('7/07/2020'),'No',69,3);
-insert into per_sin values(to_date('14/07/2020'),'No',69,4);
+insert into per_sin values(to_date('04/07/202', 'DD/MM/YYYY'),'No',69,2);
+insert into per_sin values(to_date('07/07/202', 'DD/MM/YYYY'),'No',69,3);
+insert into per_sin values(to_date('14/07/202', 'DD/MM/YYYY'),'No',69,4);
 
-insert into per_sin values(to_date('22/06/2020'),'Si',70,1);
-insert into per_sin values(to_date('28/06/2020'),'No',70,2);
-insert into per_sin values(to_date('4/07/2020'),'No',70,3);
-insert into per_sin values(to_date('5/07/2020'),'No',70,4);
-insert into per_sin values(to_date('8/07/2020'),'No',70,5);
-insert into per_sin values(to_date('9/07/2020'),'Si',70,6);
-insert into per_sin values(to_date('14/07/2020'),'Si',70,7);
-insert into per_sin values(to_date('17/07/2020'),'No',70,8);
+insert into per_sin values(to_date('22/06/202', 'DD/MM/YYYY'),'Si',70,1);
+insert into per_sin values(to_date('28/06/202', 'DD/MM/YYYY'),'No',70,2);
+insert into per_sin values(to_date('04/07/202', 'DD/MM/YYYY'),'No',70,3);
+insert into per_sin values(to_date('05/07/202', 'DD/MM/YYYY'),'No',70,4);
+insert into per_sin values(to_date('08/07/202', 'DD/MM/YYYY'),'No',70,5);
+insert into per_sin values(to_date('09/07/202', 'DD/MM/YYYY'),'Si',70,6);
+insert into per_sin values(to_date('14/07/202', 'DD/MM/YYYY'),'Si',70,7);
+insert into per_sin values(to_date('17/07/202', 'DD/MM/YYYY'),'No',70,8);
 
-insert into per_sin values(to_date('3/07/2020'),'No',71,5);
+insert into per_sin values(to_date('03/07/202', 'DD/MM/YYYY'),'No',71,5);
 
-insert into per_sin values(to_date('1/07/2020'),'No',72,2);
-insert into per_sin values(to_date('6/07/2020'),'No',72,4);
+insert into per_sin values(to_date('01/07/202', 'DD/MM/YYYY'),'No',72,2);
+insert into per_sin values(to_date('06/07/202', 'DD/MM/YYYY'),'No',72,4);
 
-insert into per_sin values(to_date('23/06/2020'),'Si',73,1);
-insert into per_sin values(to_date('28/06/2020'),'Si',73,2);
-insert into per_sin values(to_date('3/07/2020'),'No',73,3);
-insert into per_sin values(to_date('5/07/2020'),'No',73,7);
-insert into per_sin values(to_date('9/07/2020'),'No',73,3);
+insert into per_sin values(to_date('23/06/202', 'DD/MM/YYYY'),'Si',73,1);
+insert into per_sin values(to_date('28/06/202', 'DD/MM/YYYY'),'Si',73,2);
+insert into per_sin values(to_date('03/07/202', 'DD/MM/YYYY'),'No',73,3);
+insert into per_sin values(to_date('05/07/202', 'DD/MM/YYYY'),'No',73,7);
+insert into per_sin values(to_date('09/07/202', 'DD/MM/YYYY'),'No',73,3);
 
-insert into per_sin values(to_date('4/07/2020'),'Si',74,3);
-insert into per_sin values(to_date('8/07/2020'),'No',74,4);
+insert into per_sin values(to_date('04/07/202', 'DD/MM/YYYY'),'Si',74,3);
+insert into per_sin values(to_date('08/07/202', 'DD/MM/YYYY'),'No',74,4);
 
-insert into per_sin values(to_date('5/07/2020'),'No',75,1);
-insert into per_sin values(to_date('12/07/2020'),'No',75,4);
+insert into per_sin values(to_date('05/07/202', 'DD/MM/YYYY'),'No',75,1);
+insert into per_sin values(to_date('12/07/202', 'DD/MM/YYYY'),'No',75,4);
 
 --PATOLOGIA
 insert into patologia values (1, 'Sin. resp. de Oriente Medio');
@@ -2315,7 +2317,6 @@ insert into patologia values (12, 'Fibrosis pulmonar idiopática');
 insert into patologia values (13, 'Infarto de miocardio');
 insert into patologia values (14, 'Insuficiencia cardiaca');
 insert into patologia values (15, 'Neumonía');
-
 -- PER_PAT    
 insert into per_pat values(1,1);
 insert into per_pat values(1,2);
@@ -2457,7 +2458,6 @@ insert into per_pat values(73,12);
 insert into per_pat values(74,13);
 insert into per_pat values(74,14);
 insert into per_pat values(75,15);
-
 --INSUMO
 insert into insumo values (1, 'Mascarillas');
 insert into insumo values (2, 'Gasas');
@@ -2580,6 +2580,7 @@ insert into donacion values (69, to_date('15/04/2020','DD/MM/YYYY'), 'Mascarilla
 insert into donacion values (70, to_date('15/04/2020','DD/MM/YYYY'), 'Pruebas de deteccion de COVID', 15000, 1500000, 3, 1);
 insert into donacion values (71, to_date('15/04/2020','DD/MM/YYYY'), 'Mascarillas',100000, 1000000, 3, 1);
 
+
 --INVENTARIO
 insert into inventario (id_csalud_inventario, id_insumo_inventario, cantidad_inventario) values (1, 1, 8000);
 insert into inventario (id_csalud_inventario, id_insumo_inventario, cantidad_inventario) values (1, 4, 700);
@@ -2668,286 +2669,4 @@ insert into his_medico (pasaporte_persona_histm, id_csalud_histm, fecasistencia_
 insert into his_medico (pasaporte_persona_histm, id_csalud_histm, fecasistencia_histm) values (72, 15, to_date('10/06/2020', 'DD/MM/YYYY'));
 insert into his_medico (pasaporte_persona_histm, id_csalud_histm, fecasistencia_histm) values (74, 15, to_date('10/06/2020', 'DD/MM/YYYY'));
 
-/
-DECLARE
-  l_bfile  BFILE;
-  l_blob   BLOB;
-BEGIN
-  insert into vuelo values (1, identificacion(EMPTY_BLOB(), 'Laser'), to_timestamp('18/12/2019 03:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('18/12/2019 06:00', 'DD/MM/YYYY HH24:MI'), 29, 33);
-  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 1;
 
-  l_bfile := BFILENAME('DIR_IMAGENES', 'Laser.jpg');
-  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
-  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
-  DBMS_LOB.fileclose(l_bfile);
-  COMMIT;
- 
-EXCEPTION WHEN OTHERS THEN
-   ROLLBACK;
-   RAISE;
-END;
-/
-DECLARE
-  l_bfile  BFILE;
-  l_blob   BLOB;
-BEGIN
-  insert into vuelo values (2, EMPTY_BLOB(), 'Avior Airlines'), to_timestamp('23/12/2019 13:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('23/12/2019 18:00', 'DD/MM/YYYY HH24:MI'), 30, 33);
-  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 2;
-
-  l_bfile := BFILENAME('DIR_IMAGENES', 'Avior Airlines.jpg');
-  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
-  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
-  DBMS_LOB.fileclose(l_bfile);
-  COMMIT;
- 
-EXCEPTION WHEN OTHERS THEN
-   ROLLBACK;
-   RAISE;
-END;
-/
-DECLARE
-  l_bfile  BFILE;
-  l_blob   BLOB;
-BEGIN
-  insert into vuelo values (3, identificacion(EMPTY_BLOB(), 'Delta'), to_timestamp('29/12/2019 02:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/12/2019 05:00', 'DD/MM/YYYY HH24:MI'), 25, 22);
-  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 3;
-
-  l_bfile := BFILENAME('DIR_IMAGENES', 'Delta.jpg');
-  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
-  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
-  DBMS_LOB.fileclose(l_bfile);
-  COMMIT;
- 
-EXCEPTION WHEN OTHERS THEN
-   ROLLBACK;
-   RAISE;
-END;
-
-/
-DECLARE
-  l_bfile  BFILE;
-  l_blob   BLOB;
-BEGIN
-  insert into vuelo values (4, identificacion(EMPTY_BLOB(), 'Turkish Airlines'), to_timestamp('03/01/2020 11:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('03/01/2020 16:00', 'DD/MM/YYYY HH24:MI'), 32, 23);
-  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 4;
-
-  l_bfile := BFILENAME('DIR_IMAGENES', 'Turkish Airlines.png');
-  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
-  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
-  DBMS_LOB.fileclose(l_bfile);
-  COMMIT;
- 
-EXCEPTION WHEN OTHERS THEN
-   ROLLBACK;
-   RAISE;
-END;
-
-/
-DECLARE
-  l_bfile  BFILE;
-  l_blob   BLOB;
-BEGIN
-  insert into vuelo values (5, identificacion(EMPTY_BLOB(), 'Emirates Airlines'), to_timestamp('09/01/2020 19:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('09/01/2020 23:00', 'DD/MM/YYYY HH24:MI'), 28, 30);
-  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 5;
-
-  l_bfile := BFILENAME('DIR_IMAGENES', 'Emirates Airlines.png');
-  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
-  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
-  DBMS_LOB.fileclose(l_bfile);
-  COMMIT;
- 
-EXCEPTION WHEN OTHERS THEN
-   ROLLBACK;
-   RAISE;
-END;
-
-/
-DECLARE
-  l_bfile  BFILE;
-  l_blob   BLOB;
-BEGIN
-  insert into vuelo values (6, identificacion(EMPTY_BLOB(), 'Air France'), to_timestamp('16/01/2020 04:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('16/01/2020 11:00', 'DD/MM/YYYY HH24:MI'), 24, 30);
-  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 6;
-
-  l_bfile := BFILENAME('DIR_IMAGENES', 'Air France.png');
-  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
-  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
-  DBMS_LOB.fileclose(l_bfile);
-  COMMIT;
- 
-EXCEPTION WHEN OTHERS THEN
-   ROLLBACK;
-   RAISE;
-END;
-
-/
-DECLARE
-  l_bfile  BFILE;
-  l_blob   BLOB;
-BEGIN
-  insert into vuelo values (7, identificacion(EMPTY_BLOB(), 'TAP Portugal'), to_timestamp('22/01/2020 15:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('22/01/2020 22:00', 'DD/MM/YYYY HH24:MI'), 22, 28);
-  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 7;
-
-  l_bfile := BFILENAME('DIR_IMAGENES', 'TAP Portugal.png');
-  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
-  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
-  DBMS_LOB.fileclose(l_bfile);
-  COMMIT;
- 
-EXCEPTION WHEN OTHERS THEN
-   ROLLBACK;
-   RAISE;
-END;
-
-/
-DECLARE
-  l_bfile  BFILE;
-  l_blob   BLOB;
-BEGIN
-  insert into vuelo values (8, identificacion(EMPTY_BLOB(), 'Plus Ultra'), to_timestamp('28/01/2020 02:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('28/01/2020 10:00', 'DD/MM/YYYY HH24:MI'), 35, 30);
-  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 8;
-
-  l_bfile := BFILENAME('DIR_IMAGENES', 'Plus Ultra.png');
-  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
-  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
-  DBMS_LOB.fileclose(l_bfile);
-  COMMIT;
- 
-EXCEPTION WHEN OTHERS THEN
-   ROLLBACK;
-   RAISE;
-END;
-
-/
-DECLARE
-  l_bfile  BFILE;
-  l_blob   BLOB;
-BEGIN
-  insert into vuelo values (9, identificacion(EMPTY_BLOB(), 'Conviasa'), to_timestamp('01/02/2020 16:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('01/02/2020 21:00', 'DD/MM/YYYY HH24:MI'), 27, 35);
-  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 9;
-
-  l_bfile := BFILENAME('DIR_IMAGENES', 'Conviasa.png');
-  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
-  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
-  DBMS_LOB.fileclose(l_bfile);
-  COMMIT;
- 
-EXCEPTION WHEN OTHERS THEN
-   ROLLBACK;
-   RAISE;
-END;
-
-/
-DECLARE
-  l_bfile  BFILE;
-  l_blob   BLOB;
-BEGIN
-  insert into vuelo values (10, identificacion(EMPTY_BLOB(), 'Air Europa'), to_timestamp('08/02/2020 05:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('08/02/2020 10:00', 'DD/MM/YYYY HH24:MI'), 21, 32);
-  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 10;
-
-  l_bfile := BFILENAME('DIR_IMAGENES', 'Air Europa.jpg');
-  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
-  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
-  DBMS_LOB.fileclose(l_bfile);
-  COMMIT;
- 
-EXCEPTION WHEN OTHERS THEN
-   ROLLBACK;
-   RAISE;
-END;
-
-/
-DECLARE
-  l_bfile  BFILE;
-  l_blob   BLOB;
-BEGIN
-  insert into vuelo values (11, identificacion(EMPTY_BLOB() 'Avior Airlines'), to_timestamp('11/02/2020 14:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('11/02/2020 22:00', 'DD/MM/YYYY HH24:MI'), 27, 31);
-  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 11;
-
-  l_bfile := BFILENAME('DIR_IMAGENES', 'Avior Airlines.jpg');
-  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
-  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
-  DBMS_LOB.fileclose(l_bfile);
-  COMMIT;
- 
-EXCEPTION WHEN OTHERS THEN
-   ROLLBACK;
-   RAISE;
-END;
-
-/
-DECLARE
-  l_bfile  BFILE;
-  l_blob   BLOB;
-BEGIN
-  insert into vuelo values (12, identificacion(EMPTY_BLOB(), 'Conviasa'), to_timestamp('17/02/2020 06:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('17/02/2020 09:00', 'DD/MM/YYYY HH24:MI'), 26, 32);
-  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 12;
-
-  l_bfile := BFILENAME('DIR_IMAGENES', 'Conviasa.png');
-  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
-  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
-  DBMS_LOB.fileclose(l_bfile);
-  COMMIT;
- 
-EXCEPTION WHEN OTHERS THEN
-   ROLLBACK;
-   RAISE;
-END;
-
-/
-DECLARE
-  l_bfile  BFILE;
-  l_blob   BLOB;
-BEGIN
-  insert into vuelo values (13, identificacion(EMPTY_BLOB(), 'Conviasa'), to_timestamp('20/02/2020 12:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('20/02/2020 20:00', 'DD/MM/YYYY HH24:MI'), 31, 22);
-  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 13;
-
-  l_bfile := BFILENAME('DIR_IMAGENES', 'Conviasa.png');
-  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
-  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
-  DBMS_LOB.fileclose(l_bfile);
-  COMMIT;
- 
-EXCEPTION WHEN OTHERS THEN
-   ROLLBACK;
-   RAISE;
-END;
-
-/
-DECLARE
-  l_bfile  BFILE;
-  l_blob   BLOB;
-BEGIN
-  insert into vuelo values (14, identificacion(EMPTY_BLOB(), 'Turkish Airlines'), to_timestamp('24/02/2020 23:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('25/02/2020 03:00', 'DD/MM/YYYY HH24:MI'), 28, 24);
-  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 14;
-
-  l_bfile := BFILENAME('DIR_IMAGENES', 'Turkish Airlines.png');
-  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
-  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
-  DBMS_LOB.fileclose(l_bfile);
-  COMMIT;
- 
-EXCEPTION WHEN OTHERS THEN
-   ROLLBACK;
-   RAISE;
-END;
-
-/
-DECLARE
-  l_bfile  BFILE;
-  l_blob   BLOB;
-BEGIN
-  insert into vuelo values (15, identificacion(EMPTY_BLOB(), 'Air France'), to_timestamp('29/02/2020 08:00', 'DD/MM/YYYY HH24:MI'), to_timestamp('29/02/2020 13:00', 'DD/MM/YYYY HH24:MI'), 32, 23);
-  select v.identificacion_aerolinea.imagen INTO l_blob from vuelo v where v.numero_vuelo = 15;
-
-  l_bfile := BFILENAME('DIR_IMAGENES', 'Air France.png');
-  DBMS_LOB.fileopen(l_bfile, Dbms_Lob.File_Readonly);
-  DBMS_LOB.loadfromfile(l_blob,l_bfile,DBMS_LOB.getlength(l_bfile));
-  DBMS_LOB.fileclose(l_bfile);
-  COMMIT;
- 
-EXCEPTION WHEN OTHERS THEN
-   ROLLBACK;
-   RAISE;
-END;
-/
