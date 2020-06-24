@@ -1,0 +1,44 @@
+---REPORTE 6
+--OBJETOS
+create or replace type fecha_infeccion as object(
+fecha date,
+infeccion number
+);
+/
+create type fi as table of fecha_infeccion;
+/     
+---FUNCION PARA EL RANGO DE FECHAS E INFECCIONES
+create or replace function Infections(fechai date, fechaf date,pais varchar2) return fi
+is
+   fechaIn fi:= fi();
+   Qpob number;
+   pInfectada number;
+   dias number;
+   fechaD date;
+begin
+    select l.poblacion_lugar into Qpob from lugar l where l.identificacion_lugar.nombre = pais;
+    Qpob:= Qpob*0.25;
+    select round(to_date(fechai,'DD-MM-YYYY') - to_date(fechaf,'DD-MM-YYYY'),0) into dias from dual;
+    fechaIn.extend(dias);
+    fechaD:= fechaf;
+    
+    for i in 1..dias loop
+        pInfectada:= round(DBMS_RANDOM.value(1,Qpob),0);
+       -- fechaIn(i).fecha:= fechaD;
+       -- fechaIn(i).infeccion:= pInfectada;
+        fechaIn(i):= fecha_infeccion(fechaD,pInfectada); 
+        fechaD:= fechaD +1;
+    end loop; 
+    
+    return fechaIn;
+end Infections;
+/
+----PROCEDIMIENTO LLAMADO POR JASPER
+create or replace procedure Grafico(p_cursor OUT sys_refcursor,Pais Varchar2, fechai date, fechaf date)
+is    
+begin  
+       Open p_cursor 
+       for select l.identificacion_lugar.nombre ,t.fecha, t.infeccion from table(Covid.Infections(sysdate,'06/04/2020','Venezuela')) t,
+       lugar l where l.tipo_lugar = 'Pais' and l.identificacion_lugar.nombre = 'Venezuela';
+     
+end Grafico;
