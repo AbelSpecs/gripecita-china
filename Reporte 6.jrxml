@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.12.2.final using JasperReports Library version 6.12.2-75c5e90a222ab406e416cbf590a5397028a52de3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte 6" pageWidth="1200" pageHeight="900" orientation="Landscape" columnWidth="1160" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="91748cc2-dd03-4017-95eb-136e5a25bc35">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Covid"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="Pais" class="java.lang.String"/>
+	<parameter name="FechaI" class="java.sql.Date"/>
+	<parameter name="FechaF" class="java.sql.Date"/>
+	<queryString language="plsql">
+		<![CDATA[{call Grafico($P{ORACLE_REF_CURSOR},$P{Pais},$P{FechaI},$P{FechaF})}]]>
+	</queryString>
+	<field name="FECHA" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="FECHA"/>
+	</field>
+	<field name="NOMBRE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="NOMBRE"/>
+	</field>
+	<field name="NOMBREMEX" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="NOMBREMEX"/>
+	</field>
+	<field name="NOMBREUSA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="NOMBREUSA"/>
+	</field>
+	<field name="NOMBREVEN" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="NOMBREVEN"/>
+	</field>
+	<field name="NOMBREBRA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="NOMBREBRA"/>
+	</field>
+	<field name="NOMBREESP" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="NOMBREESP"/>
+	</field>
+	<field name="IMAGEN" class="java.awt.Image">
+		<property name="com.jaspersoft.studio.field.label" value="IMAGEN"/>
+	</field>
+	<field name="IMAGENMEX" class="java.awt.Image">
+		<property name="com.jaspersoft.studio.field.label" value="IMAGENMEX"/>
+	</field>
+	<field name="IMAGENUSA" class="java.awt.Image">
+		<property name="com.jaspersoft.studio.field.label" value="IMAGENUSA"/>
+	</field>
+	<field name="IMAGENVEN" class="java.awt.Image">
+		<property name="com.jaspersoft.studio.field.label" value="IMAGENVEN"/>
+	</field>
+	<field name="IMAGENBRA" class="java.awt.Image">
+		<property name="com.jaspersoft.studio.field.label" value="IMAGENBRA"/>
+	</field>
+	<field name="IMAGENESP" class="java.awt.Image">
+		<property name="com.jaspersoft.studio.field.label" value="IMAGENESP"/>
+	</field>
+	<field name="INFECCIONES" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="INFECCIONES"/>
+	</field>
+	<field name="INFECCION_MEX" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="INFECCION_MEX"/>
+	</field>
+	<field name="INFECCION_USA" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="INFECCION_USA"/>
+	</field>
+	<field name="INFECCION_VEN" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="INFECCION_VEN"/>
+	</field>
+	<field name="INFECCION_BRA" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="INFECCION_BRA"/>
+	</field>
+	<field name="INFECCION_ESP" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="INFECCION_ESP"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="59" splitType="Stretch">
+			<staticText>
+				<reportElement x="335" y="14" width="490" height="30" uuid="791bdde0-ad29-463d-a380-970c7b76a789"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gráfico De Poblacion contaminada entre un rango de fechas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="21">
+			<textField>
+				<reportElement x="380" y="1" width="100" height="20" uuid="1799adaf-9487-4dd7-b7f5-5efd48a6e093"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{FECHA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="280" y="1" width="100" height="20" uuid="0ca6c20e-15d4-4dc7-a829-478fbf6bdb48"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha Inicio:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<summary>
+		<band height="560">
+			<timeSeriesChart>
+				<chart evaluationTime="Report" theme="eye.candy.sixties">
+					<reportElement x="305" y="24" width="550" height="198" uuid="ea268d34-3b0b-48b1-ad63-69d82ad153aa">
+						<printWhenExpression><![CDATA[!$P{Pais}.isEmpty()]]></printWhenExpression>
+					</reportElement>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<timeSeriesDataset>
+					<dataset resetType="Report"/>
+					<timeSeries>
+						<seriesExpression><![CDATA["SERIES 1"]]></seriesExpression>
+						<timePeriodExpression><![CDATA[$F{FECHA}]]></timePeriodExpression>
+						<valueExpression><![CDATA[$F{INFECCIONES}]]></valueExpression>
+					</timeSeries>
+				</timeSeriesDataset>
+				<timeSeriesPlot>
+					<plot backgroundAlpha="1.0" foregroundAlpha="1.0"/>
+					<timeAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</timeAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</timeSeriesPlot>
+			</timeSeriesChart>
+			<timeSeriesChart>
+				<chart evaluationTime="Report" theme="aegean">
+					<reportElement x="2" y="24" width="510" height="186" uuid="65d1900a-9ddd-4013-8bda-afbdd8e12d40">
+						<printWhenExpression><![CDATA[$P{Pais}.isEmpty()]]></printWhenExpression>
+					</reportElement>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<timeSeriesDataset>
+					<dataset resetType="Report"/>
+					<timeSeries>
+						<seriesExpression><![CDATA["SERIES 1"]]></seriesExpression>
+						<timePeriodExpression><![CDATA[$F{FECHA}]]></timePeriodExpression>
+						<valueExpression><![CDATA[$F{INFECCION_MEX}]]></valueExpression>
+					</timeSeries>
+				</timeSeriesDataset>
+				<timeSeriesPlot>
+					<plot/>
+					<timeAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</timeAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</timeSeriesPlot>
+			</timeSeriesChart>
+			<timeSeriesChart>
+				<chart evaluationTime="Report" theme="aegean">
+					<reportElement x="310" y="210" width="550" height="173" uuid="52861421-60de-4ce3-ac40-dcb217700b58">
+						<printWhenExpression><![CDATA[$P{Pais}.isEmpty()]]></printWhenExpression>
+					</reportElement>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<timeSeriesDataset>
+					<dataset resetType="Report"/>
+					<timeSeries>
+						<seriesExpression><![CDATA["SERIES 1"]]></seriesExpression>
+						<timePeriodExpression><![CDATA[$F{FECHA}]]></timePeriodExpression>
+						<valueExpression><![CDATA[$F{INFECCION_USA}]]></valueExpression>
+					</timeSeries>
+				</timeSeriesDataset>
+				<timeSeriesPlot>
+					<plot/>
+					<timeAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</timeAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</timeSeriesPlot>
+			</timeSeriesChart>
+			<timeSeriesChart>
+				<chart evaluationTime="Report" theme="aegean">
+					<reportElement x="2" y="383" width="510" height="177" uuid="89756e13-c1b5-46d7-8ffc-9b0f48c1686a">
+						<printWhenExpression><![CDATA[$P{Pais}.isEmpty()]]></printWhenExpression>
+					</reportElement>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<timeSeriesDataset>
+					<dataset resetType="Report"/>
+					<timeSeries>
+						<seriesExpression><![CDATA["SERIES 1"]]></seriesExpression>
+						<timePeriodExpression><![CDATA[$F{FECHA}]]></timePeriodExpression>
+						<valueExpression><![CDATA[$F{INFECCION_VEN}]]></valueExpression>
+					</timeSeries>
+				</timeSeriesDataset>
+				<timeSeriesPlot>
+					<plot/>
+					<timeAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</timeAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</timeSeriesPlot>
+			</timeSeriesChart>
+			<timeSeriesChart>
+				<chart evaluationTime="Report" theme="aegean">
+					<reportElement x="660" y="383" width="500" height="177" uuid="36a9a9f9-039f-4495-a467-8e7794e88ad5">
+						<printWhenExpression><![CDATA[$P{Pais}.isEmpty()]]></printWhenExpression>
+					</reportElement>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<timeSeriesDataset>
+					<dataset resetType="Report"/>
+					<timeSeries>
+						<seriesExpression><![CDATA["SERIES 1"]]></seriesExpression>
+						<timePeriodExpression><![CDATA[$F{FECHA}]]></timePeriodExpression>
+						<valueExpression><![CDATA[$F{INFECCION_BRA}]]></valueExpression>
+					</timeSeries>
+				</timeSeriesDataset>
+				<timeSeriesPlot>
+					<plot/>
+					<timeAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</timeAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</timeSeriesPlot>
+			</timeSeriesChart>
+			<timeSeriesChart>
+				<chart evaluationTime="Report" theme="aegean">
+					<reportElement x="670" y="30" width="490" height="180" uuid="cc9f5721-b7ed-4f1f-ba69-06658afd306a">
+						<printWhenExpression><![CDATA[$P{Pais}.isEmpty()]]></printWhenExpression>
+					</reportElement>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<timeSeriesDataset>
+					<dataset resetType="Report"/>
+					<timeSeries>
+						<seriesExpression><![CDATA["SERIES 1"]]></seriesExpression>
+						<timePeriodExpression><![CDATA[$F{FECHA}]]></timePeriodExpression>
+						<valueExpression><![CDATA[$F{INFECCION_ESP}]]></valueExpression>
+					</timeSeries>
+				</timeSeriesDataset>
+				<timeSeriesPlot>
+					<plot/>
+					<timeAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</timeAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</timeSeriesPlot>
+			</timeSeriesChart>
+			<image>
+				<reportElement x="855" y="26" width="80" height="66" uuid="29b86c10-3bb4-40a8-956c-6abd8482e525">
+					<printWhenExpression><![CDATA[!$P{Pais}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$F{IMAGEN}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="380" y="-1" width="100" height="24" uuid="276e9c07-03de-4ab6-ac64-e9176c5e67cd"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{FECHA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="280" y="1" width="100" height="20" uuid="f1e9f083-6945-46ac-8bb8-59f590a2da8c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha Actual:]]></text>
+			</staticText>
+			<image>
+				<reportElement x="512" y="29" width="68" height="63" uuid="aeb2aecf-968c-485f-9b10-f94c50f7395a">
+					<printWhenExpression><![CDATA[$P{Pais}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$F{IMAGENMEX}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="606" y="29" width="64" height="63" uuid="49842b9a-816c-4fda-9ac3-a50e59e2ac93">
+					<printWhenExpression><![CDATA[$P{Pais}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$F{IMAGENESP}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="860" y="250" width="75" height="60" uuid="694aeea2-5b6d-4f13-918e-e93cb0409da1">
+					<printWhenExpression><![CDATA[$P{Pais}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$F{IMAGENUSA}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="512" y="410" width="68" height="70" uuid="57520b90-5e1b-4545-a135-8f7636c89f6b">
+					<printWhenExpression><![CDATA[$P{Pais}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$F{IMAGENVEN}]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="590" y="410" width="70" height="70" uuid="092e5e3d-b19b-44c3-b63a-fb2b59a716c5">
+					<printWhenExpression><![CDATA[$P{Pais}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$F{IMAGENBRA}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="442" y="120" width="70" height="30" uuid="f6705f21-17e5-4986-b5fb-310fc26c863c">
+					<printWhenExpression><![CDATA[$P{Pais}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{NOMBREMEX}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="780" y="310" width="75" height="30" uuid="7079dd51-ab22-4d42-8811-5dd092f8b3e8">
+					<printWhenExpression><![CDATA[$P{Pais}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{NOMBREUSA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1080" y="130" width="80" height="30" uuid="30f1fbc5-28cf-4131-8fc9-400835095908">
+					<printWhenExpression><![CDATA[$P{Pais}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{NOMBREESP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1080" y="480" width="80" height="30" uuid="8411c890-cd1f-4f21-8235-9f4f1c643171">
+					<printWhenExpression><![CDATA[$P{Pais}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{NOMBREBRA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="480" width="60" height="30" uuid="b3beb4b1-eedf-4834-9d33-5c06689edf90">
+					<printWhenExpression><![CDATA[$P{Pais}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{NOMBREVEN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="790" y="130" width="65" height="30" uuid="dff3f306-12f9-4bcb-89aa-4f7efe66b3be">
+					<printWhenExpression><![CDATA[!$P{Pais}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{NOMBRE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
