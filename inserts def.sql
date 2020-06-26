@@ -147,10 +147,10 @@ insert into hist_fronterizo values (to_date('15/04/2020', 'DD/MM/YYYY'), to_date
 insert into hist_fronterizo values (to_date('01/06/2020', 'DD/MM/YYYY'), to_date('01/07/2020', 'DD/MM/YYYY'), 5);
 
 --AISLAMIENTO
-insert into aislamiento values (1, 'Modelo 1', 1);
-insert into aislamiento values (2, 'Modelo 2', 2);
-insert into aislamiento values (3, 'Modelo 3', 3);
-insert into aislamiento values (4, 'Modelo 4', 4);
+insert into aislamiento values (1, 'Modelo 1 - Libre Movilidad', 1);
+insert into aislamiento values (2, 'Modelo 2 - Cuarentena', 2);
+insert into aislamiento values (3, 'Modelo 3 - Movilidad reducida (1 de cada 4 se mueve)', 3);
+insert into aislamiento values (4, 'Modelo 4 - Movilidad reducida (1 de cada 8 se mueve)', 4);
 
 -- LU_AIS --
 insert into lu_ais values (to_date('16/03/2020', 'DD/MM/YYYY'), null, 1,2); -- Venezuela ; Cuarentena
@@ -946,7 +946,7 @@ execute insercion_personas(24, 'Alfonzo', null, 'Skiles', 'Cassin', to_date('28/
 execute insercion_personas(25, 'Isaura', 'Nathaniel', 'Hagenes', 'Ondricka', to_date('08/08/1983', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 25,'imgM15.jpg');
 execute insercion_personas(26, 'Nicki', 'Edison', 'Konopelski', 'Bahringer', to_date('13/12/1944', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 26,'imgM16.jpg');
 execute insercion_personas(27, 'Kittie', null, 'Wiegand', 'Yost', to_date('09/02/1942', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 26,'imgM17.jpg');
-execute insercion_personas(28, 'Albina', null, 'Walter', 'Wiza', to_date('30/09/1958', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 26,'imgM18.jpg');
+execute insercion_personas(28, 'Albina', null, 'Walter', 'Wiza', to_date('30/09/1958', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 26,'imgM16.jpg');
 execute insercion_personas(29, 'Lucien', null, 'Bahringer', 'Sanford', to_date('30/12/1972', 'DD/MM/YYYY'), 'M', 'Sano', null, null, 26,'imgH10.jpg');
 execute insercion_personas(30, 'Kathyrn', 'Bennett', 'Lowe', 'Price', to_date('07/04/1959', 'DD/MM/YYYY'), 'M', 'Sano', null, null, 26,'imgH11.jpg');
 -- BRASIL
@@ -983,7 +983,7 @@ execute insercion_personas(59, 'Orval', null, 'Reichert', 'Rohan', to_date('24/0
 execute insercion_personas(60, 'Adelaida', null, 'Watsica', 'Baumbach', to_date('04/06/1976', 'DD/MM/YYYY'), 'M', 'Infectado', null, null, 32,'imgH2.jpg');
 -- ESPANA
 execute insercion_personas(61, 'Willy', 'Karena', 'Hintz', 'Moen', to_date('28/01/1992', 'DD/MM/YYYY'), 'M', 'Aislado', null, null, 33,'imgH17.jpg');
-execute insercion_personas(62, 'Chas', null, 'Ziemann', 'Rath', to_date('15/07/1986', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 33,'imgM18.jpg');
+execute insercion_personas(62, 'Chas', null, 'Ziemann', 'Rath', to_date('15/07/1986', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 33,'imgM16.jpg');
 execute insercion_personas(63, 'Salvador', null, 'Murphy', 'Collins', to_date('05/07/1946', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 33,'imgM1.jpg');
 execute insercion_personas(64, 'Mafalda', null, 'Stanton', 'Corkery', to_date('10/07/1996', 'DD/MM/YYYY'), 'M', 'Aislado', null, null, 33,'imgH4.jpg');
 execute insercion_personas(65, 'Season', 'Lina', 'Walsh', 'Stanton', to_date('06/11/1941', 'DD/MM/YYYY'), 'M', 'Infectado', null, null, 33,'imgH5.jpg');
@@ -1338,31 +1338,31 @@ execute insercion_personas(412, 'Bing', 'Yank', 'Carabet', 'Gilogly', to_date('2
 execute insercion_personas(413, 'Skipp', 'Sebastiano', 'Landa', 'Paulig', to_date('27/05/2001', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 28, 'imgM15.jpg');
 execute insercion_personas(414, 'Truman', 'Paxton', 'Lightbourne', 'Caff', to_date('20/03/1990', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 29, 'imgM3.jpg');
 execute insercion_personas(415, 'Alessandro', 'Everett', 'Gonnard', 'Koopman', to_date('18/07/2004', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 29, 'imgM1.jpg');
-execute insercion_personas(416, 'Bat', 'Norbie', 'Ridings', 'Mearns', to_date('26/05/1975', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 28, 'imgM18.jpg');
+execute insercion_personas(416, 'Bat', 'Norbie', 'Ridings', 'Mearns', to_date('26/05/1975', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 28, 'imgM16.jpg');
 execute insercion_personas(417, 'Baudoin', 'Chen', 'Lowles', 'Semmence', to_date('21/07/1995', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 29, 'imgM17.jpg');
-execute insercion_personas(418, 'Kennie', 'Boyce', 'Tufts', 'Neave', to_date('13/09/1972', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 29, 'imgM18.jpg');
+execute insercion_personas(418, 'Kennie', 'Boyce', 'Tufts', 'Neave', to_date('13/09/1972', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 29, 'imgM16.jpg');
 execute insercion_personas(419, 'Reamonn', 'Delmore', 'Murrey', 'Haywood', to_date('30/10/1981', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 28, 'imgM1.jpg');
 execute insercion_personas(420, 'Delbert', 'Jarrod', 'Godbehere', 'Sparry', to_date('02/01/1969', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 27, 'imgM17.jpg');
 execute insercion_personas(421, 'Luther', 'Nobie', 'Gowthorpe', 'Girogetti', to_date('10/10/1964', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 29, 'imgM3.jpg');
 execute insercion_personas(422, 'Brett', 'Oren', 'Samarth', 'Grigaut', to_date('12/08/1971', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 29, 'imgM10.jpg');
-execute insercion_personas(423, 'Keary', 'Josh', 'Sargant', 'Brusle', to_date('16/02/2003', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 27, 'imgM18.jpg');
+execute insercion_personas(423, 'Keary', 'Josh', 'Sargant', 'Brusle', to_date('16/02/2003', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 27, 'imgM16.jpg');
 execute insercion_personas(424, 'Fair', 'Iggie', 'Robertucci', 'Ebdon', to_date('25/06/1964', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 27, 'imgM1.jpg');
-execute insercion_personas(425, 'Rabbi', 'Eward', 'Lintott', 'Trimnell', to_date('08/08/1986', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 29, 'imgM18.jpg');
+execute insercion_personas(425, 'Rabbi', 'Eward', 'Lintott', 'Trimnell', to_date('08/08/1986', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 29, 'imgM16.jpg');
 execute insercion_personas(426, 'Gar', 'Alric', 'Dulany', 'Breakspear', to_date('17/03/1965', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 29, 'imgM8.jpg');
 execute insercion_personas(427, 'Tully', 'Maury', 'Abrashkin', 'Hurst', to_date('28/12/1964', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 28, 'imgM7.jpg');
 execute insercion_personas(428, 'Esdras', 'Nappy', 'Franz-Schoninger', 'Frondt', to_date('25/06/1980', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 29, 'imgM14.jpg');
 execute insercion_personas(429, 'Cole', 'Sheridan', 'Covendon', 'Bicker', to_date('26/05/1994', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 29, 'imgM5.jpg');
-execute insercion_personas(430, 'Bogart', 'Robb', 'Piddock', 'Zimmermanns', to_date('05/10/1997', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 28, 'imgM18.jpg');
+execute insercion_personas(430, 'Bogart', 'Robb', 'Piddock', 'Zimmermanns', to_date('05/10/1997', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 28, 'imgM16.jpg');
 execute insercion_personas(431, 'Godard', 'Boycey', 'Lett', 'Sellman', to_date('03/03/1996', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 27, 'imgM14.jpg');
 execute insercion_personas(432, 'Jory', 'Brad', 'Meininger', 'L''Episcopi', to_date('18/06/2002', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 29, 'imgM14.jpg');
 execute insercion_personas(433, 'Whitman', 'Silvester', 'Samwayes', 'Wimmers', to_date('21/03/1971', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 28, 'imgM1.jpg');
 execute insercion_personas(434, 'Carrol', 'Hurlee', 'Southon', 'Bartoleyn', to_date('30/03/1960', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 28, 'imgM7.jpg');
-execute insercion_personas(435, 'Paddy', 'Maximilian', 'Godar', 'Petruszka', to_date('22/10/2000', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 29, 'imgM18.jpg');
+execute insercion_personas(435, 'Paddy', 'Maximilian', 'Godar', 'Petruszka', to_date('22/10/2000', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 29, 'imgM16.jpg');
 execute insercion_personas(436, 'Shaw', 'Fredrick', 'Spalding', 'Gobbett', to_date('23/07/1988', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 29, 'imgM1.jpg');
 execute insercion_personas(437, 'Shelby', 'Gaylor', 'Schankelborg', 'Heap', to_date('22/07/2002', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 28, 'imgM7.jpg');
 execute insercion_personas(438, 'Cyrill', 'Spense', 'Lambol', 'Coogan', to_date('13/11/1977', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 29, 'imgM12.jpg');
 execute insercion_personas(439, 'Abbot', 'Ferris', 'Garrood', 'Dorken', to_date('26/11/1978', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 28, 'imgM3.jpg');
-execute insercion_personas(440, 'Rochester', 'Eugenius', 'Dobrovolski', 'Joron', to_date('29/10/2005', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 28, 'imgM18.jpg');
+execute insercion_personas(440, 'Rochester', 'Eugenius', 'Dobrovolski', 'Joron', to_date('29/10/2005', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 28, 'imgM16.jpg');
 execute insercion_personas(441, 'Callean', 'Gerek', 'Tettersell', 'Dickins', to_date('25/02/1960', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 28, 'imgM1.jpg');
 execute insercion_personas(442, 'Foster', 'Randy', 'Mollnar', 'Scrine', to_date('04/04/1976', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 27, 'imgM8.jpg');
 execute insercion_personas(443, 'Byron', 'Bradley', 'Lindemann', 'Glancy', to_date('29/03/1990', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 29, 'imgM16.jpg');
@@ -1382,18 +1382,18 @@ execute insercion_personas(456, 'Cobbie', 'Padgett', 'Thews', 'Maren', to_date('
 execute insercion_personas(457, 'Carling', 'Zacharia', 'Mottley', 'Landsborough', to_date('23/04/1979', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 29, 'imgM12.jpg');
 execute insercion_personas(458, 'Armin', 'Hodge', 'Kilty', 'Ambage', to_date('01/04/1984', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 27, 'imgM10.jpg');
 execute insercion_personas(459, 'Bret', 'Bax', 'Andrea', 'Gration', to_date('26/08/1983', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 27, 'imgM15.jpg');
-execute insercion_personas(460, 'Brod', 'Cliff', 'Anthill', 'Edwick', to_date('14/02/2003', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 28, 'imgM18.jpg');
+execute insercion_personas(460, 'Brod', 'Cliff', 'Anthill', 'Edwick', to_date('14/02/2003', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 28, 'imgM16.jpg');
 execute insercion_personas(461, 'Germayne', 'Gabe', 'Slogrove', 'Nemchinov', to_date('28/10/2008', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 28, 'imgM4.jpg');
 execute insercion_personas(462, 'Syman', 'Edward', 'Fortye', 'Arends', to_date('11/09/1961', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 28, 'imgM15.jpg');
-execute insercion_personas(463, 'Brandon', 'Saunder', 'Alliston', 'Woffinden', to_date('16/07/1964', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 29, 'imgM18.jpg');
+execute insercion_personas(463, 'Brandon', 'Saunder', 'Alliston', 'Woffinden', to_date('16/07/1964', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 29, 'imgM16.jpg');
 execute insercion_personas(464, 'Benedick', 'Danya', 'Taillard', 'Tournay', to_date('23/10/1996', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 27, 'imgM3.jpg');
 execute insercion_personas(465, 'Leo', 'Chip', 'Denge', 'Caisley', to_date('21/04/1988', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 27, 'imgM15.jpg');
 execute insercion_personas(466, 'Thorstein', 'Amerigo', 'Daltry', 'Braffington', to_date('29/04/1993', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 28, 'imgM8.jpg');
 execute insercion_personas(467, 'Devland', 'Mickey', 'Windrass', 'Millan', to_date('30/06/1979', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 28, 'imgM1.jpg');
 execute insercion_personas(468, 'Ettore', 'Rock', 'Vick', 'Cadagan', to_date('24/01/1992', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 29, 'imgM15.jpg');
 execute insercion_personas(469, 'Lind', 'Skelly', 'Wearing', 'Hambrook', to_date('04/06/1986', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 28, 'imgM4.jpg');
-execute insercion_personas(470, 'Radcliffe', 'Maximilien', 'Loseke', 'Jacobowicz', to_date('21/11/1961', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 29, 'imgM18.jpg');
-execute insercion_personas(471, 'Manolo', 'Olivero', 'Tomeo', 'Lumber', to_date('20/08/2000', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 29, 'imgM18.jpg');
+execute insercion_personas(470, 'Radcliffe', 'Maximilien', 'Loseke', 'Jacobowicz', to_date('21/11/1961', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 29, 'imgM16.jpg');
+execute insercion_personas(471, 'Manolo', 'Olivero', 'Tomeo', 'Lumber', to_date('20/08/2000', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 29, 'imgM16.jpg');
 execute insercion_personas(472, 'Alessandro', 'Homer', 'McVeigh', 'Harner', to_date('05/02/1982', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 28, 'imgM10.jpg');
 execute insercion_personas(473, 'Clemens', 'Bronson', 'Stellino', 'Longega', to_date('24/03/1973', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 29, 'imgM9.jpg');
 execute insercion_personas(474, 'Harvey', 'Spenser', 'Purdon', 'Pollie', to_date('01/10/1986', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 27, 'imgM11.jpg');
@@ -1403,13 +1403,13 @@ execute insercion_personas(477, 'Abner', 'Earle', 'Wawer', 'Light', to_date('11/
 execute insercion_personas(478, 'Michale', 'Cullin', 'Taphouse', 'McDool', to_date('03/02/2006', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 27, 'imgM3.jpg');
 execute insercion_personas(479, 'Kinsley', 'Evelyn', 'Portigall', 'Salzburger', to_date('10/09/2001', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 27, 'imgM2.jpg');
 execute insercion_personas(480, 'Grantley', 'Tito', 'Cammock', 'Mocker', to_date('05/09/1982', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 27, 'imgM8.jpg');
-execute insercion_personas(481, 'Irvine', 'Anderson', 'Boutton', 'Bemwell', to_date('23/09/1966', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 22, 'imgM18.jpg');
+execute insercion_personas(481, 'Irvine', 'Anderson', 'Boutton', 'Bemwell', to_date('23/09/1966', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 22, 'imgM16.jpg');
 execute insercion_personas(482, 'Lion', 'Mahmud', 'Boog', 'Itzkovwitch', to_date('24/01/1988', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 21, 'imgM2.jpg');
 execute insercion_personas(483, 'Tyson', 'Ly', 'Cassell', 'Agge', to_date('17/09/1979', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 23, 'imgM8.jpg');
 execute insercion_personas(484, 'Keen', 'Willey', 'Traice', 'Wrack', to_date('19/05/1989', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 21, 'imgM6.jpg');
 execute insercion_personas(485, 'Abey', 'Mattias', 'Mursell', 'Dutton', to_date('18/05/1967', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 21, 'imgM2.jpg');
 execute insercion_personas(486, 'Peyton', 'Archer', 'Galpin', 'Larkings', to_date('04/06/1966', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 22, 'imgM5.jpg');
-execute insercion_personas(487, 'Issiah', 'Ellswerth', 'Twiggs', 'Colton', to_date('17/04/1993', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 21, 'imgM18.jpg');
+execute insercion_personas(487, 'Issiah', 'Ellswerth', 'Twiggs', 'Colton', to_date('17/04/1993', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 21, 'imgM16.jpg');
 execute insercion_personas(488, 'Alphard', 'Samson', 'McGuiney', 'Parcell', to_date('15/11/1986', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 21, 'imgM9.jpg');
 execute insercion_personas(489, 'Osborne', 'Tonnie', 'Scibsey', 'McGeachey', to_date('22/05/1992', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 23, 'imgM7.jpg');
 execute insercion_personas(490, 'Patric', 'Trip', 'Bartalot', 'Delwater', to_date('13/06/1961', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 22, 'imgM5.jpg');
@@ -1420,13 +1420,13 @@ execute insercion_personas(494, 'Abbey', 'Siward', 'Scourgie', 'Buist', to_date(
 execute insercion_personas(495, 'Thorn', 'Morry', 'Halksworth', 'Mattin', to_date('17/04/1978', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 23, 'imgM5.jpg');
 execute insercion_personas(496, 'Fee', 'Bjorn', 'Bortolozzi', 'Abbie', to_date('15/03/1968', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 23, 'imgM17.jpg');
 execute insercion_personas(497, 'Jaye', 'Berkley', 'Soigoux', 'Adolfson', to_date('24/11/1961', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 21, 'imgM2.jpg');
-execute insercion_personas(498, 'Jeth', 'Moe', 'Dinnies', 'Clewer', to_date('06/06/1964', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 23, 'imgM18.jpg');
+execute insercion_personas(498, 'Jeth', 'Moe', 'Dinnies', 'Clewer', to_date('06/06/1964', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 23, 'imgM16.jpg');
 execute insercion_personas(499, 'Algernon', 'Dunstan', 'Hackney', 'Tidd', to_date('23/06/1986', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 21, 'imgM14.jpg');
 execute insercion_personas(500, 'Payton', 'Sigismund', 'Fishly', 'Mounter', to_date('24/11/1996', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 21, 'imgM4.jpg');
 execute insercion_personas(501, 'Gaven', 'Lennard', 'Sazio', 'Cradduck', to_date('20/10/1999', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 22, 'imgM4.jpg');
 execute insercion_personas(502, 'Gauthier', 'Linus', 'Peckitt', 'Kees', to_date('10/09/2007', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 23, 'imgM8.jpg');
 execute insercion_personas(503, 'Joshia', 'Vernor', 'Binning', 'Knotton', to_date('26/12/1972', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 23, 'imgM13.jpg');
-execute insercion_personas(504, 'Jude', 'Leopold', 'Papworth', 'Franseco', to_date('12/01/1961', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 21, 'imgM18.jpg');
+execute insercion_personas(504, 'Jude', 'Leopold', 'Papworth', 'Franseco', to_date('12/01/1961', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 21, 'imgM16.jpg');
 execute insercion_personas(505, 'Otis', 'Hilly', 'McAlees', 'Goulter', to_date('16/10/1979', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 21, 'imgM1.jpg');
 execute insercion_personas(506, 'Agosto', 'Rawley', 'Blodgett', 'Dowyer', to_date('11/06/1995', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 23, 'imgM13.jpg');
 execute insercion_personas(507, 'Lorne', 'Kingsley', 'Huggen', 'O''Kerin', to_date('05/07/1975', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 23, 'imgM9.jpg');
@@ -1440,7 +1440,7 @@ execute insercion_personas(514, 'Lester', 'Ade', 'Robens', 'Moens', to_date('09/
 execute insercion_personas(515, 'Claiborne', 'Abe', 'Decourt', 'Haggata', to_date('21/05/1972', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 21, 'imgM1.jpg');
 execute insercion_personas(516, 'Wheeler', 'Rusty', 'Igonet', 'Waber', to_date('26/06/1966', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 23, 'imgM7.jpg');
 execute insercion_personas(517, 'Efrem', 'Zebedee', 'Wick', 'Labbati', to_date('30/09/1976', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 22, 'imgM8.jpg');
-execute insercion_personas(518, 'Noe', 'Ricky', 'Woodison', 'Fishly', to_date('18/02/1998', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 22, 'imgM18.jpg');
+execute insercion_personas(518, 'Noe', 'Ricky', 'Woodison', 'Fishly', to_date('18/02/1998', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 22, 'imgM16.jpg');
 execute insercion_personas(519, 'Bent', 'Brockie', 'Barrington', 'Hulks', to_date('02/09/1983', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 22, 'imgM3.jpg');
 execute insercion_personas(520, 'Webster', 'Claiborn', 'Robotham', 'Hoff', to_date('27/11/1973', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 22, 'imgM16.jpg');
 execute insercion_personas(521, 'Parsifal', 'Nicky', 'Rogerot', 'Sendall', to_date('20/09/1993', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 23, 'imgM2.jpg');
@@ -1456,7 +1456,7 @@ execute insercion_personas(530, 'Freddy', 'Willdon', 'Whitley', 'Cremins', to_da
 execute insercion_personas(531, 'Franky', 'Eal', 'Behrendsen', 'Cayley', to_date('16/04/1996', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 23, 'imgM13.jpg');
 execute insercion_personas(532, 'Win', 'Kip', 'Finn', 'Bewsy', to_date('03/07/1983', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 21, 'imgM12.jpg');
 execute insercion_personas(533, 'Ethelbert', 'Phillipp', 'Somerfield', 'Ladbrook', to_date('14/04/2003', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 22, 'imgM4.jpg');
-execute insercion_personas(534, 'Miner', 'John', 'Gofford', 'Prestige', to_date('13/10/1998', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 21, 'imgM18.jpg');
+execute insercion_personas(534, 'Miner', 'John', 'Gofford', 'Prestige', to_date('13/10/1998', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 21, 'imgM16.jpg');
 execute insercion_personas(535, 'Cull', 'Powell', 'Vasnetsov', 'Aughton', to_date('02/03/1985', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 22, 'imgM6.jpg');
 execute insercion_personas(536, 'Chickie', 'Myca', 'Harder', 'Lenchenko', to_date('03/11/1994', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 22, 'imgM16.jpg');
 execute insercion_personas(537, 'Sherm', 'Schuyler', 'Tape', 'Farrier', to_date('27/01/2006', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 23, 'imgM7.jpg');
@@ -1464,9 +1464,9 @@ execute insercion_personas(538, 'Rockey', 'Darryl', 'Torresi', 'Anthonsen', to_d
 execute insercion_personas(539, 'Amby', 'Darrin', 'Perigeaux', 'Wigsell', to_date('08/10/1969', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 23, 'imgM2.jpg');
 execute insercion_personas(540, 'Archibaldo', 'Artus', 'Alyoshin', 'Savill', to_date('28/04/1975', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 21, 'imgM14.jpg');
 execute insercion_personas(541, 'Newton', 'Clemente', 'Feld', 'Sebyer', to_date('28/01/1992', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 23, 'imgM2.jpg');
-execute insercion_personas(542, 'Ambrosio', 'Darn', 'Spraberry', 'Sebrook', to_date('20/02/1978', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 22, 'imgM18.jpg');
+execute insercion_personas(542, 'Ambrosio', 'Darn', 'Spraberry', 'Sebrook', to_date('20/02/1978', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 22, 'imgM16.jpg');
 execute insercion_personas(543, 'Peder', 'Roman', 'Seid', 'Redhole', to_date('28/05/1970', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 21, 'imgM1.jpg');
-execute insercion_personas(544, 'Kenny', 'Robinson', 'Mintoff', 'Bortoli', to_date('18/10/1996', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 21, 'imgM18.jpg');
+execute insercion_personas(544, 'Kenny', 'Robinson', 'Mintoff', 'Bortoli', to_date('18/10/1996', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 21, 'imgM16.jpg');
 execute insercion_personas(545, 'Padraic', 'Armando', 'Gilding', 'Cruickshank', to_date('15/01/1999', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 23, 'imgM6.jpg');
 execute insercion_personas(546, 'Kalil', 'Oliver', 'Kasting', 'Runcieman', to_date('04/10/1971', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 21, 'imgM8.jpg');
 execute insercion_personas(547, 'Wyndham', 'Norbie', 'Manz', 'Grosvenor', to_date('13/02/1990', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 22, 'imgM4.jpg');
@@ -1475,8 +1475,8 @@ execute insercion_personas(549, 'Ody', 'Neall', 'Ambrogio', 'Bettanay', to_date(
 execute insercion_personas(550, 'Brian', 'Cully', 'Oliveti', 'Collyer', to_date('25/01/1990', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 22, 'imgM17.jpg');
 execute insercion_personas(551, 'Inness', 'Aksel', 'Rule', 'MacIlhagga', to_date('03/05/2000', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 22, 'imgM17.jpg');
 execute insercion_personas(552, 'Dav', 'Francisco', 'Gentzsch', 'Rebillard', to_date('31/03/2001', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 22, 'imgM15.jpg');
-execute insercion_personas(553, 'Royall', 'Simeon', 'Volker', 'Pickaver', to_date('31/08/1972', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 23, 'imgM18.jpg');
-execute insercion_personas(554, 'Reg', 'Carter', 'de Keep', 'Stittle', to_date('26/05/1995', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 23, 'imgM18.jpg');
+execute insercion_personas(553, 'Royall', 'Simeon', 'Volker', 'Pickaver', to_date('31/08/1972', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 23, 'imgM16.jpg');
+execute insercion_personas(554, 'Reg', 'Carter', 'de Keep', 'Stittle', to_date('26/05/1995', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 23, 'imgM16.jpg');
 execute insercion_personas(555, 'Waylen', 'Con', 'Goatman', 'Blum', to_date('29/06/2002', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 21, 'imgM3.jpg');
 execute insercion_personas(556, 'Coleman', 'Broderick', 'Tonepohl', 'Picopp', to_date('15/07/1981', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 21, 'imgM15.jpg');
 execute insercion_personas(557, 'Christophorus', 'Conant', 'Chilvers', 'Arnson', to_date('08/09/1960', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 23, 'imgM11.jpg');
@@ -1492,7 +1492,7 @@ execute insercion_personas(566, 'Merrel', 'Giorgio', 'Picken', 'Delahunty', to_d
 execute insercion_personas(567, 'Dare', 'Conny', 'Cristofor', 'Fillon', to_date('05/05/1994', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 23, 'imgM6.jpg');
 execute insercion_personas(568, 'Kelly', 'Zak', 'Colecrough', 'Houlston', to_date('26/02/2002', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 21, 'imgM3.jpg');
 execute insercion_personas(569, 'Shepperd', 'Ashby', 'Huntington', 'Ruos', to_date('26/11/2007', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 22, 'imgM1.jpg');
-execute insercion_personas(570, 'Hirsch', 'Judah', 'Berdale', 'Amy', to_date('30/07/1983', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 21, 'imgM18.jpg');
+execute insercion_personas(570, 'Hirsch', 'Judah', 'Berdale', 'Amy', to_date('30/07/1983', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 21, 'imgM16.jpg');
 execute insercion_personas(571, 'Al', 'Pete', 'Douce', 'Blacklawe', to_date('06/03/1992', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 23, 'imgM9.jpg');
 execute insercion_personas(572, 'Christoph', 'Rupert', 'Wandless', 'Campa', to_date('20/09/1979', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 23, 'imgM9.jpg');
 execute insercion_personas(573, 'Raynor', 'Gustav', 'Pressey', 'Underwood', to_date('28/03/1984', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 22, 'imgM2.jpg');
@@ -1515,14 +1515,14 @@ execute insercion_personas(589, 'Ogdan', 'Wilfrid', 'Coole', 'Marty', to_date('0
 execute insercion_personas(590, 'Mickey', 'Alyosha', 'Wardell', 'Yanson', to_date('14/03/1973', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 22, 'imgM8.jpg');
 execute insercion_personas(591, 'Lock', 'Kevin', 'Dreossi', 'Larver', to_date('27/08/2007', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 21, 'imgM14.jpg');
 execute insercion_personas(592, 'Waverley', 'Egbert', 'Snaith', 'Struan', to_date('06/06/1964', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 22, 'imgM9.jpg');
-execute insercion_personas(593, 'Mick', 'Gard', 'Shemelt', 'Canet', to_date('12/05/1974', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 22, 'imgM18.jpg');
+execute insercion_personas(593, 'Mick', 'Gard', 'Shemelt', 'Canet', to_date('12/05/1974', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 22, 'imgM16.jpg');
 execute insercion_personas(594, 'Mortimer', 'Claiborn', 'MacGall', 'Brigman', to_date('06/02/1975', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 21, 'imgM5.jpg');
 execute insercion_personas(595, 'Hugibert', 'Hillel', 'Kybbye', 'Karlolczak', to_date('09/07/1963', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 23, 'imgM17.jpg');
 execute insercion_personas(596, 'Donnell', 'Basil', 'Blackburne', 'Koenen', to_date('15/09/1987', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 21, 'imgM16.jpg');
 execute insercion_personas(597, 'Dexter', 'Staford', 'Pales', 'Threadgould', to_date('23/07/2004', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 23, 'imgM1.jpg');
-execute insercion_personas(598, 'Toddie', 'Jeremy', 'Hark', 'Sorrell', to_date('15/01/1960', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 21, 'imgM18.jpg');
+execute insercion_personas(598, 'Toddie', 'Jeremy', 'Hark', 'Sorrell', to_date('15/01/1960', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 21, 'imgM16.jpg');
 execute insercion_personas(599, 'Irwinn', 'Vaughan', 'Stonehouse', 'Onraet', to_date('17/10/1976', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 23, 'imgM9.jpg');
-execute insercion_personas(600, 'Jeramey', 'Pernell', 'Kahen', 'Emslie', to_date('27/08/1965', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 23, 'imgM18.jpg');
+execute insercion_personas(600, 'Jeramey', 'Pernell', 'Kahen', 'Emslie', to_date('27/08/1965', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 23, 'imgM16.jpg');
 execute insercion_personas(601, 'Gearalt', 'Maje', 'Cooke', 'Pierce', to_date('12/05/1972', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 23, 'imgM16.jpg');
 execute insercion_personas(602, 'Constantine', 'Maxim', 'Waulker', 'Merdew', to_date('16/07/1972', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 23, 'imgM7.jpg');
 execute insercion_personas(603, 'Finn', 'Sansone', 'Webburn', 'Thomazet', to_date('08/12/2007', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 22, 'imgM12.jpg');
@@ -1537,7 +1537,7 @@ execute insercion_personas(611, 'Wilmar', 'Raddie', 'Wingeat', 'Kringe', to_date
 execute insercion_personas(612, 'Clywd', 'Wake', 'Izkoveski', 'Montfort', to_date('27/08/1963', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 23, 'imgM2.jpg');
 execute insercion_personas(613, 'Abrahan', 'Granthem', 'Beidebeke', 'Chipman', to_date('08/01/2004', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 23, 'imgM6.jpg');
 execute insercion_personas(614, 'Trip', 'Cornie', 'Pavis', 'Macconachy', to_date('28/10/1970', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 23, 'imgM15.jpg');
-execute insercion_personas(615, 'Feodor', 'Dannel', 'Nares', 'Windaybank', to_date('06/12/2006', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 22, 'imgM18.jpg');
+execute insercion_personas(615, 'Feodor', 'Dannel', 'Nares', 'Windaybank', to_date('06/12/2006', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 22, 'imgM16.jpg');
 execute insercion_personas(616, 'Parnell', 'Gan', 'Worman', 'Sadat', to_date('01/03/1995', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 22, 'imgM17.jpg');
 execute insercion_personas(617, 'Selig', 'Branden', 'Iwanicki', 'Vaskin', to_date('15/08/1991', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 34, 'imgM1.jpg');
 execute insercion_personas(618, 'Godwin', 'Aguie', 'Matovic', 'Gannicleff', to_date('06/09/1979', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 22, 'imgM12.jpg');
@@ -1570,14 +1570,14 @@ execute insercion_personas(644, 'Rafe', 'Raynard', 'Baudasso', 'Pavie', to_date(
 execute insercion_personas(645, 'Jerrie', 'Roberto', 'Mansell', 'Hargraves', to_date('17/01/1994', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 22, 'imgM14.jpg');
 execute insercion_personas(646, 'Sydney', 'Nichols', 'Petrasso', 'Kiley', to_date('09/08/1960', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 35, 'imgM2.jpg');
 execute insercion_personas(647, 'Olag', 'Lisle', 'Rakestraw', 'Jerke', to_date('18/02/1990', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 24, 'imgM15.jpg');
-execute insercion_personas(648, 'Ash', 'Padraig', 'Mulloch', 'Baldocci', to_date('03/02/1985', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 30, 'imgM18.jpg');
+execute insercion_personas(648, 'Ash', 'Padraig', 'Mulloch', 'Baldocci', to_date('03/02/1985', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 30, 'imgM16.jpg');
 execute insercion_personas(649, 'Gray', 'Tobie', 'Newcome', 'Dunaway', to_date('01/09/1961', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 27, 'imgM4.jpg');
-execute insercion_personas(650, 'Ernestus', 'Ryley', 'Feldheim', 'Birkmyr', to_date('11/07/2008', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 21, 'imgM18.jpg');
+execute insercion_personas(650, 'Ernestus', 'Ryley', 'Feldheim', 'Birkmyr', to_date('11/07/2008', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 21, 'imgM16.jpg');
 execute insercion_personas(651, 'Delmor', 'Hyatt', 'Sagar', 'Arnall', to_date('27/11/1969', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 31, 'imgM16.jpg');
 execute insercion_personas(652, 'Osbourn', 'Bourke', 'MacTrustam', 'Forst', to_date('10/07/1965', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 32, 'imgM1.jpg');
 execute insercion_personas(653, 'Eddie', 'Sebastian', 'Bleier', 'Cusworth', to_date('16/07/2006', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 27, 'imgM8.jpg');
 execute insercion_personas(654, 'Park', 'Symon', 'Dymott', 'Bedham', to_date('08/10/2003', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 22, 'imgM12.jpg');
-execute insercion_personas(655, 'Webster', 'Lawton', 'Jeavon', 'O''Hegertie', to_date('22/06/1973', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 30, 'imgM18.jpg');
+execute insercion_personas(655, 'Webster', 'Lawton', 'Jeavon', 'O''Hegertie', to_date('22/06/1973', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 30, 'imgM16.jpg');
 execute insercion_personas(656, 'Cointon', 'Gamaliel', 'Manning', 'Eastwood', to_date('19/04/2003', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 26, 'imgM4.jpg');
 execute insercion_personas(657, 'Inglis', 'Bryn', 'Paddemore', 'Kinrade', to_date('09/07/1992', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 21, 'imgM4.jpg');
 execute insercion_personas(658, 'Lenci', 'Gunther', 'Blaksley', 'Legier', to_date('07/08/1996', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 27, 'imgM1.jpg');
@@ -1590,7 +1590,7 @@ execute insercion_personas(664, 'Jere', 'Garrot', 'Rudwell', 'Gillise', to_date(
 execute insercion_personas(665, 'Algernon', 'Elden', 'Wonfar', 'Maryon', to_date('10/04/1978', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 28, 'imgM6.jpg');
 execute insercion_personas(666, 'Franklin', 'Levy', 'Williamson', 'Buesden', to_date('12/02/1973', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 30, 'imgM4.jpg');
 execute insercion_personas(667, 'Shepherd', 'Bertie', 'Doylend', 'Gounot', to_date('28/09/1960', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 23, 'imgM11.jpg');
-execute insercion_personas(668, 'Archer', 'Biron', 'Pipkin', 'Ashburne', to_date('04/04/1998', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 21, 'imgM18.jpg');
+execute insercion_personas(668, 'Archer', 'Biron', 'Pipkin', 'Ashburne', to_date('04/04/1998', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 21, 'imgM16.jpg');
 execute insercion_personas(669, 'Cosme', 'Mario', 'Richin', 'Meatcher', to_date('09/01/1966', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 35, 'imgM17.jpg');
 execute insercion_personas(670, 'Briant', 'Chicky', 'Dengel', 'Renneke', to_date('13/09/1963', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 29, 'imgM5.jpg');
 execute insercion_personas(671, 'Caryl', 'Connor', 'Tweddell', 'Buffey', to_date('24/09/1970', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 32, 'imgM14.jpg');
@@ -1619,7 +1619,7 @@ execute insercion_personas(693, 'Payton', 'Huntlee', 'Troni', 'Menico', to_date(
 execute insercion_personas(694, 'Wally', 'Dante', 'Bernt', 'Sommersett', to_date('19/07/1974', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 26, 'imgM5.jpg');
 execute insercion_personas(695, 'Ignace', 'Tuckie', 'Spenclay', 'Lowensohn', to_date('12/09/2001', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 34, 'imgM17.jpg');
 execute insercion_personas(696, 'Rem', 'Matthieu', 'Tumility', 'Geake', to_date('09/12/1967', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 27, 'imgM4.jpg');
-execute insercion_personas(697, 'Tedie', 'Merv', 'Matessian', 'Wondraschek', to_date('31/12/1970', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 34, 'imgM18.jpg');
+execute insercion_personas(697, 'Tedie', 'Merv', 'Matessian', 'Wondraschek', to_date('31/12/1970', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 34, 'imgM16.jpg');
 execute insercion_personas(698, 'Shannan', 'Woodie', 'Betonia', 'Woolpert', to_date('13/10/1982', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 21, 'imgM13.jpg');
 execute insercion_personas(699, 'Grover', 'Samuele', 'Riddler', 'Borland', to_date('28/08/1983', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 35, 'imgM14.jpg');
 execute insercion_personas(700, 'Tammy', 'Robert', 'Boddam', 'Druce', to_date('29/11/1983', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 28, 'imgM7.jpg');
@@ -1639,7 +1639,7 @@ execute insercion_personas(713, 'Roi', 'Dougy', 'Haborn', 'Spehr', to_date('04/0
 execute insercion_personas(714, 'Elston', 'Shelton', 'Gever', 'Wescott', to_date('21/09/1999', 'DD/MM/YYYY'), 'F', 'Sano', null, null, 24, 'imgM17.jpg');
 execute insercion_personas(715, 'Roderick', 'Moe', 'Pagram', 'Tribbeck', to_date('19/12/1968', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 25, 'imgM17.jpg');
 execute insercion_personas(716, 'Joshuah', 'Darcy', 'Coucha', 'Heiner', to_date('07/04/1978', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 26, 'imgM8.jpg');
-execute insercion_personas(717, 'Orion', 'Arnuad', 'Harler', 'Iacovini', to_date('28/12/1992', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 30, 'imgM18.jpg');
+execute insercion_personas(717, 'Orion', 'Arnuad', 'Harler', 'Iacovini', to_date('28/12/1992', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 30, 'imgM16.jpg');
 execute insercion_personas(718, 'Mort', 'Matt', 'Couper', 'Louthe', to_date('15/04/1962', 'DD/MM/YYYY'), 'F', 'Infectado', null, null, 22, 'imgM2.jpg');
 execute insercion_personas(719, 'Troy', 'Travers', 'Roch', 'Rushsorth', to_date('24/04/1977', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 32, 'imgM15.jpg');
 execute insercion_personas(720, 'Saunders', 'Yvor', 'McKeaveney', 'Gregori', to_date('09/04/1981', 'DD/MM/YYYY'), 'F', 'Aislado', null, null, 35, 'imgM16.jpg');

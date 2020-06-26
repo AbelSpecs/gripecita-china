@@ -35,8 +35,8 @@ begin
         OPEN ret_cursor FOR
         -- Todo vacio
         select p.pasaporte_persona ,p.foto_persona"Foto", p.nombre1_persona"Primer nombre", COALESCE(p.nombre2_persona, ' ')"Segundo nombre", p.apellido1_persona"Primer apellido", 
-            p.apellido2_persona "Segundo apellido", to_char(p.fechanac_persona, 'DD/MM/YYYY') "Fecha de nacimiento", l3.identificacion_lugar.imagen "País", 
-            p.genero_persona "Género", l2.identificacion_lugar.nombre "Estado", COALESCE(getPatologias(p.pasaporte_persona), ' ') "Patologias"
+            p.apellido2_persona "Segundo apellido", to_char(p.fechanac_persona, 'DD/MM/YYYY') "Fecha de nacimiento", l3.identificacion_lugar.imagen "PaÃ­s", 
+            p.genero_persona "GÃ©nero", l2.identificacion_lugar.nombre "Estado", COALESCE(getPatologias(p.pasaporte_persona), ' ') "Patologias"
         from persona p, lugar l, lugar l2, lugar l3
         where p.id_lugar_persona = l.id_lugar and l.id_lugar_lugar = l2.id_lugar and l2.id_lugar_lugar = l3.id_lugar
         order by p.fechanac_persona;
@@ -44,8 +44,8 @@ begin
     elsif ((pais is not null) and (estado is not null) and (edad is null) and (patol is null)) then
         OPEN ret_cursor FOR
         select p.foto_persona"Foto", p.nombre1_persona"Primer nombre", COALESCE(p.nombre2_persona, ' ')"Segundo nombre", p.apellido1_persona"Primer apellido", 
-            p.apellido2_persona "Segundo apellido", to_char(p.fechanac_persona, 'DD/MM/YYYY') "Fecha de nacimiento", l3.identificacion_lugar.imagen "País",
-            p.genero_persona "Género", l2.identificacion_lugar.nombre "Estado", COALESCE(getPatologias(p.pasaporte_persona), ' ') "Patologias"
+            p.apellido2_persona "Segundo apellido", to_char(p.fechanac_persona, 'DD/MM/YYYY') "Fecha de nacimiento", l3.identificacion_lugar.imagen "PaÃ­s",
+            p.genero_persona "GÃ©nero", l2.identificacion_lugar.nombre "Estado", COALESCE(getPatologias(p.pasaporte_persona), ' ') "Patologias"
         from persona p, lugar l, lugar l2, lugar l3
         where p.id_lugar_persona = l.id_lugar and l.id_lugar_lugar = l2.id_lugar and l2.id_lugar_lugar = l3.id_lugar
             and l3.identificacion_lugar.nombre = pais
@@ -55,8 +55,8 @@ begin
     elsif ((pais is not null) and (estado is null) and (edad is null) and (patol is null)) then
         OPEN ret_cursor FOR
         select p.foto_persona"Foto", p.nombre1_persona"Primer nombre", COALESCE(p.nombre2_persona, ' ')"Segundo nombre", p.apellido1_persona"Primer apellido", 
-            p.apellido2_persona "Segundo apellido", to_char(p.fechanac_persona, 'DD/MM/YYYY') "Fecha de nacimiento", l3.identificacion_lugar.imagen "País",
-            p.genero_persona "Género", l2.identificacion_lugar.nombre "Estado", COALESCE(getPatologias(p.pasaporte_persona), ' ') "Patologias"
+            p.apellido2_persona "Segundo apellido", to_char(p.fechanac_persona, 'DD/MM/YYYY') "Fecha de nacimiento", l3.identificacion_lugar.imagen "PaÃ­s",
+            p.genero_persona "GÃ©nero", l2.identificacion_lugar.nombre "Estado", COALESCE(getPatologias(p.pasaporte_persona), ' ') "Patologias"
         from persona p, lugar l, lugar l2, lugar l3
         where p.id_lugar_persona = l.id_lugar and l.id_lugar_lugar = l2.id_lugar and l2.id_lugar_lugar = l3.id_lugar
              and l3.identificacion_lugar.nombre = pais
@@ -65,8 +65,8 @@ begin
     elsif ((pais is null) and (estado is not null) and (edad is null) and (patol is null)) then
         OPEN ret_cursor FOR
         select p.foto_persona"Foto", p.nombre1_persona"Primer nombre", COALESCE(p.nombre2_persona, ' ')"Segundo nombre", p.apellido1_persona"Primer apellido", 
-            p.apellido2_persona "Segundo apellido", to_char(p.fechanac_persona, 'DD/MM/YYYY') "Fecha de nacimiento", l3.identificacion_lugar.imagen "País",
-            p.genero_persona "Género", l2.identificacion_lugar.nombre "Estado", COALESCE(getPatologias(p.pasaporte_persona), ' ') "Patologias"
+            p.apellido2_persona "Segundo apellido", to_char(p.fechanac_persona, 'DD/MM/YYYY') "Fecha de nacimiento", l3.identificacion_lugar.imagen "PaÃ­s",
+            p.genero_persona "GÃ©nero", l2.identificacion_lugar.nombre "Estado", COALESCE(getPatologias(p.pasaporte_persona), ' ') "Patologias"
         from persona p, lugar l, lugar l2, lugar l3
         where p.id_lugar_persona = l.id_lugar and l.id_lugar_lugar = l2.id_lugar and l2.id_lugar_lugar = l3.id_lugar
             and l2.identificacion_lugar.nombre = estado
@@ -75,8 +75,8 @@ begin
     elsif ((pais is null) and (estado is null) and (edad is not null) and (patol is not null)) then
         OPEN ret_cursor FOR 
         select p.foto_persona"Foto", p.nombre1_persona"Primer nombre", COALESCE(p.nombre2_persona, ' ')"Segundo nombre", p.apellido1_persona"Primer apellido", 
-            p.apellido2_persona "Segundo apellido", to_char(p.fechanac_persona, 'DD/MM/YYYY') "Fecha de nacimiento", l3.identificacion_lugar.imagen "País",
-            p.genero_persona "Género", l2.identificacion_lugar.nombre "Estado", COALESCE(getPatologias(p.pasaporte_persona), ' ') "Patologias"
+            p.apellido2_persona "Segundo apellido", to_char(p.fechanac_persona, 'DD/MM/YYYY') "Fecha de nacimiento", l3.identificacion_lugar.imagen "PaÃ­s",
+            p.genero_persona "GÃ©nero", l2.identificacion_lugar.nombre "Estado", COALESCE(getPatologias(p.pasaporte_persona), ' ') "Patologias"
         from persona p, lugar l, lugar l2, lugar l3, per_pat pp, patologia pt
         where p.id_lugar_persona = l.id_lugar and l.id_lugar_lugar = l2.id_lugar and l2.id_lugar_lugar = l3.id_lugar
             and pp.pasaporte_persona_pp = p.pasaporte_persona and pp.id_patologia_pp = pt.id_patologia and 
@@ -87,8 +87,8 @@ begin
     elsif ((pais is null) and (estado is null) and (edad is not null) and (patol is null)) then
         OPEN ret_cursor FOR 
         select p.foto_persona"Foto", p.nombre1_persona"Primer nombre", COALESCE(p.nombre2_persona, ' ')"Segundo nombre", p.apellido1_persona"Primer apellido", 
-            p.apellido2_persona "Segundo apellido", to_char(p.fechanac_persona, 'DD/MM/YYYY') "Fecha de nacimiento", l3.identificacion_lugar.imagen "País",
-            p.genero_persona "Género", l2.identificacion_lugar.nombre "Estado", COALESCE(getPatologias(p.pasaporte_persona), ' ') "Patologias"
+            p.apellido2_persona "Segundo apellido", to_char(p.fechanac_persona, 'DD/MM/YYYY') "Fecha de nacimiento", l3.identificacion_lugar.imagen "PaÃ­s",
+            p.genero_persona "GÃ©nero", l2.identificacion_lugar.nombre "Estado", COALESCE(getPatologias(p.pasaporte_persona), ' ') "Patologias"
         from persona p, lugar l, lugar l2, lugar l3
         where p.id_lugar_persona = l.id_lugar and l.id_lugar_lugar = l2.id_lugar and l2.id_lugar_lugar = l3.id_lugar and
             round(EXTRACT(DAY FROM sysdate - p.fechanac_persona)/365,0) > edad 
@@ -97,8 +97,8 @@ begin
      elsif ((pais is null) and (estado is null) and (edad is null) and (patol is not null)) then
         OPEN ret_cursor FOR 
         select p.foto_persona"Foto", p.nombre1_persona"Primer nombre", COALESCE(p.nombre2_persona, ' ')"Segundo nombre", p.apellido1_persona"Primer apellido", 
-            p.apellido2_persona "Segundo apellido", to_char(p.fechanac_persona, 'DD/MM/YYYY') "Fecha de nacimiento", l3.identificacion_lugar.imagen "País",
-            p.genero_persona "Género", l2.identificacion_lugar.nombre "Estado", COALESCE(getPatologias(p.pasaporte_persona), ' ') "Patologias"
+            p.apellido2_persona "Segundo apellido", to_char(p.fechanac_persona, 'DD/MM/YYYY') "Fecha de nacimiento", l3.identificacion_lugar.imagen "PaÃ­s",
+            p.genero_persona "GÃ©nero", l2.identificacion_lugar.nombre "Estado", COALESCE(getPatologias(p.pasaporte_persona), ' ') "Patologias"
         from persona p, lugar l, lugar l2, lugar l3, per_pat pp, patologia pt
         where p.id_lugar_persona = l.id_lugar and l.id_lugar_lugar = l2.id_lugar and l2.id_lugar_lugar = l3.id_lugar
             and pp.pasaporte_persona_pp = p.pasaporte_persona and pp.id_patologia_pp = pt.id_patologia
@@ -108,8 +108,8 @@ begin
         -- Con todos los parametros a llenar
         OPEN ret_cursor FOR
         select p.foto_persona"Foto", p.nombre1_persona"Primer nombre", COALESCE(p.nombre2_persona, ' ')"Segundo nombre", p.apellido1_persona"Primer apellido", 
-            p.apellido2_persona "Segundo apellido", to_char(p.fechanac_persona, 'DD/MM/YYYY') "Fecha de nacimiento", l3.identificacion_lugar.imagen "País",
-            p.genero_persona "Género", l2.identificacion_lugar.nombre "Estado", COALESCE(getPatologias(p.pasaporte_persona), ' ') "Patologias"
+            p.apellido2_persona "Segundo apellido", to_char(p.fechanac_persona, 'DD/MM/YYYY') "Fecha de nacimiento", l3.identificacion_lugar.imagen "PaÃ­s",
+            p.genero_persona "GÃ©nero", l2.identificacion_lugar.nombre "Estado", COALESCE(getPatologias(p.pasaporte_persona), ' ') "Patologias"
         from persona p, lugar l, lugar l2, lugar l3, per_pat pp, patologia pt
         where p.id_lugar_persona = l.id_lugar and l.id_lugar_lugar = l2.id_lugar and l2.id_lugar_lugar = l3.id_lugar
             and pp.pasaporte_persona_pp = p.pasaporte_persona and pp.id_patologia_pp = pt.id_patologia and l3.identificacion_lugar.nombre = pais
@@ -354,10 +354,10 @@ end PersonasSintomas;
 create or replace procedure viaje_personas (rep_cursor OUT sys_refcursor, fechai vuelo.fechai_vuelo%type, fechaf vuelo.fechaf_vuelo%type) is 
 begin
     open rep_cursor
-    for select p.pasaporte_persona"N° Pasaporte", p.foto_persona"Foto", p.nombre1_persona"Primer nombre", p.nombre2_persona"Segundo nombre",
+    for select p.pasaporte_persona"NÂ° Pasaporte", p.foto_persona"Foto", p.nombre1_persona"Primer nombre", p.nombre2_persona"Segundo nombre",
             p.apellido1_persona"Primer Apellido", p.apellido2_persona"Segundo Apellido", edad(p.fechanac_persona)"Edad", l3.identificacion_lugar.imagen"Pais Residencia",
-            pv.id_lugar_llegada_vuelo_pv"Pais que visitó",to_char(v.fechai_vuelo,'dd/mm/yyyy')"Fecha inicio del viaje",to_char(v.fechai_vuelo,'dd/mm/yyyy')"Fecha fin del viaje",
-            pv.id_lugar_llegada_vuelo_pv"Lugares donde visitó"
+            pv.id_lugar_llegada_vuelo_pv"Pais que visitÃ³",to_char(v.fechai_vuelo,'dd/mm/yyyy')"Fecha inicio del viaje",to_char(v.fechai_vuelo,'dd/mm/yyyy')"Fecha fin del viaje",
+            pv.id_lugar_llegada_vuelo_pv"Lugares donde visitÃ³"
         from persona p, lugar l, lugar l2, lugar l3, per_vue pv, vuelo v
         where l.id_lugar_lugar = l2.id_lugar and l2.id_lugar_lugar = l3.id_lugar and p.id_lugar_persona = l.id_lugar and p.pasaporte_persona = pv.pasaporte_persona_pv
             and pv.numero_vuelo_pv = v.numero_vuelo and v.fechai_vuelo >= fechai and v.fechaf_vuelo <= fechaf;

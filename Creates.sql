@@ -32,7 +32,7 @@ create table hist_fronterizo(
 --LISTA--
 create table aislamiento(
     id_aislamiento number constraint PK_aislamiento primary key,
-    nombre_aislamiento varchar2(25) not null,
+    nombre_aislamiento varchar2(100) not null,
     tipo_aislamiento number not null,
     constraint CK_tipo_aislamiento check(tipo_aislamiento in (1,2,3,4))
 );
