@@ -1,4 +1,3 @@
-/
 create or replace function edad (fecha_nac date) return number is
 begin
     return (round(((sysdate - fecha_nac)/365),0));
@@ -18,3 +17,13 @@ begin
     close sintoma_persona;
     return presencia;
 end;
+/
+create or replace function cantidad_sintomas (persona per_sin.pasaporte_persona_ps%type) return number is
+cantidad number := 0;
+begin
+    select count(*) into cantidad from per_sin where pasaporte_persona_ps = persona;
+    return cantidad;
+end;
+/
+
+
