@@ -59,6 +59,38 @@ begin
     end if;
 end;
 /
+--------------------------------------------------------MODULO DE Supervivencia------------------------------------------------------------------------
+---funcion porque el modulo pide retornar la fecha
+create or replace function modulo_supervivencia(id_p persona.pasaporte_persona%type) return date
+is  
+    fechad date;
+    contp number:=0;
+    numeroR number;
+    cursor c1 is select pt.nombre_patologia as patologia from patologia pt, per_pat pp, persona p where p.pasaporte_persona = pp.pasaporte_persona_pp 
+    and pp.id_patologia_pp = pt.id_patologia and p.pasaporte_persona = id_p and p.status_persona = 'Infectado';
+begin
+    for i in c1 loop
+        if(i.patologia = 'Asma' or i.patologia = 'Neumonia' or i.patologia = 'Riesgo cardiovascular' 
+        or  i.patologia = 'Diabetes' or i.patologia = 'Insuficiencia cardiaca') then------- Verificacion de patologias
+            contp:= contp + 1;   
+        end if;
+    end loop;
+    
+    if(contp > 0) then
+        numeroR:= round(DBMS_RANDOM.value(0,1),0); -------numero aleatorio
+            if(numeroR = 1) then
+                update persona set fechadef_persona = sysdate where pasaporte_persona = id_p;
+                select fechadef_persona into fechad from persona where pasaporte_persona = id_p;
+                return fechad;
+            else 
+                return null;
+            end if;    
+    else 
+        return null;    
+    end if;            
+end modulo_supervivencia;
+/                                 
+-------------------------------------------------------------------------------------------------------------------                                                                                                  
 SET SERVEROUTPUT ON;
 
 select * from his_medico where id_csalud_histm = 7 and fecfinalingreso_histm is null;
