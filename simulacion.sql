@@ -17,6 +17,7 @@ begin
     if modelo = 3 then
         cantper_infectar := round(cantper_sanos * 0.25,0);
         dbms_output.put_line('cant personas a infectar '||cantper_infectar);
+        --por aqui va el while para la cantidad de personas a infectar
         while status <> 'Sano'  loop
         --selecciono persona random a infectar
             SELECT pasaporte_persona, status_persona INTO usuario_random, status

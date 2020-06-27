@@ -57,52 +57,69 @@ dbms_output.put_line('----------Modulo Centro Salud------------');
     end if;
 end;
 /
+--create or replace procedure modulo_alteracion_sintomas (persona persona.pasaporte_persona%type) is
 declare
 cant_sintomas number;
 cant_patologias number;
 cont number := 1;
 cont2 number := 1;
-sintoma_eliminar per_sin.id_sintoma_ps%type;
+sintoma_eliminar number;
 patologia_insertar per_pat.id_patologia_pp%type;
+presencia_pat number;
 begin
 --cuando entras al modulo implica que la persona tiene 8 sintomas
-dbms_output.put_line('----------Modulo Alteraci�n de Sintomas------------');
+dbms_output.put_line('----------Modulo Alteracion de Sintomas------------');
     select round(dbms_random.value(1,8),0) into cant_sintomas from dual;
-   dbms_output.put_line('cantidad sintomas a eliminar '|| cant_sintomas);
+    
+    while (cant_sintomas > cantidad_sintomas(600)) loop
+        select round(dbms_random.value(1,8),0) into cant_sintomas from dual;
+    end loop;
+    
+    dbms_output.put_line('cantidad sintomas a eliminar '|| cant_sintomas);
+    
     if (cant_sintomas < 8)then
-    --elimino la cantidad de sintomas sintomas
+    --elimino la cantidad de sintomas
         while cont <= cant_sintomas loop
-            select round(dbms_random.value(1,8),0) into sintoma_eliminar from dual;
-            
-            --comprobar que la persona tenga el sintoma a eliminar
-            --arreglar aqui
-            while (comprobar_sintoma(600, sintoma_eliminar) = false) loop
-                select round(dbms_random.value(1,8),0) into sintoma_eliminar from dual;
-            end loop;
-            
-            dbms_output.put_line('sintoma a eliminar '|| sintoma_eliminar);
-            --delete from per_sin where pasaporte_persona_ps = 600 and id_sintoma_ps = sintoma_eliminar;
+            select id_sintoma_ps into sintoma_eliminar from (select * from per_sin where pasaporte_persona_ps = 600 
+                order by DBMS_RANDOM.VALUE) where rownum = 1;
+            dbms_output.put_line('sintoma eliminar '|| sintoma_eliminar);
+            delete from per_sin where pasaporte_persona_ps = 600 and id_sintoma_ps = sintoma_eliminar;
             cont := cont + 1; 
         end loop;
         
         if (cant_sintomas <= 2) then
         --genero patologias a la persona
-            select round(dbms_random.value(1,8),0) into cant_patologias from dual;
-        --comprobar si la persona tiene la patologia a insertar
+            select round(dbms_random.value(1,15),0) into cant_patologias from dual;
+            while (cant_patologias + cantidad_patologias(600) > 15 ) loop
+                    select round(dbms_random.value(1,15),0) into cant_patologias from dual;
+            end loop;
+            
+            dbms_output.put_line('cantidad de patologias a insertar '|| cant_patologias);
+            
             while cont2 <= cant_patologias loop
                 select round(dbms_random.value(1,15),0) into patologia_insertar from dual;
+            --comprobar si la persona tiene la patologia a insertar
+                select count(*) into presencia_pat from per_pat where pasaporte_persona_pp = 600 and id_patologia_pp = patologia_insertar;
+            --arreglar aqui
+        /*
+                while presencia_pat <> 0 loop
+                    select round(dbms_random.value(1,15),0) into patologia_insertar from dual;
+                end loop;
+          */      
+                dbms_output.put_line('patologia a insertar '|| patologia_insertar);
                 insert into per_pat values (600, patologia_insertar);
+                cont2 := cont2 + 1;
             end loop;
         end if;
+        
     else
     --elimino los sintomas y asigno fechaFinalIngreso a la persona
         dbms_output.put_line('se todos eliminaran los sintomas');
-        --delete from per_sin where pasaporte_persona_ps = 600;
-        --update his_medico set fecasistencia_histm = sysdate where pasaporte_persona_histm = 600;
+        delete from per_sin where pasaporte_persona_ps = 600;
+        update his_medico set fecasistencia_histm = sysdate where pasaporte_persona_histm = 600;
     end if;
 end;
 /
-
 --------------------------------------------------------MODULO DE Supervivencia------------------------------------------------------------------------
 ---funcion porque el modulo pide retornar la fecha
 create or replace function modulo_supervivencia(id_p persona.pasaporte_persona%type) return date
@@ -133,13 +150,23 @@ begin
         return null;    
     end if;            
 end modulo_supervivencia;
-/                                 
+/       
+declare
+presencia_pat number;
+begin
+select count(*) into presencia_pat from per_pat where pasaporte_persona_pp = 62; 
+        dbms_output.put_line('presencia '||presencia_pat);
+  
+     
+end;
 
+/
 SET SERVEROUTPUT ON;
 
 select * from his_medico where id_csalud_histm = 7 and fecfinalingreso_histm is null;
 select * from centro_salud where id_csalud = 7;
-select * from per_sin where pasaporte_persona_ps = 600;
+select * from per_pat where pasaporte_persona_pp =62;
+select * from per_sin where pasaporte_persona_ps =600;
 
 rollback;
 commit;
