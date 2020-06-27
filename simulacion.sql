@@ -26,7 +26,6 @@ begin
             modulo_infeccion(usuario_random);
             select id_csalud into centro_medico from centro_salud where id_lugar_csalud = lugar_infectar;
             dbms_output.put_line('centro medico ' || centro_medico);
---comprobar desde aqui            
             
             if (cantidad_sintomas(usuario_random) >= 6) then
             --presenta más de 6 sintomas
@@ -36,9 +35,10 @@ begin
                 
                 if (cantidad_sintomas(usuario_random) = 8) then 
                 --empiezo modulo centro salud
-                    dbms_output.put_line('modulo centro salud');
+                    modulo_centro_salud(centro_medico,usuario_random);
+                --empiezo modulo alteracion de sintomas
                 else
-                --presenta menos e 8 sintomas
+                --presenta menos de 8 sintomas
                 --mando de cuarentena a la persona
                     dbms_output.put_line('cuarentena');
                 end if;
@@ -49,6 +49,7 @@ begin
             end if;
         end loop;
     ELSE
+    --cuando modelo <> 3
         cantper_infectar := round(cantper_sanos * DBMS_RANDOM.VALUE,0);
         dbms_output.put_line('% '|| DBMS_RANDOM.VALUE);
         dbms_output.put_line('cant personas a infectar '||cantper_infectar);
