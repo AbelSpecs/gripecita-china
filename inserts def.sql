@@ -2307,7 +2307,7 @@ insert into patologia values (4, 'Hepatitis');
 insert into patologia values (5, 'Obesidad');
 insert into patologia values (6, 'Hipertiroidismo');
 insert into patologia values (7, 'Hipertensión arterial');
-insert into patologia values (8, 'Hipertensión arterial');
+insert into patologia values (8, 'Asma');
 insert into patologia values (9, 'aspiración pulmonar');
 insert into patologia values (10, 'Bronquiectasias');
 insert into patologia values (11, 'Riesgo cardiovascular');
