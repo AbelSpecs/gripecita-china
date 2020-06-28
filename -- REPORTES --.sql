@@ -675,7 +675,7 @@ begin
                 imagenE,null,pInfectadaM,pInfectadaU,pInfectadaV,pInfectadaB,pInfectadaE); 
                 fechaD:= fechaD +1;
             else 
-                fechaIn(i):= infeccionesD(fechaD,null,nombreM,nombreU,nombreV,nombreB,nombreE,null,null,null,null,null,
+                fechaIn(i):= infeccionesD(fechaD,null,nombreM,nombreU,nombreeV,nombreB,nombreE,null,null,null,null,null,
                 null,null,pInfectadaM,pInfectadaU,pInfectadaV,pInfectadaB,pInfectadaE); 
                 fechaD:= fechaD +1; 
             end if;    
