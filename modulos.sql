@@ -140,7 +140,7 @@ cont2 number := 1;
 sintoma_agregar per_sin.id_sintoma_ps%type := 1;
 patologia_insertar per_pat.id_patologia_pp%type := 1;
 begin
-    dbms_output.put_line('----------Modulo Alteracion de Sintomas------------');
+    --dbms_output.put_line('----------Modulo Alteracion de Sintomas------------');
     cant_sintomas := round(dbms_random.value(0,8),0);
     cant_sintomas_ret := cant_sintomas;
     dbms_output.put_line('Cantidad de sintomas a agregar: '|| cant_sintomas);
@@ -159,6 +159,7 @@ begin
         --Genero patologias a la persona
             cant_patologias := round(dbms_random.value(1,15),0);
             --Comprobar si la persona tiene la patologia a insertar
+            dbms_output.put_line('Cantidad de patoligias a agregar: '|| cant_patologias);
             while patologia_insertar <= cant_patologias loop            
                 --comprobar que la persona no tenga el sintoma
                 if (comprobar_patologia(pasaporte, patologia_insertar) = false) then
@@ -171,42 +172,65 @@ begin
     else
         --Elimino los sintomas y asigno fechaFinalIngreso a la persona
         dbms_output.put_line('Se todos eliminaran los sintomas');
+        dbms_output.put_line('Se curo la persona '||pasaporte);
         delete from per_sin where pasaporte_persona_ps = pasaporte;
         update his_medico set fecfinalingreso_histm = sysdate where pasaporte_persona_histm = pasaporte;
     end if;
 end;
 /
 rollback;
---------------------------------------------------------MODULO DE Supervivencia------------------------------------------------------------------------
----funcion porque el modulo pide retornar la fecha
+-----------------------------------------------------------------------------------------------------------------------------
+-- Funcion porque el modulo pide retornar la fecha
+-----------------------------------------------------------------------------------------------------------------------------
+-- Funcion de Supervivencia
+-----------------------------------------------------------------------------------------------------------------------------
 create or replace function modulo_supervivencia(id_p persona.pasaporte_persona%type) return date
 is  
     fechad date;
     contp number:=0;
     numeroR number;
+    fechaDead timestamp;
+    i patologia.nombre_patologia%type;
     cursor c1 is select pt.nombre_patologia as patologia from patologia pt, per_pat pp, persona p where p.pasaporte_persona = pp.pasaporte_persona_pp 
-    and pp.id_patologia_pp = pt.id_patologia and p.pasaporte_persona = id_p and p.status_persona = 'Infectado';
+    and pp.id_patologia_pp = pt.id_patologia and p.pasaporte_persona = id_p;
 begin
-    for i in c1 loop
-        if(i.patologia = 'Asma' or i.patologia = 'Neumonia' or i.patologia = 'Riesgo cardiovascular' 
-        or  i.patologia = 'Diabetes' or i.patologia = 'Insuficiencia cardiaca') then------- Verificacion de patologias
+    dbms_output.put_line('La persona '|| id_p ||' morira?');
+    open c1;
+    fetch c1 into i;
+    while(c1%found)loop
+        if(i = 'Asma' or i = 'Neumonia' or i = 'Riesgo cardiovascular' 
+        or  i = 'Diabetes' or i = 'Insuficiencia cardiaca') then------- Verificacion de patologias
             contp:= contp + 1;   
         end if;
+        fetch c1 into i;
     end loop;
+    close c1;
     
-    if(contp > 0) then
-        numeroR:= round(DBMS_RANDOM.value(0,1),0); -------numero aleatorio
+    -- Aqui devuelve si ya habia fallecido previamente
+    select fechadef_persona into fechaDead from persona where pasaporte_persona = id_p;
+    
+    if (fechaDead is null) then 
+        if(contp > 0) then
+            numeroR:= round(DBMS_RANDOM.value(0,1),0); -------numero aleatorio
             if(numeroR = 1) then
+                dbms_output.put_line('Detition: '|| numeroR);
                 update persona set fechadef_persona = sysdate where pasaporte_persona = id_p;
+                -- Aqui devuelve si fallecio en el update
                 select fechadef_persona into fechad from persona where pasaporte_persona = id_p;
+                dbms_output.put_line('1. La persona '||id_p||' fallecio el '||fechad);
                 return fechad;
-            else 
+            else
+                dbms_output.put_line('Detition: '|| numeroR);
                 return null;
             end if;    
-    else 
-        return null;    
-    end if;            
-end modulo_supervivencia;
+        else
+            dbms_output.put_line('0. La persona '||id_p||' no tiene las patologias');
+            return null;    
+        end if; 
+    else
+        dbms_output.put_line('0. La persona '||id_p||' fallecio el '||fechaDead);
+        return null; 
+    end if;
 /       
 declare 
 patologia_insertar number;
