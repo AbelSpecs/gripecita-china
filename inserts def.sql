@@ -2307,14 +2307,15 @@ insert into patologia values (4, 'Hepatitis');
 insert into patologia values (5, 'Obesidad');
 insert into patologia values (6, 'Hipertiroidismo');
 insert into patologia values (7, 'Hipertensión arterial');
-insert into patologia values (8, 'aspiración pulmonar');
-insert into patologia values (9, 'Bronquiectasias');
-insert into patologia values (10, 'Riesgo cardiovascular');
-insert into patologia values (11, 'Faringoamigdalitis');
-insert into patologia values (12, 'Fibrosis pulmonar idiopática');
-insert into patologia values (13, 'Infarto de miocardio');
-insert into patologia values (14, 'Insuficiencia cardiaca');
-insert into patologia values (15, 'Neumonía');
+insert into patologia values (8, 'Hipertensión arterial');
+insert into patologia values (9, 'aspiración pulmonar');
+insert into patologia values (10, 'Bronquiectasias');
+insert into patologia values (11, 'Riesgo cardiovascular');
+insert into patologia values (12, 'Faringoamigdalitis');
+insert into patologia values (13, 'Fibrosis pulmonar idiopática');
+insert into patologia values (14, 'Infarto de miocardio');
+insert into patologia values (15, 'Insuficiencia cardiaca');
+insert into patologia values (16, 'Neumonía');
 
 -- PER_PAT    
 insert into per_pat values(1,1);
