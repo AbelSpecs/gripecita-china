@@ -59,22 +59,23 @@ end;
 /
 --create or replace procedure modulo_alteracion_sintomas (persona persona.pasaporte_persona%type) is
 declare
-cant_sintomas number;
+cant_sintomas number := 1;
 cant_patologias number;
 cont number := 1;
 cont2 number := 1;
 sintoma_eliminar number;
 patologia_insertar per_pat.id_patologia_pp%type;
-presencia_pat number;
+tiene_patologia number;
 begin
 --cuando entras al modulo implica que la persona tiene 8 sintomas
 dbms_output.put_line('----------Modulo Alteracion de Sintomas------------');
+/*
     select round(dbms_random.value(1,8),0) into cant_sintomas from dual;
     
     while (cant_sintomas > cantidad_sintomas(600)) loop
         select round(dbms_random.value(1,8),0) into cant_sintomas from dual;
     end loop;
-    
+*/    
     dbms_output.put_line('cantidad sintomas a eliminar '|| cant_sintomas);
     
     if (cant_sintomas < 8)then
@@ -97,17 +98,22 @@ dbms_output.put_line('----------Modulo Alteracion de Sintomas------------');
             dbms_output.put_line('cantidad de patologias a insertar '|| cant_patologias);
             
             while cont2 <= cant_patologias loop
-                select round(dbms_random.value(1,15),0) into patologia_insertar from dual;
-            --comprobar si la persona tiene la patologia a insertar
-                select count(*) into presencia_pat from per_pat where pasaporte_persona_pp = 600 and id_patologia_pp = patologia_insertar;
-            --arreglar aqui
-        /*
-                while presencia_pat <> 0 loop
+                begin
                     select round(dbms_random.value(1,15),0) into patologia_insertar from dual;
-                end loop;
-          */      
-                dbms_output.put_line('patologia a insertar '|| patologia_insertar);
-                insert into per_pat values (600, patologia_insertar);
+                    select id_patologia_pp into tiene_patologia from per_pat where pasaporte_persona_pp = 600 and id_patologia_pp = patologia_insertar;
+                    
+                    while (patologia_insertar = tiene_patologia )loop
+                        select round(dbms_random.value(1,15),0) into patologia_insertar from dual;
+                    end loop;
+                    
+                    dbms_output.put_line('patologia a insertar '|| patologia_insertar);
+                    insert into per_pat values (600, patologia_insertar);
+                exception       
+                    when no_data_found then
+                    --no tiene la patologia, inserto
+                        dbms_output.put_line('patologia a insertar '|| patologia_insertar);
+                        insert into per_pat values (600, patologia_insertar);
+                end;
                 cont2 := cont2 + 1;
             end loop;
         end if;
@@ -120,6 +126,7 @@ dbms_output.put_line('----------Modulo Alteracion de Sintomas------------');
     end if;
 end;
 /
+rollback;
 --------------------------------------------------------MODULO DE Supervivencia------------------------------------------------------------------------
 ---funcion porque el modulo pide retornar la fecha
 create or replace function modulo_supervivencia(id_p persona.pasaporte_persona%type) return date
@@ -151,13 +158,17 @@ begin
     end if;            
 end modulo_supervivencia;
 /       
-declare
-presencia_pat number;
+declare 
+patologia_insertar number;
 begin
-select count(*) into presencia_pat from per_pat where pasaporte_persona_pp = 62; 
-        dbms_output.put_line('presencia '||presencia_pat);
-  
-     
+    for i in 1 .. 15 loop
+        select round(dbms_random.value(1,15),0) into patologia_insertar from dual;
+        if (comprobar_patologia(600,patologia_insertar) = false) then
+            dbms_output.put_line('NO tiene la patologia '|| patologia_insertar);
+        else  
+            dbms_output.put_line(' tiene la patologia '|| patologia_insertar);
+        end if;
+    end loop;
 end;
 
 /
@@ -165,10 +176,14 @@ SET SERVEROUTPUT ON;
 
 select * from his_medico where id_csalud_histm = 7 and fecfinalingreso_histm is null;
 select * from centro_salud where id_csalud = 7;
-select * from per_pat where pasaporte_persona_pp =62;
+select * from per_pat where pasaporte_persona_pp = 600;
 select * from per_sin where pasaporte_persona_ps =600;
 
-rollback;
+
+insert into per_pat values (600,1);
+insert into per_sin values (sysdate, 'No', 600, 3);
+
+
 commit;
 
 
