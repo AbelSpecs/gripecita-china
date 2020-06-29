@@ -143,7 +143,7 @@ cont2 number := 1;
 sintoma_agregar per_sin.id_sintoma_ps%type := 1;
 patologia_insertar per_pat.id_patologia_pp%type := 1;
 begin
-    --dbms_output.put_line('----------Modulo Alteracion de Sintomas------------');
+    dbms_output.put_line('----------Modulo Alteracion de Sintomas------------');
     cant_sintomas := round(dbms_random.value(0,8),0);
     cant_sintomas_ret := cant_sintomas;
     dbms_output.put_line('Cantidad de sintomas a agregar: '|| cant_sintomas);
