@@ -27,6 +27,7 @@ begin
                 --selecciono persona random a infectar
                     SELECT pasaporte_persona INTO usuario_random
                     FROM (select * from persona where id_lugar_persona = lugar_infectar and status_persona = 'Sano' order by DBMS_RANDOM.VALUE) where rownum = 1;
+                    dbms_output.put_line('');
                     dbms_output.put_line('uaurio random '||usuario_random);
                     modulo_infeccion(usuario_random);
                     
@@ -70,6 +71,7 @@ begin
                 --selecciono persona random a infectar
                     SELECT pasaporte_persona INTO usuario_random
                     FROM (select * from persona where id_lugar_persona = lugar_infectar and status_persona = 'Sano' order by DBMS_RANDOM.VALUE) where rownum = 1;
+                    dbms_output.put_line('');
                     dbms_output.put_line('uaurio random '||usuario_random);
                     modulo_infeccion(usuario_random);
                     
@@ -109,6 +111,6 @@ begin
 end;
 /
 SET SERVEROUTPUT ON;
-execute inicia_simulacion(1);
+execute inicia_simulacion(3);
 rollback;
 commit;
