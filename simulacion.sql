@@ -11,31 +11,32 @@ csalud_ret number;
 min_ciudad lugar.id_lugar%type := 0;
 max_ciudad lugar.id_lugar%type := 0;
 begin 
+dbms_output.put_line('----------Simulacion General------------');
     select min(id_lugar) into min_ciudad from lugar where tipo_lugar = 'Ciudad';
     select max(id_lugar) into max_ciudad from lugar where tipo_lugar = 'Ciudad';
     
     for lugar_infectar in min_ciudad..max_ciudad loop
         dbms_output.put_line('');
-        dbms_output.put_line('----------Ciuda a infectar----------'||lugar_infectar);
+        dbms_output.put_line('--------------------------Ciudad a infecatar '||lugar_infectar||'------------------------------');
         select count(*) into cantper_Sanos from persona where id_lugar_persona = lugar_infectar and status_persona = 'Sano';
-        dbms_output.put_line('cant personas a sanas '||cantper_sanos);
+        dbms_output.put_line('cantidad de personas sanas '||cantper_sanos||' en la ciudad '||lugar_infectar);
         
         if modelo = 3 then
             cantper_infectar := round(cantper_sanos * 0.25,0);
-            dbms_output.put_line('cant personas a infectar '||cantper_infectar);
+            dbms_output.put_line('cantidad de personas a infectar '||cantper_infectar||' en la ciudad '||lugar_infectar);
             for cont in 1..cantper_infectar loop
                 --selecciono persona random a infectar
                     SELECT pasaporte_persona INTO usuario_random
                     FROM (select * from persona where id_lugar_persona = lugar_infectar and status_persona = 'Sano' order by DBMS_RANDOM.VALUE) where rownum = 1;
                     dbms_output.put_line('');
-                    dbms_output.put_line('uaurio random '||usuario_random);
+                    dbms_output.put_line('--------------------------Persona #'||usuario_random||'-----------------------------');
                     modulo_infeccion(usuario_random);
                     
                     if (cantidad_sintomas(usuario_random) >= 6) then
                     --presenta m�s de 6 sintomas
                     --actualizo persona a infectada
                         select id_csalud into centro_medico from centro_salud where id_lugar_csalud = lugar_infectar;
-                        dbms_output.put_line('centro medico ' || centro_medico);
+                        dbms_output.put_line('---------------Persona #'||usuario_random||' asignada al Centro de salud '|| centro_medico ||'---------------');
                         update persona set status_persona = 'Infectado' where pasaporte_persona = usuario_random;
                     --empiezo modulo centro salud
                        modulo_centro_salud(centro_medico,usuario_random, csalud_ret);
@@ -65,21 +66,21 @@ begin
         ELSE
         --cuando modelo <> 3
             cantper_infectar := round(cantper_sanos * DBMS_RANDOM.VALUE,0);
-            dbms_output.put_line('cant personas a infectar '||cantper_infectar);
+            dbms_output.put_line('cantidad de personas a infectar '||cantper_infectar||' en la ciudad '||lugar_infectar);
             
             for cont in 1..cantper_infectar loop
                 --selecciono persona random a infectar
                     SELECT pasaporte_persona INTO usuario_random
                     FROM (select * from persona where id_lugar_persona = lugar_infectar and status_persona = 'Sano' order by DBMS_RANDOM.VALUE) where rownum = 1;
                     dbms_output.put_line('');
-                    dbms_output.put_line('uaurio random '||usuario_random);
+                    dbms_output.put_line('--------------------------Persona #'||usuario_random||'-----------------------------');
                     modulo_infeccion(usuario_random);
                     
                     if (cantidad_sintomas(usuario_random) >= 6) then
                     --presenta m�s de 6 sintomas
                     --actualizo persona a infectada
                         select id_csalud into centro_medico from centro_salud where id_lugar_csalud = lugar_infectar;
-                        dbms_output.put_line('centro medico ' || centro_medico);
+                        dbms_output.put_line('---------------Persona #'||usuario_random||' asignada al Centro de salud '|| centro_medico ||'---------------');
                         update persona set status_persona = 'Infectado' where pasaporte_persona = usuario_random;
                     --empiezo modulo centro salud
                        modulo_centro_salud(centro_medico,usuario_random, csalud_ret);
@@ -112,5 +113,4 @@ end;
 /
 SET SERVEROUTPUT ON;
 execute inicia_simulacion(3);
-rollback;
 commit;

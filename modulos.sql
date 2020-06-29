@@ -92,7 +92,7 @@ begin
         --Genero patologias a la persona
             cant_patologias := round(dbms_random.value(1,15),0);
             --Comprobar si la persona tiene la patologia a insertar
-            dbms_output.put_line('Cantidad de patoligias a agregar: '|| cant_patologias);
+            dbms_output.put_line('Cantidad de patologias a agregar: '|| cant_patologias);
             while patologia_insertar <= cant_patologias loop            
                 --comprobar que la persona no tenga el sintoma
                 if (comprobar_patologia(pasaporte, patologia_insertar) = false) then
