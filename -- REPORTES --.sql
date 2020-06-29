@@ -586,10 +586,10 @@ create or replace type fi2 as table of infeccionesD;
 create or replace function Infections2(fechai date, fechaf date,pais varchar2) return fi2
 is
     fechaIn fi2:= fi2();
-    Qpob number;
-    nombreP varchar2(30);
+   -- Qpob number;
+   -- nombreP varchar2(30);
     imagenP blob;
-    pInfectada number;
+    pInfectada number:=0;
     dias number;
     fechaD date;
     
@@ -603,11 +603,7 @@ is
     imagenV blob;
     imagenB blob;
     imagenE blob;
-    QpobM number;
-    QpobU number;
-    QpobV number;
-    QpobB number;
-    QpobE number;
+    
     pInfectadaM number;
     pInfectadaU number;
     pInfectadaV number;
@@ -616,24 +612,34 @@ is
 begin
     if(pais is not null) then
 
-        select l.identificacion_lugar.nombre,l.identificacion_lugar.imagen,l.poblacion_lugar into nombreP,imagenP,Qpob  
+        select l.identificacion_lugar.imagen into imagenP 
         from lugar l where l.identificacion_lugar.nombre = pais;
-        Qpob:= Qpob*0.25;
+        --Qpob:= Qpob*0.25;
+        
         select round(to_date(fechaf,'DD-MM-YYYY') - to_date(fechai,'DD-MM-YYYY'),0) into dias from dual;
         fechaIn.extend(dias);
         fechaD:= fechai;
     
         for i in 1..dias loop
-            pInfectada:= round(DBMS_RANDOM.value(1,Qpob),0);
+            
+            select count(*)/*p.pasaporte_persona, l3.id_lugar, cs.id_csalud */ into pInfectada 
+            from persona p, lugar l, lugar l2, lugar l3, centro_salud cs, his_medico hm 
+            where p.status_persona = 'Infectado' 
+            and p.id_lugar_persona = l3.id_lugar 
+            and l.identificacion_lugar.nombre = pais and l.id_lugar = l2.id_lugar_lugar and l2.id_lugar = l3.id_lugar_lugar
+            and l.tipo_lugar ='Pais' and l2.tipo_lugar = 'Estado' and l3.tipo_lugar = 'Ciudad' and cs.id_lugar_csalud = l3.id_lugar 
+            and hm.id_csalud_histm = cs.id_csalud and hm.pasaporte_persona_histm = p.pasaporte_persona 
+            and hm.feciinicialingreso_histm = fechaD;
+           -- pInfectada:= round(DBMS_RANDOM.value(1,Qpob),0);
            -- fechaIn(i).fecha:= fechaD;
            -- fechaIn(i).infeccion:= pInfectada;
            
            if(i = dias) then
-                fechaIn(i):= infeccionesD(fechaD,nombreP,null,null,null,null,null,imagenP,null,null,null,null,null
+                fechaIn(i):= infeccionesD(fechaD,pais,null,null,null,null,null,imagenP,null,null,null,null,null
                 ,pInfectada,null,null,null,null,null); 
                 fechaD:= fechaD +1;
            else 
-                fechaIn(i):= infeccionesD(fechaD,nombreP,null,null,null,null,null,null,null,null,null,null,null
+                fechaIn(i):= infeccionesD(fechaD,pais,null,null,null,null,null,null,null,null,null,null,null
                 ,pInfectada,null,null,null,null,null); 
                 fechaD:= fechaD +1; 
            end if;    
@@ -643,39 +649,76 @@ begin
     
     if(pais is null) then 
         
-       select l.identificacion_lugar.nombre,l.identificacion_lugar.imagen,l.poblacion_lugar into nombreM,imagenM,QpobM  
+       select l.identificacion_lugar.nombre,l.identificacion_lugar.imagen into nombreM,imagenM  
         from lugar l where l.identificacion_lugar.nombre = 'Mexico';
-       select l.identificacion_lugar.nombre,l.identificacion_lugar.imagen,l.poblacion_lugar into nombreU,imagenU,QpobU  
+       select l.identificacion_lugar.nombre,l.identificacion_lugar.imagen into nombreU,imagenU  
         from lugar l where l.identificacion_lugar.nombre = 'Estados Unidos';
-       select l.identificacion_lugar.nombre,l.identificacion_lugar.imagen,l.poblacion_lugar into nombreV,imagenV,QpobV  
+       select l.identificacion_lugar.nombre,l.identificacion_lugar.imagen into nombreV,imagenV  
         from lugar l where l.identificacion_lugar.nombre = 'Venezuela';
-       select l.identificacion_lugar.nombre,l.identificacion_lugar.imagen,l.poblacion_lugar into nombreB,imagenB,QpobB  
+       select l.identificacion_lugar.nombre,l.identificacion_lugar.imagen into nombreB,imagenB  
         from lugar l where l.identificacion_lugar.nombre = 'Brasil';
-       select l.identificacion_lugar.nombre,l.identificacion_lugar.imagen,l.poblacion_lugar into nombreE,imagenE,QpobE  
-        from lugar l where l.identificacion_lugar.nombre = 'España'; 
+       select l.identificacion_lugar.nombre,l.identificacion_lugar.imagen into nombreE,imagenE  
+        from lugar l where l.identificacion_lugar.nombre = 'Espana'; 
         
-        QpobM:= QpobM*0.25;
-        QpobU:= QpobU*0.25;
-        QpobV:= QpobV*0.25;
-        QpobB:= QpobB*0.25;
-        QpobE:= QpobE*0.25;
+        
         select round(to_date(fechaf,'DD-MM-YYYY') - to_date(fechai,'DD-MM-YYYY'),0) into dias from dual;
         fechaIn.extend(dias);
         fechaD:= fechai;
         
         for i in 1..dias loop
-            pInfectadaM:= round(DBMS_RANDOM.value(1,QpobM),0);
-            pInfectadaU:= round(DBMS_RANDOM.value(1,QpobU),0);
-            pInfectadaV:= round(DBMS_RANDOM.value(1,QpobV),0);
-            pInfectadaB:= round(DBMS_RANDOM.value(1,QpobB),0);
-            pInfectadaE:= round(DBMS_RANDOM.value(1,QpobE),0);
+            
+            select count(*)/*p.pasaporte_persona, l3.id_lugar, cs.id_csalud */ into pInfectadaV 
+            from persona p, lugar l, lugar l2, lugar l3, centro_salud cs, his_medico hm 
+            where p.status_persona = 'Infectado' 
+            and p.id_lugar_persona = l3.id_lugar 
+            and l.identificacion_lugar.nombre = 'Venezuela' and l.id_lugar = l2.id_lugar_lugar and l2.id_lugar = l3.id_lugar_lugar
+            and l.tipo_lugar ='Pais' and l2.tipo_lugar = 'Estado' and l3.tipo_lugar = 'Ciudad' and cs.id_lugar_csalud = l3.id_lugar 
+            and hm.id_csalud_histm = cs.id_csalud and hm.pasaporte_persona_histm = p.pasaporte_persona 
+            and hm.feciinicialingreso_histm = fechaD;
+            
+            select count(*)/*p.pasaporte_persona, l3.id_lugar, cs.id_csalud */ into pInfectadaB 
+            from persona p, lugar l, lugar l2, lugar l3, centro_salud cs, his_medico hm 
+            where p.status_persona = 'Infectado' 
+            and p.id_lugar_persona = l3.id_lugar 
+            and l.identificacion_lugar.nombre = 'Brasil' and l.id_lugar = l2.id_lugar_lugar and l2.id_lugar = l3.id_lugar_lugar
+            and l.tipo_lugar ='Pais' and l2.tipo_lugar = 'Estado' and l3.tipo_lugar = 'Ciudad' and cs.id_lugar_csalud = l3.id_lugar 
+            and hm.id_csalud_histm = cs.id_csalud and hm.pasaporte_persona_histm = p.pasaporte_persona 
+            and hm.feciinicialingreso_histm = fechaD;
+            
+            select count(*)/*p.pasaporte_persona, l3.id_lugar, cs.id_csalud */ into pInfectadaE 
+            from persona p, lugar l, lugar l2, lugar l3, centro_salud cs, his_medico hm 
+            where p.status_persona = 'Infectado' 
+            and p.id_lugar_persona = l3.id_lugar 
+            and l.identificacion_lugar.nombre = 'Espana' and l.id_lugar = l2.id_lugar_lugar and l2.id_lugar = l3.id_lugar_lugar
+            and l.tipo_lugar ='Pais' and l2.tipo_lugar = 'Estado' and l3.tipo_lugar = 'Ciudad' and cs.id_lugar_csalud = l3.id_lugar 
+            and hm.id_csalud_histm = cs.id_csalud and hm.pasaporte_persona_histm = p.pasaporte_persona 
+            and hm.feciinicialingreso_histm = fechaD;
+            
+            select count(*)/*p.pasaporte_persona, l3.id_lugar, cs.id_csalud */ into pInfectadaM 
+            from persona p, lugar l, lugar l2, lugar l3, centro_salud cs, his_medico hm 
+            where p.status_persona = 'Infectado' 
+            and p.id_lugar_persona = l3.id_lugar 
+            and l.identificacion_lugar.nombre = 'Mexico' and l.id_lugar = l2.id_lugar_lugar and l2.id_lugar = l3.id_lugar_lugar
+            and l.tipo_lugar ='Pais' and l2.tipo_lugar = 'Estado' and l3.tipo_lugar = 'Ciudad' and cs.id_lugar_csalud = l3.id_lugar 
+            and hm.id_csalud_histm = cs.id_csalud and hm.pasaporte_persona_histm = p.pasaporte_persona 
+            and hm.feciinicialingreso_histm = fechaD;
+            
+            select count(*)/*p.pasaporte_persona, l3.id_lugar, cs.id_csalud */ into pInfectadaU 
+            from persona p, lugar l, lugar l2, lugar l3, centro_salud cs, his_medico hm 
+            where p.status_persona = 'Infectado' 
+            and p.id_lugar_persona = l3.id_lugar 
+            and l.identificacion_lugar.nombre = 'Estados Unidos' and l.id_lugar = l2.id_lugar_lugar and l2.id_lugar = l3.id_lugar_lugar
+            and l.tipo_lugar ='Pais' and l2.tipo_lugar = 'Estado' and l3.tipo_lugar = 'Ciudad' and cs.id_lugar_csalud = l3.id_lugar 
+            and hm.id_csalud_histm = cs.id_csalud and hm.pasaporte_persona_histm = p.pasaporte_persona 
+            and hm.feciinicialingreso_histm = fechaD;
+            
             
             if(i = dias) then
                 fechaIn(i):= infeccionesD(fechaD,null,nombreM,nombreU,nombreV,nombreB,nombreE,null,imagenM,imagenU,imagenV,imagenB,
                 imagenE,null,pInfectadaM,pInfectadaU,pInfectadaV,pInfectadaB,pInfectadaE); 
                 fechaD:= fechaD +1;
             else 
-                fechaIn(i):= infeccionesD(fechaD,null,nombreM,nombreU,nombreeV,nombreB,nombreE,null,null,null,null,null,
+                fechaIn(i):= infeccionesD(fechaD,null,nombreM,nombreU,nombreV,nombreB,nombreE,null,null,null,null,null,
                 null,null,pInfectadaM,pInfectadaU,pInfectadaV,pInfectadaB,pInfectadaE); 
                 fechaD:= fechaD +1; 
             end if;    

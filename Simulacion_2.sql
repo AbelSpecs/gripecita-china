@@ -241,7 +241,7 @@ begin
                         end if;
                     elsif (cant_sintomas < 6)then 
                         update persona set status_persona = 'Sano' where pasaporte_persona = pasaporte;
-                        update his_medico set fecasistencia_histm = sysdate where pasaporte_persona_histm = pasaporte;
+                        update his_medico set feciinicialingreso_histm = sysdate where pasaporte_persona_histm = pasaporte;
                     else
                         update persona set status_persona = 'Infectado' where pasaporte_persona = pasaporte;
                     end if;
