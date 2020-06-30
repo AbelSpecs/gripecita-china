@@ -1,24 +1,18 @@
 create or replace procedure modulo_infeccion (id_persona persona.pasaporte_persona%type) is
 cant_sintomas number;
-cont number := 1;
-sintoma per_sin.id_sintoma_ps%type;
+sintoma_agregar per_sin.id_sintoma_ps%type := 1;
 begin
 dbms_output.put_line('----------Modulo infeccion------------');
     select round(dbms_random.value(1,8),0) into cant_sintomas from dual;
     dbms_output.put_line('cantidad de sintomas a insertar '|| cant_sintomas);
-    while cont <= cant_sintomas loop
-        select round(dbms_random.value(1,8),0) into sintoma from dual;
-        
+    while sintoma_agregar <= cant_sintomas loop
         --comprobar que el sintoma no lo tiene la persona en la misma fecha
-        while (comprobar_sintoma(id_persona, sintoma)) loop
-            select round(dbms_random.value(1,8),0) into sintoma from dual;
-        end loop;
+        if (comprobar_sintoma(id_persona, sintoma_agregar) = false) then
+            insert into per_sin values (sysdate, 'Si', id_persona, sintoma_agregar);
+        end if;
         
-        --insertar sintoma
-        dbms_output.put_line('sintoma a insertar '|| sintoma);
-        insert into per_sin values (sysdate, 'Si', id_persona, sintoma);
-        dbms_output.put_line('inserto sintoma ' || sintoma);
-        cont := cont + 1;
+        dbms_output.put_line('inserto sintoma ' || sintoma_agregar);
+        sintoma_agregar := sintoma_agregar + 1; 
     end loop;
 end;
 /
@@ -28,7 +22,9 @@ registro_insumos inventario%rowtype;
 cant_camas number;
 camas_dis number;
 camas_ocu number;
+temporal number := 0;
 begin
+dbms_output.put_line('----------Modulo Centro de Salud------------');
 --comprobar insumos del centro de salud
     inserto := -1;
     open insumos_csalud;
@@ -46,10 +42,19 @@ begin
     camas_dis := cant_camas - camas_ocu;
     
     if( camas_dis > 0) then
-        dbms_output.put_line('hay camas disponibles '|| camas_dis);
-        insert into his_medico (pasaporte_persona_histm, id_csalud_histm, fecasistencia_histm, feciinicialingreso_histm) values
-            (persona, csalud, sysdate, sysdate);
-        update centro_salud set camas_csalud = camas_dis - 1 where id_csalud = csalud;
+        dbms_output.put_line('Hay camas disponibles '|| camas_dis);
+        begin
+            select coalesce(pasaporte_persona_histm, 0) into temporal from his_medico where pasaporte_persona_histm = persona and id_csalud_histm = csalud;
+        EXCEPTION
+            WHEN no_data_found THEN
+            temporal := null;
+        end; 
+        
+        if (temporal is null) then
+            insert into his_medico (pasaporte_persona_histm, id_csalud_histm, fecasistencia_histm, feciinicialingreso_histm) values
+                (persona, csalud, sysdate, sysdate);
+            update centro_salud set camas_csalud = camas_dis - 1 where id_csalud = csalud;
+        end if;
         inserto := 1;
     else
     --no hay camas disponibles, reasignar a otro csalud
@@ -60,87 +65,15 @@ begin
 end;
 /
 -----------------------------------------------------------------------------------------------------------------------------
-declare
-cant_sintomas number := 1;
-cant_patologias number;
-cont number := 1;
-cont2 number := 1;
-sintoma_eliminar per_sin.id_sintoma_ps%type;
-patologia_insertar per_pat.id_patologia_pp%type;
-tiene_patologia number;
-begin
---cuando entras al modulo implica que la persona tiene 8 sintomas
-dbms_output.put_line('----------Modulo Alteracion de Sintomas------------');
-/*
-    select round(dbms_random.value(1,8),0) into cant_sintomas from dual;
-    
-    while (cant_sintomas > cantidad_sintomas(600)) loop
-        select round(dbms_random.value(1,8),0) into cant_sintomas from dual;
-    end loop;
-*/    
-    dbms_output.put_line('cantidad sintomas a eliminar '|| cant_sintomas);
-    
-    if (cant_sintomas < 8)then
-    --elimino la cantidad de sintomas sintomas
-        while cont <= cant_sintomas loop
-            select round(dbms_random.value(1,8),0) into sintoma_eliminar from dual;
-            
-            --comprobar que la persona tenga el sintoma a eliminar
-            --arreglar aqui
-            while (comprobar_sintoma(600, sintoma_eliminar) = false) loop
-                select round(dbms_random.value(1,8),0) into sintoma_eliminar from dual;
-            end loop;
-            
-            dbms_output.put_line('sintoma a eliminar '|| sintoma_eliminar);
-            --delete from per_sin where pasaporte_persona_ps = 600 and id_sintoma_ps = sintoma_eliminar;
-            cont := cont + 1; 
-        end loop;
-        
-        if (cant_sintomas <= 2) then
-        --genero patologias a la persona
-            select round(dbms_random.value(1,8),0) into cant_patologias from dual;
-        --comprobar si la persona tiene la patologia a insertar
-            while cont2 <= cant_patologias loop
-                begin
-                    select round(dbms_random.value(1,15),0) into patologia_insertar from dual;
-                    select id_patologia_pp into tiene_patologia from per_pat where pasaporte_persona_pp = 600 and id_patologia_pp = patologia_insertar;
-                    
-                    while (patologia_insertar = tiene_patologia )loop
-                        select round(dbms_random.value(1,15),0) into patologia_insertar from dual;
-                    end loop;
-                    
-                    dbms_output.put_line('patologia a insertar '|| patologia_insertar);
-                    insert into per_pat values (600, patologia_insertar);
-                exception       
-                    when no_data_found then
-                    --no tiene la patologia, inserto
-                        dbms_output.put_line('patologia a insertar '|| patologia_insertar);
-                        insert into per_pat values (600, patologia_insertar);
-                end;
-                cont2 := cont2 + 1;
-            end loop;
-        end if;
-    else
-    --elimino los sintomas y asigno fechaFinalIngreso a la persona
-        dbms_output.put_line('se todos eliminaran los sintomas');
-        --delete from per_sin where pasaporte_persona_ps = 600;
-        --update his_medico set fecasistencia_histm = sysdate where pasaporte_persona_histm = 600;
-    end if;
-end;
-/
------------------------------------------------------------------------------------------------------------------------------
 -- Procedimiento para Alterar Sintomas de una Persona
 -----------------------------------------------------------------------------------------------------------------------------
-create or replace procedure alteracionSintomas (pasaporte persona.pasaporte_persona%type, cant_sintomas_ret OUT number) 
-is
+create or replace procedure alteracionSintomas (pasaporte persona.pasaporte_persona%type, cant_sintomas_ret OUT number) is
 cant_sintomas number;
 cant_patologias number;
-cont number := 1;
-cont2 number := 1;
 sintoma_agregar per_sin.id_sintoma_ps%type := 1;
 patologia_insertar per_pat.id_patologia_pp%type := 1;
 begin
-    --dbms_output.put_line('----------Modulo Alteracion de Sintomas------------');
+    dbms_output.put_line('----------Modulo Alteracion de Sintomas------------');
     cant_sintomas := round(dbms_random.value(0,8),0);
     cant_sintomas_ret := cant_sintomas;
     dbms_output.put_line('Cantidad de sintomas a agregar: '|| cant_sintomas);
@@ -151,7 +84,7 @@ begin
             if (comprobar_sintoma(pasaporte, sintoma_agregar) = false) then
                 insert into per_sin values(sysdate,'No',pasaporte,sintoma_agregar);
             end if;
-    
+            dbms_output.put_line('inseto sintoma alterado '||sintoma_agregar);
             sintoma_agregar := sintoma_agregar + 1; 
         end loop;
         
@@ -159,13 +92,13 @@ begin
         --Genero patologias a la persona
             cant_patologias := round(dbms_random.value(1,15),0);
             --Comprobar si la persona tiene la patologia a insertar
-            dbms_output.put_line('Cantidad de patoligias a agregar: '|| cant_patologias);
+            dbms_output.put_line('Cantidad de patologias a agregar: '|| cant_patologias);
             while patologia_insertar <= cant_patologias loop            
                 --comprobar que la persona no tenga el sintoma
                 if (comprobar_patologia(pasaporte, patologia_insertar) = false) then
                     insert into per_pat values (pasaporte, patologia_insertar);
                 end if;
-                
+                dbms_output.put_line('patologia a insertar '||patologia_insertar);
                 patologia_insertar := patologia_insertar + 1; 
             end loop;
         end if;
@@ -194,6 +127,7 @@ is
     cursor c1 is select pt.nombre_patologia as patologia from patologia pt, per_pat pp, persona p where p.pasaporte_persona = pp.pasaporte_persona_pp 
     and pp.id_patologia_pp = pt.id_patologia and p.pasaporte_persona = id_p;
 begin
+    dbms_output.put_line('----------Modulo de Supervivencia------------');
     dbms_output.put_line('La persona '|| id_p ||' morira?');
     open c1;
     fetch c1 into i;
@@ -231,35 +165,4 @@ begin
         dbms_output.put_line('0. La persona '||id_p||' fallecio el '||fechaDead);
         return null; 
     end if;
-/       
-declare 
-patologia_insertar number;
-begin
-    for i in 1 .. 15 loop
-        select round(dbms_random.value(1,15),0) into patologia_insertar from dual;
-        if (comprobar_patologia(600,patologia_insertar) = false) then
-            dbms_output.put_line('NO tiene la patologia '|| patologia_insertar);
-        else  
-            dbms_output.put_line(' tiene la patologia '|| patologia_insertar);
-        end if;
-    end loop;
-end;
-/                                 
-
-SET SERVEROUTPUT ON;
-
-select * from his_medico where id_csalud_histm = 7 and fecfinalingreso_histm is null;
-select * from centro_salud where id_csalud = 7;
-select * from per_pat where pasaporte_persona_pp = 600;
-select * from per_sin where pasaporte_persona_ps =600;
-
-select * from per_sin where pasaporte_persona_ps = 600;
-
-
-insert into per_pat values (600,1);
-insert into per_sin values (sysdate, 'No', 600, 3);
-
-
-commit;
-
-
+end modulo_supervivencia;
