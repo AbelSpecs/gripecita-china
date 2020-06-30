@@ -1,4 +1,58 @@
 -----------------------------------------------------------------------------------------------------------------------------
+-- Funciones
+-----------------------------------------------------------------------------------------------------------------------------
+create or replace function edad_a (fecha_nac date) return number is
+begin
+    return (round(((sysdate - fecha_nac)/365),0));
+end;
+/
+--devuleve true si lo tiene
+create or replace function comprobar_sintoma (persona per_sin.pasaporte_persona_ps%type, sintoma per_sin.id_sintoma_ps%type) return boolean is
+CURSOR sintoma_persona IS select * from per_sin where pasaporte_persona_ps = persona and id_sintoma_ps = sintoma;
+registro per_sin%rowtype;
+presencia boolean := false;
+begin
+    open sintoma_persona;
+    fetch sintoma_persona into registro;
+    if (sintoma_persona%found) then
+        presencia := true;
+        fetch sintoma_persona into registro;
+    end if;
+    close sintoma_persona;
+    return presencia;
+end;
+/
+--devuleve true si lo tiene
+create or replace function comprobar_patologia (persona per_sin.pasaporte_persona_ps%type, patologia per_pat.id_patologia_pp%type) return boolean is
+CURSOR patologia_persona IS select * from per_pat where pasaporte_persona_pp = persona and id_patologia_pp = patologia;
+registro per_pat%rowtype;
+presencia boolean := false;
+begin
+    open patologia_persona;
+    fetch patologia_persona into registro;
+    if (patologia_persona%found) then
+        presencia := true;
+        fetch patologia_persona into registro;
+    end if;
+    close patologia_persona;
+    return presencia;
+end;
+/
+create or replace function cantidad_sintomas (persona per_sin.pasaporte_persona_ps%type) return number is
+cantidad number := 0;
+begin
+    select count(*) into cantidad from per_sin where pasaporte_persona_ps = persona;
+    return cantidad;
+end;
+/
+create or replace function cantidad_patologias (persona per_sin.pasaporte_persona_ps%type) return number is
+cantidad number := 0;
+begin
+    select count(*) into cantidad from per_pat where pasaporte_persona_pp = persona;
+    return cantidad;
+end;
+/
+-----------------------------------------------------------------------------------------------------------------------------
 -- Procedimiento de Infeccion
 -----------------------------------------------------------------------------------------------------------------------------
 create or replace procedure modulo_infeccion (id_persona persona.pasaporte_persona%type) is
@@ -209,6 +263,127 @@ end;
 -- SELECT * FROM persona WHERE pasaporte_persona not in (SELECT pasaporte_persona_ps FROM per_sin);
 
 -- SELECT * FROM per_sin WHERE pasaporte_persona_ps = 15;
+
+-----------------------------------------------------------------------------------------------------------------------------
+-- Simulacion de Infectar Poblacion
+-----------------------------------------------------------------------------------------------------------------------------
+create or replace procedure inicia_simulacion (modelo aislamiento.tipo_aislamiento%type)is
+lugar_infectar lugar.id_lugar%type := 0;
+cantper_Sanos number;
+cantper_infectar number;
+usuario_random persona.pasaporte_persona%type;
+centro_medico centro_salud.id_csalud%type;
+cant_sintomas number;
+fecha_def date;
+cont number;
+csalud_ret number;
+min_ciudad lugar.id_lugar%type := 0;
+max_ciudad lugar.id_lugar%type := 0;
+begin 
+dbms_output.put_line('----------Simulacion Infectar Poblacion------------');
+    select min(id_lugar) into min_ciudad from lugar where tipo_lugar = 'Ciudad';
+    select max(id_lugar) into max_ciudad from lugar where tipo_lugar = 'Ciudad';
+    
+    for lugar_infectar in min_ciudad..max_ciudad loop
+        dbms_output.put_line('');
+        dbms_output.put_line('--------------------------Ciudad a infecatar '||lugar_infectar||'------------------------------');
+        select count(*) into cantper_Sanos from persona where id_lugar_persona = lugar_infectar and status_persona = 'Sano';
+        dbms_output.put_line('cantidad de personas sanas '||cantper_sanos||' en la ciudad '||lugar_infectar);
+        
+        if modelo = 3 then
+            cantper_infectar := round(cantper_sanos * 0.25,0);
+            dbms_output.put_line('cantidad de personas a infectar '||cantper_infectar||' en la ciudad '||lugar_infectar);
+            for cont in 1..cantper_infectar loop
+                --selecciono persona random a infectar
+                    SELECT pasaporte_persona INTO usuario_random
+                    FROM (select * from persona where id_lugar_persona = lugar_infectar and status_persona = 'Sano' order by DBMS_RANDOM.VALUE) where rownum = 1;
+                    dbms_output.put_line('');
+                    dbms_output.put_line('--------------------------Persona #'||usuario_random||'-----------------------------');
+                    modulo_infeccion(usuario_random);
+                    
+                    if (cantidad_sintomas(usuario_random) >= 6) then
+                    --presenta mï¿½s de 6 sintomas
+                    --actualizo persona a infectada
+                        select id_csalud into centro_medico from centro_salud where id_lugar_csalud = lugar_infectar;
+                        dbms_output.put_line('---------------Persona #'||usuario_random||' asignada al Centro de salud '|| centro_medico ||'---------------');
+                        update persona set status_persona = 'Infectado' where pasaporte_persona = usuario_random;
+                    --empiezo modulo centro salud
+                       modulo_centro_salud(centro_medico,usuario_random, csalud_ret);
+                        
+                        if (cantidad_sintomas(usuario_random) = 8) then 
+                        --empiezo modulo alteracion de sintomas
+                            alteracionSintomas(usuario_random, cant_sintomas);
+                            
+                            if (cant_sintomas = 8) then 
+                                fecha_def := modulo_supervivencia(usuario_random);
+                               
+                                if(fecha_def is not null) then 
+                                    update persona set fechadef_persona = fecha_def where pasaporte_persona = usuario_random;
+                                end if;
+                            elsif (cant_sintomas < 4) then 
+                            --asigno recuperado y asigno fecha final ingreso
+                                update persona set status_persona = 'Recuperado' where pasaporte_persona = usuario_random;
+                                update his_medico set fecfinalingreso_histm = sysdate where pasaporte_persona_histm = usuario_random;
+                            end if;
+                        end if;
+                    else
+                    --presenta menos de 6 sintomas
+                    --Aislo a la persona
+                        update persona set status_persona = 'Aislado' where pasaporte_persona = usuario_random;
+                    end if;
+            end loop;
+        ELSE
+        --cuando modelo <> 3
+            cantper_infectar := round(cantper_sanos * DBMS_RANDOM.VALUE,0);
+            dbms_output.put_line('cantidad de personas a infectar '||cantper_infectar||' en la ciudad '||lugar_infectar);
+            
+            for cont in 1..cantper_infectar loop
+                --selecciono persona random a infectar
+                    SELECT pasaporte_persona INTO usuario_random
+                    FROM (select * from persona where id_lugar_persona = lugar_infectar and status_persona = 'Sano' order by DBMS_RANDOM.VALUE) where rownum = 1;
+                    dbms_output.put_line('');
+                    dbms_output.put_line('--------------------------Persona #'||usuario_random||'-----------------------------');
+                    modulo_infeccion(usuario_random);
+                    
+                    if (cantidad_sintomas(usuario_random) >= 6) then
+                    --presenta mï¿½s de 6 sintomas
+                    --actualizo persona a infectada
+                        select id_csalud into centro_medico from centro_salud where id_lugar_csalud = lugar_infectar;
+                        dbms_output.put_line('---------------Persona #'||usuario_random||' asignada al Centro de salud '|| centro_medico ||'---------------');
+                        update persona set status_persona = 'Infectado' where pasaporte_persona = usuario_random;
+                    --empiezo modulo centro salud
+                       modulo_centro_salud(centro_medico,usuario_random, csalud_ret);
+                        
+                        if (cantidad_sintomas(usuario_random) = 8) then 
+                        --empiezo modulo alteracion de sintomas
+                            alteracionSintomas(usuario_random, cant_sintomas);
+                            
+                            if (cant_sintomas = 8) then 
+                                fecha_def := modulo_supervivencia(usuario_random);
+                                --aqui falta algo 
+                                if(fecha_def is not null) then 
+                                    update persona set fechadef_persona = fecha_def where pasaporte_persona = usuario_random;
+                                end if;
+                            elsif (cant_sintomas < 4) then 
+                            --asigno recuperado y asigno fecha final ingreso
+                                update persona set status_persona = 'Recuperado' where pasaporte_persona = usuario_random;
+                                update his_medico set fecfinalingreso_histm = sysdate where pasaporte_persona_histm = usuario_random;
+                            end if;
+                        end if;
+                    else
+                    --presenta menos de 6 sintomas
+                    --Aislo a la persona
+                        update persona set status_persona = 'Aislado' where pasaporte_persona = usuario_random;
+                    end if;
+            end loop;
+        end if;
+    end loop;
+end;
+/
+SET SERVEROUTPUT ON;
+execute inicia_simulacion(3);
+commit;
+/
 -----------------------------------------------------------------------------------------------------------------------------
 -- Simulacion de Aislamiento de Poblacion que Viajo
 -----------------------------------------------------------------------------------------------------------------------------
