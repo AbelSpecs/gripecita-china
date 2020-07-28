@@ -49,5 +49,9 @@ begin
     return cantidad;
 end;
 /
-
+create or replace function porcentaje_efectividad (infectados number, recuperados number, fallecidos number) RETURN float is
+begin
+    return round(((recuperados/infectados)-(fallecidos/infectados)) * 100,2);
+end;
+/
 

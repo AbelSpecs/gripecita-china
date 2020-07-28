@@ -30,7 +30,7 @@ where l.identificacion_lugar.nombre = 'Brasil' and l.id_lugar_lugar = l2.id_luga
 select l.identificacion_lugar.imagen"Pais", la.fechai_la"Fecha de Inicio", la.fechaf_la"Fecha de fin", a.nombre_aislamiento"Modelo aplicado"
 from lugar l, lu_ais la, aislamiento a
 where la.id_lugar_la = l.id_lugar and la.id_aislamiento_la = a.id_aislamiento and l.identificacion_lugar.nombre = 'España' and a.tipo_aislamiento = 4;
-
+/
 --REPORTE 7
 create or replace procedure VUELOS_PASAJEROS (pais lugar.identificacion_lugar.nombre%type, fechai date, fechaf date, ret_cursor OUT sys_refcursor) is
 begin
@@ -134,7 +134,63 @@ begin
         order by v.fechai_vuelo;
     end if;
 end;
-
---pruebas
-select * from per_vue;
-select * from vuelo;
+/
+--REPORTE 10
+create or replace procedure EFECTIVIDAD_MODELO (pais lugar.identificacion_lugar.nombre%type, ret_cursor OUT sys_refcursor) is
+v_fallecidos number;
+v_recuperados number;
+v_infectados number;
+porcentaje float;
+cursor modelos_ais is SELECT * FROM LU_AIS WHERE ID_LUGAR_LA = (SELECT l.ID_LUGAR FROM LUGAR l WHERE l.IDENTIFICACION_LUGAR.NOMBRE = pais);
+registro_modelos lu_ais%rowtype;
+fecha_ant lu_ais.fechai_la%type;
+fecha_sig lu_ais.fechai_la%type;
+begin
+    open modelos_ais;
+    FETCH modelos_ais into registro_modelos;
+    WHILE modelos_ais%FOUND LOOP
+        fecha_ant := registro_modelos.fechai_la;
+        FETCH modelos_ais into registro_modelos;
+    
+        if modelos_ais%FOUND then
+            fecha_sig := registro_modelos.fechai_la;
+            dbms_output.put_line('fecha ant '|| fecha_ant || ' fec sig ' || fecha_sig);
+        end if;
+    
+        --cantidad de infectados
+        select COUNT(*) into v_infectados from his_medico h, persona p, lugar l, lugar l2, lugar l3
+        where h.pasaporte_persona_histm = p.pasaporte_persona and p.id_lugar_persona = l.id_lugar and l.id_lugar_lugar = l2.id_lugar and 
+            l2.id_lugar_lugar = l3.id_lugar and l3.identificacion_lugar.nombre = pais and h.feciinicialingreso_histm >= fecha_ant and
+            h.feciinicialingreso_histm < fecha_sig;
+        dbms_output.put_line('cant infectados '|| v_infectados);
+    
+         --cantidad de recuperados
+        select COUNT(*) into v_recuperados from his_medico h, persona p, lugar l, lugar l2, lugar l3
+        where h.pasaporte_persona_histm = p.pasaporte_persona and p.id_lugar_persona = l.id_lugar and l.id_lugar_lugar = l2.id_lugar and 
+            l2.id_lugar_lugar = l3.id_lugar and l3.identificacion_lugar.nombre = pais and h.feciinicialingreso_histm >= fecha_ant and
+            h.fecfinalingreso_histm < fecha_sig;
+        dbms_output.put_line('cant recuperados '|| v_recuperados);
+    
+        --cantidad de fallecidos
+        select count(*) into v_fallecidos
+        from persona p, lugar l, lugar l2, lugar l3 
+        where p.id_lugar_persona = l.id_lugar and l.id_lugar_lugar = l2.id_lugar and l2.id_lugar_lugar = l3.id_lugar and 
+            l3.identificacion_lugar.nombre = pais and p.fechadef_persona >= fecha_ant and p.fechadef_persona < fecha_sig;
+        dbms_output.put_line('cant fallecidos '|| v_fallecidos);
+        
+        if (v_infectados = 0) then
+            porcentaje := 0;
+        else 
+            porcentaje := porcentaje_efectividad (v_infectados, v_recuperados, v_fallecidos);
+        end if;
+    
+        OPEN ret_cursor FOR
+        select l.identificacion_lugar.imagen "Pais", a.nombre_aislamiento "Modelo Utilizado", to_char(la.fechai_la,'DD/MM/YYYY')"Fecha de Inicio del modelo",
+            to_char(porcentaje||'%')"Porcentaje de Efectividad"
+        from lu_ais la, lugar l, aislamiento a
+        where l.identificacion_lugar.nombre = pais and la.id_lugar_la = l.id_lugar and la.id_aislamiento_la = a.id_aislamiento;
+        
+        FETCH modelos_ais into registro_modelos;
+    end loop;    
+    close modelos_ais;
+end;
