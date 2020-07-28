@@ -11,7 +11,7 @@ csalud_ret number;
 min_ciudad lugar.id_lugar%type := 0;
 max_ciudad lugar.id_lugar%type := 0;
 begin 
-dbms_output.put_line('----------Simulacion General------------');
+dbms_output.put_line('----------Simulacion Infectar Poblacion------------');
     select min(id_lugar) into min_ciudad from lugar where tipo_lugar = 'Ciudad';
     select max(id_lugar) into max_ciudad from lugar where tipo_lugar = 'Ciudad';
     

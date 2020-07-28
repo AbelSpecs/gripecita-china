@@ -196,3 +196,28 @@ CREATE TABLE temporal_reporte4(
         "Cantidad Fallecidos" number,
         "% Fallecidos" float
     );
+/
+-- Tabla temporal para el reporte 9
+CREATE TABLE tmp_reporte_9(
+    fecha timestamp null,
+    origne_name varchar2(100) null,
+    destino_name varchar2(100) null,
+    origen number null,
+    destino number null,
+    monto number null,
+    insumos varchar2(2000) null,
+    origen_foto blob null,
+    destino_foto blob null
+);
+/
+-- Tabla temporal para el reporte 12
+create table tmp_reporte_12 (
+    foto_pais blob null,
+    foto_proveedor blob null,
+    fecha timestamp null,
+    prom_bajada number null,
+    prom_subida number null,
+    horas_int number null,
+    id_pais number null,
+    id_proveedor number null
+);

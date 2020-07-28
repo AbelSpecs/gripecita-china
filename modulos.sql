@@ -2,7 +2,7 @@ create or replace procedure modulo_infeccion (id_persona persona.pasaporte_perso
 cant_sintomas number;
 sintoma_agregar per_sin.id_sintoma_ps%type := 1;
 begin
-dbms_output.put_line('----------Modulo infeccion------------');
+dbms_output.put_line('Iniciando el modulo de Infeccion . . .');
     select round(dbms_random.value(1,8),0) into cant_sintomas from dual;
     dbms_output.put_line('cantidad de sintomas a insertar '|| cant_sintomas);
     while sintoma_agregar <= cant_sintomas loop
