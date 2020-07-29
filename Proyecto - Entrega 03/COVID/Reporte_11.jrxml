@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte 11" pageWidth="718" pageHeight="842" columnWidth="678" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9ca326ef-4c93-4889-93ad-460a83f7784c">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="JDBC Adapter"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="fechai" class="java.sql.Date"/>
+	<queryString language="plsql">
+		<![CDATA[{call Estadistica($P{ORACLE_REF_CURSOR},$P{fechai})}]]>
+	</queryString>
+	<field name="Poblacion Mundial" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Poblacion Mundial"/>
+	</field>
+	<field name="Infectados" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Infectados"/>
+	</field>
+	<field name="Fallecidos" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Fallecidos"/>
+	</field>
+	<field name="Recuperados" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Recuperados"/>
+	</field>
+	<field name="Porcentaje Infectados" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Porcentaje Infectados"/>
+	</field>
+	<field name="Porcentaje Fallecidos" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Porcentaje Fallecidos"/>
+	</field>
+	<field name="Porcentaje Recuperados" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Porcentaje Recuperados"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="111" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="80" width="80" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="40362320-72a2-4d49-8f17-fc095f902c11"/>
+				<box>
+					<pen lineWidth="1.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Poblacion Mundial]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="80" y="80" width="100" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="4c482e35-44b2-405a-82c5-eb5489127e32"/>
+				<box>
+					<pen lineWidth="1.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Infectados]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="280" y="80" width="100" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="c727b5e3-15d9-4c7e-82b9-d3c28aeb972c"/>
+				<box>
+					<pen lineWidth="1.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Recuperados]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="380" y="80" width="100" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="be3bd92b-8cb1-4e1e-8485-6f330e9a6f1f"/>
+				<box>
+					<pen lineWidth="1.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Porcentaje Infectados]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="480" y="80" width="100" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="ae9ae953-9e59-456b-ba56-8d733529f31c"/>
+				<box>
+					<pen lineWidth="1.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Porcentaje Fallecidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="580" y="80" width="100" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="567acdbe-f304-484a-8a2b-b39870d3d5fd"/>
+				<box>
+					<pen lineWidth="1.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Porcentaje Recuperados]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="550" height="70" uuid="67b894e7-fac8-434d-9119-88a6bf0b1190"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="25"/>
+				</textElement>
+				<text><![CDATA[Cantidad Total y Estadisticas de infectados, fallecidos y recuperados mundialmente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="180" y="80" width="100" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="39b84c42-e72f-4496-9620-e24e378e4228"/>
+				<box>
+					<pen lineWidth="1.25" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fallecidos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="48" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="18" width="80" height="30" uuid="fdb4e855-09ee-4a31-81b7-3a829116de11"/>
+				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Poblacion Mundial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="18" width="100" height="30" uuid="daf0e135-781a-41ab-a182-d47e693c3eb1"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Infectados}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="18" width="100" height="30" uuid="06f58068-045a-4726-b088-f30ed30a3bf9"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Recuperados}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="18" width="100" height="30" uuid="ffdad386-be0d-4094-b8eb-ac33ff5fc928"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Porcentaje Infectados}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="18" width="100" height="30" uuid="9128ce51-d455-4e6b-8d43-845d4ed2efb2"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Porcentaje Fallecidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="580" y="18" width="100" height="30" uuid="56e00ade-2a42-436f-bb8b-505ef7619817"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Porcentaje Recuperados}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="18" width="100" height="30" uuid="62ff7824-557d-4241-903f-63c28f331686"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Fallecidos}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

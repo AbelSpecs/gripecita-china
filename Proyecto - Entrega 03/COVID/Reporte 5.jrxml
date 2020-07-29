@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte5" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bfe2585e-7bd5-40c1-91f1-50a5923784b5">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="JDBC Adapter"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="445"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="541"/>
+	<parameter name="Pais" class="java.lang.String"/>
+	<parameter name="Modelo" class="java.lang.Integer"/>
+	<queryString language="plsql">
+		<![CDATA[{call aislamientoAp($P{Pais},$P{Modelo},$P{ORACLE_REF_CURSOR})}]]>
+	</queryString>
+	<field name="Pais" class="java.io.InputStream">
+		<property name="com.jaspersoft.studio.field.label" value="Pais"/>
+	</field>
+	<field name="Fecha de Inicio" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Fecha de Inicio"/>
+	</field>
+	<field name="Fecha de fin" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Fecha de fin"/>
+	</field>
+	<field name="Modelo aplicado" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Modelo aplicado"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="154" splitType="Stretch">
+			<staticText>
+				<reportElement x="8" y="10" width="381" height="70" uuid="4aebedf5-8b0c-4764-8a33-97b84a4eef31"/>
+				<textElement verticalAlignment="Middle">
+					<font size="25" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Modelos de aislamiento social aplicado por los gobiernos ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="120" width="90" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="16e88939-e2b6-4fe1-8628-0793ddbfc03a"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[País]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="92" y="120" width="131" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="10a243c0-612c-49c0-ae81-445d09cf8fb1"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Inicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="223" y="120" width="131" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="8bff0781-ba11-48fa-a444-c1802dd3ac0a">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de fin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="354" y="120" width="196" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="3a988117-0a37-428f-bf17-e683d454dc08"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Modelo aplicado]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="88" splitType="Stretch">
+			<textField>
+				<reportElement x="92" y="0" width="131" height="70" uuid="377c07a4-80b1-499e-ae9c-e3754101bc70"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Fecha de Inicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="223" y="0" width="131" height="70" uuid="0061ac85-7ab2-4ec5-9b0c-f21338c25c95"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Fecha de fin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="354" y="0" width="196" height="70" uuid="e9132e97-80b3-49c9-b992-6bdbb4105a12"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Modelo aplicado}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="2" y="0" width="90" height="70" uuid="2832b000-1ec6-43e9-b891-40b9addc5d1a"/>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</rectangle>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="10" y="14" width="70" height="42" uuid="29c86703-5a43-44b8-a33d-3224ee07506d">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<imageExpression><![CDATA[$F{Pais}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>
