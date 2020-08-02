@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte 3" pageWidth="1000" pageHeight="842" columnWidth="960" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4e0676e4-b7d4-4d6e-8cc9-84b477abeddb">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="JDBC Adapter"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<parameter name="fechai" class="java.lang.String">
+		<defaultValueExpression><![CDATA["18/12/2019 03:00:00"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fechaf" class="java.lang.String">
+		<defaultValueExpression><![CDATA["18/12/2019 06:00:00"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="plsql">
+		<![CDATA[{call viaje_personas($P{ORACLE_REF_CURSOR},$P{fechai},$P{fechaf})}]]>
+	</queryString>
+	<field name="N° Pasaporte" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="N° Pasaporte"/>
+	</field>
+	<field name="Foto" class="java.awt.Image">
+		<property name="com.jaspersoft.studio.field.label" value="Foto"/>
+	</field>
+	<field name="Primer nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Primer nombre"/>
+	</field>
+	<field name="Segundo nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Segundo nombre"/>
+	</field>
+	<field name="Primer Apellido" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Primer Apellido"/>
+	</field>
+	<field name="Segundo Apellido" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Segundo Apellido"/>
+	</field>
+	<field name="Edad" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Edad"/>
+	</field>
+	<field name="Pais Residencia" class="java.awt.Image">
+		<property name="com.jaspersoft.studio.field.label" value="Pais Residencia"/>
+	</field>
+	<field name="Pais que visitó" class="java.awt.Image">
+		<property name="com.jaspersoft.studio.field.label" value="Pais que visitó"/>
+	</field>
+	<field name="Fecha inicio del viaje" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Fecha inicio del viaje"/>
+	</field>
+	<field name="Fecha fin del viaje" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Fecha fin del viaje"/>
+	</field>
+	<field name="Lugares donde visitó" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Lugares donde visitó"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="16" y="10" width="604" height="50" uuid="23cf3d19-b460-4687-91b8-44831236a298"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="25" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Último Viaje de las Personas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="103" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="40" width="50" height="50" uuid="512b1244-53ab-47ba-bfc0-4cb465d9d401"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{N° Pasaporte}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="10" width="50" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="1dc2d0c0-6a16-4a7c-9a2c-914c5188aeb2"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° Pasaporte]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="50" y="10" width="90" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="2e5695db-4e27-448e-8c26-64b69f558fc0"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Foto]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="140" y="40" width="70" height="50" uuid="a7298fae-8977-4e8b-ad3b-f351eee8c378">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Primer nombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="140" y="10" width="70" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="77330150-e2c5-4204-9682-c76f2df55316">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Primer nombre]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="210" y="40" width="80" height="50" uuid="c0249c41-8297-4ccc-8ebe-3e9400668b35">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Segundo nombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="210" y="10" width="80" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="8ed10047-04ed-4917-afb4-ef491a4502f7">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Segundo nombre]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="290" y="40" width="73" height="50" uuid="c9e026bc-7ac2-4231-aab6-742d5832889f"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Primer Apellido}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="290" y="10" width="73" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="4bb54f97-936f-4737-bd6b-0398e6587a61">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Primer apellido]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="363" y="40" width="80" height="50" uuid="fff5163c-3c8f-47c4-ae1c-8c3cd2ea98df"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Segundo Apellido}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="363" y="10" width="80" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="4d08a797-70ce-464d-80ab-fb0bf92b4549"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Segundo apellido]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="443" y="40" width="30" height="50" uuid="e1b386c3-e1e9-4a4c-87ef-993ed8535e13"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Edad}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="443" y="10" width="30" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="cbc1282d-8dfa-4f44-877d-5c3f009a3404"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Edad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="473" y="10" width="80" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="c367b6fe-0c66-4167-9105-da51cf12d6a2"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pais Residencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="553" y="10" width="76" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="8e6133bf-b344-4305-ad6d-fa04ad4ccdd8"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pais que visitó]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="630" y="40" width="100" height="50" uuid="9b4feb84-a231-4d60-be3c-42b09654c953"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Fecha inicio del viaje}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="630" y="10" width="100" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="1b34d6e2-098d-454e-bdac-30bad686d961"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha inicio del viaje]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="730" y="40" width="100" height="50" uuid="3b95c0b9-f426-4e0b-b071-5a025d53872a"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Fecha fin del viaje}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="730" y="10" width="100" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="47ccc87c-6ae0-4989-ae96-9df01957a572"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha fin del viaje]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="830" y="40" width="130" height="50" uuid="2c8a74bf-914f-48fc-9c96-21ae8dbd3d8d"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Lugares donde visitó}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="830" y="10" width="130" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="2f80b169-6109-4a32-996c-1f7f9ad6b5a4"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lugares donde visitó]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="473" y="40" width="80" height="50" uuid="7be46322-b2e3-4f50-8d79-0ac32059f5e9"/>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="553" y="40" width="77" height="50" uuid="2e43ab07-b2e4-4dd4-8816-48f30d9bc666"/>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</rectangle>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="560" y="45" width="60" height="40" uuid="dc31be4d-4137-40d4-a855-643c52c5e2a9"/>
+				<imageExpression><![CDATA[$F{Pais que visitó}]]></imageExpression>
+			</image>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="488" y="46" width="51" height="39" uuid="c9b1b07d-483c-4abc-ae16-d4ea2ce5aa52"/>
+				<imageExpression><![CDATA[$F{Pais Residencia}]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="50" y="40" width="90" height="50" uuid="24325a02-db60-4088-9842-00fa33d12546"/>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</rectangle>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="65" y="46" width="60" height="39" uuid="ab438ad9-b000-490e-9baf-6f7d33fed07b"/>
+				<imageExpression><![CDATA[$F{Foto}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

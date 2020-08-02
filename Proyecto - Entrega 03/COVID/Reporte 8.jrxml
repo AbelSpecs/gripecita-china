@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte 8" pageWidth="800" pageHeight="842" columnWidth="760" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b4f491c3-dfe4-404b-a562-2e880ac992be">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="JDBC Adapter"/>
+	<queryString language="plsql">
+		<![CDATA[{call Centros($P{ORACLE_REF_CURSOR})}]]>
+	</queryString>
+	<field name="Direccion" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Direccion"/>
+	</field>
+	<field name="Nombre" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Nombre"/>
+	</field>
+	<field name="Camas" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Camas"/>
+	</field>
+	<field name="Insumos" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Insumos"/>
+	</field>
+	<field name="Casos tratados" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Casos tratados"/>
+	</field>
+	<field name="Fallecidos" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Fallecidos"/>
+	</field>
+	<field name="Recuperados" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="Recuperados"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="119" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="89" width="100" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="5daa3b7e-b1e3-49a7-9916-b6e91851e8be"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dirección]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="100" y="89" width="100" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="9190cb21-dac2-41ca-a8fc-2cc6b3bdfcb4"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="200" y="89" width="100" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="4b706027-9533-495c-bf28-4f4f64dc4877"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Camas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="300" y="89" width="100" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="b9f35566-e886-4917-9f1d-64d34912b266"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Insumos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="400" y="89" width="100" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="2f50506d-25de-43b0-a972-6545fdc51350"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Casos tratados]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="500" y="89" width="100" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="1273a0f7-0ff9-4a51-aa87-1fdc3b3f929f"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fallecidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="600" y="89" width="100" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="f93a1e30-7a4e-41c0-980f-4324eafb4fad"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Recuperados]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="10" width="690" height="70" uuid="f9d4a24d-5070-4f16-a2c1-298afd4d1467"/>
+				<textElement textAlignment="Left">
+					<font size="25"/>
+				</textElement>
+				<text><![CDATA[Cantidad de Clinicas y Hospitales disponibles para atender la pandemia]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="127" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="10" width="100" height="117" uuid="4c47a084-e4b0-4831-8f65-5458d8dbdb95"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="10" width="100" height="117" uuid="aba5c14b-1071-4ffa-95eb-1a07fd5d80e9"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="10" width="100" height="117" uuid="993aecc9-8988-4be9-a9a5-0970d7d1a98d"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Camas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="10" width="100" height="117" uuid="154b8f26-de92-4831-ba44-ef5c83c811d7"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Insumos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="10" width="100" height="117" uuid="fcc32147-25c6-4ed2-a7a9-c87845aff72c"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Casos tratados}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="10" width="100" height="117" uuid="d5d02efc-444e-4baf-9c2c-daccfd4ebffd"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Fallecidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="600" y="10" width="100" height="117" uuid="08c85da9-b4de-4b05-b7a4-5e897c51c222"/>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Recuperados}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

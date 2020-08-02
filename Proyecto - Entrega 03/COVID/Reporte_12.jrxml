@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte 12" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f3e45fce-474d-4822-8bdd-7cb5af044ce3">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="JDBC Adapter"/>
+	<parameter name="Pais" class="java.lang.String"/>
+	<parameter name="Fecha" class="java.sql.Date"/>
+	<queryString language="plsql">
+		<![CDATA[{call caida_wifi($P{Pais}, $P{Fecha},$P{ORACLE_REF_CURSOR})}]]>
+	</queryString>
+	<field name="Foto pais" class="java.awt.Image">
+		<property name="com.jaspersoft.studio.field.label" value="Foto pais"/>
+	</field>
+	<field name="Foto In" class="java.awt.Image">
+		<property name="com.jaspersoft.studio.field.label" value="Foto In"/>
+	</field>
+	<field name="Fecha" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Fecha"/>
+	</field>
+	<field name="Subida" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Subida"/>
+	</field>
+	<field name="Descarga" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Descarga"/>
+	</field>
+	<field name="Horas" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Horas"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="10" width="750" height="50" uuid="085254be-42fb-4e12-be41-3d662252a718"/>
+				<textElement verticalAlignment="Middle">
+					<font size="25" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Crecimiento del uso de la infraestructura de telecomunicaciones ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="20" width="100" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="902017d8-dce9-458a-8a40-f90e3510ca1b"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[País]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="100" y="20" width="129" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="26d0eed3-75a9-42b8-9b83-05e68b2542cd"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Proovedor de Internet]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="228" y="20" width="111" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="21ba6059-e4ce-495d-b24e-e7e84b1fe956"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="510" y="20" width="169" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="af18d190-fd03-4d8c-9083-af4a84be5047"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Velocidad promedio de descarga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="679" y="20" width="122" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="1d5df2a8-36db-4d92-aba1-a2731382da12"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Horas diarias de interrupción del servicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="339" y="20" width="171" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="7234f379-6725-4b61-a2c5-5e42c59f44a4"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Velocidad promedio de subida]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="76" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="100" height="60" uuid="6777aa95-0c1a-4bf7-af69-e1179a17c882"/>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="100" y="0" width="128" height="60" uuid="215f11fc-88b8-4543-968c-4695a4512fe9"/>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</rectangle>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="25" y="5" width="50" height="50" uuid="ee550b6a-8455-4766-9ad5-e33f5cccddf6"/>
+				<imageExpression><![CDATA[$F{Foto pais}]]></imageExpression>
+			</image>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="139" y="5" width="50" height="50" uuid="85eba38c-5d73-4cd1-8b46-644f1608c9f8"/>
+				<imageExpression><![CDATA[$F{Foto In}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="228" y="0" width="111" height="60" uuid="12021396-fa27-46b5-8a6e-ffa48cc460e4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0b7de07e-9676-4730-856d-c2fc71cb4691"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="339" y="0" width="170" height="60" uuid="2814fa67-f880-41a5-9ea7-3b5469eedb1c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4e11f65c-a93b-49fb-a3ac-05274184d206"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Subida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="509" y="0" width="170" height="60" uuid="1ca25a0f-6910-4af9-8f39-0874badbd405">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c9566f32-7cd9-4162-9f97-e5ba5b29022d"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Descarga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="679" y="0" width="122" height="60" uuid="d3264c0c-74e4-426e-8239-cbdb789bae2f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b3583346-2856-4e96-af0c-be76c0b47f9d"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Horas}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

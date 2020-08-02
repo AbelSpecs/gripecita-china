@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte 13" pageWidth="660" pageHeight="595" orientation="Landscape" columnWidth="620" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="509a822c-dd38-4df6-a8b4-b9544fb9df72">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="JDBC Adapter"/>
+	<parameter name="Pais" class="java.lang.String"/>
+	<parameter name="FechaInicio" class="java.sql.Timestamp"/>
+	<parameter name="FechaFinal" class="java.sql.Timestamp"/>
+	<queryString language="plsql">
+		<![CDATA[{call cierre_fronterizo($P{Pais}, $P{FechaInicio}, $P{FechaFinal}, $P{ORACLE_REF_CURSOR})}]]>
+	</queryString>
+	<field name="Foto" class="java.awt.Image">
+		<property name="com.jaspersoft.studio.field.label" value="Foto"/>
+	</field>
+	<field name="Fecha Inicio" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Fecha Inicio"/>
+	</field>
+	<field name="Fecha Fin" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Fecha Fin"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="76" splitType="Stretch">
+			<staticText>
+				<reportElement x="20" y="16" width="740" height="46" uuid="b41d524b-d773-43a9-b27e-e1494c221f1e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="35" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cierre de fronteras de países]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="64" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="34" width="210" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="2b58aaac-f66c-43f8-ac33-ea9da22680cf"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[País]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="210" y="34" width="210" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="b46c5a38-12dd-4518-b291-963ea96d7685">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de inicio ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="420" y="34" width="200" height="30" forecolor="#FFFFFF" backcolor="#1695A1" uuid="0e76b736-f282-4d26-84aa-3df735113021"/>
+				<box>
+					<pen lineWidth="1.25" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de fin]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="84" splitType="Stretch">
+			<textField>
+				<reportElement x="210" y="5" width="210" height="70" uuid="959993da-2f9b-41cf-b984-0685e2b0b66f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cb3a714e-291b-45ae-aef5-8d3256c85f11"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Fecha Inicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="5" width="200" height="70" uuid="a0036a59-282c-47b0-a4ae-2aa52a84dd9a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="faeaa066-1ca5-44dc-b8d3-89e2c9657c64"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Fecha Fin}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="5" width="210" height="70" uuid="46f4df31-f851-4703-a890-775d9ade5642"/>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</rectangle>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="70" y="15" width="70" height="50" uuid="713eba0a-d12d-4bab-a383-9236ab9914bc"/>
+				<imageExpression><![CDATA[$F{Foto}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>
